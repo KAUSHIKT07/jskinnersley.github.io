@@ -1,0 +1,78 @@
+<html><head> </head>
+<body class="adventure" >
+  <audio id="advAudio"></audio>
+  <div id="storyTable">
+    <table width="600px">
+      <tbody>
+        <tr>
+          <td colspan=2 align="center">
+            <table width="100%">
+              <tr colspan=2>
+                <td>
+                  <div id="title"></div>
+                </td>
+                <td rowspan=2>
+                  <div id="icon"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div id="menu"></div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td colspan=2>
+            <div id="toolbar"> </div>
+            <div id="map">
+              <div id="me" class="person">ME</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan=2>
+            <div class="output" id="dialog"></div>
+          </td>
+        </tr>
+        <tr>
+          <td width="50%">
+            <div id="output"></div>
+          </td>
+          <td width="50%">
+            <div id="doorsDiv"></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div id="popup">
+      <table><tr>
+        <td colspan=2>
+          <div id="closePopup"><a href='' onclick='hidePopup(); return false;'>X</a></div>
+        </td></tr>
+        <tr><td>
+          <div id="popupMessage">POPUP</div>
+        </td>
+      </tr><tr>
+        <td>
+          <div id="popupInputDiv">
+            <input id="popupInput">
+          </div>
+        </td></tr></table>
+      </div>
+    </div>
+
+    <script src="spec.js"></script>
+
+    <script src="code/utils.js"></script>
+    <script src="code/object.js"></script>
+    <script src="code/room.js"></script>
+    <script src="code/door.js"></script>
+    <script src="code/character.js"></script>
+    <script src="code/game.js"></script>
+    <link rel="stylesheet" type="text/css" href="adv.css">
+    <input id="loader" style="display:none" onchange="loadExternal()">
+
+  </body></html>

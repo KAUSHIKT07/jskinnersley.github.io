@@ -1,0 +1,159 @@
+
+.adventure, .output {
+  background-color: black;
+  border-width: 0px;
+  font-family: Tahoma;
+  font-weight: normal;
+  font-style: normal;
+  font-size:16px;
+}
+
+.advLink {
+  color: #484;
+  text-decoration: none;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+
+#content {
+  margin: 50px;
+}
+
+#menu {
+  color : white;
+}
+
+#closePopup {
+  text-align : right;
+}
+
+#popup {
+  position: absolute;
+  z-index: 100;
+  visibility: hidden;
+  background-color: #222;
+  color: #eee;
+  margin:1px;
+  padding:2px;
+  border-width: 1px;
+  border-color: #888;
+  border-style: solid;
+  font-size:14px;
+}
+.italic {
+  font-style: italic;
+}
+
+#title {
+  font-size:24px;
+  color: red;
+}
+
+#popupMessage {
+  margin: 10px;
+  color: #eee;
+}
+
+#popupInputDiv {
+  visibility: hidden;
+  height: 0px;
+  margin: 10px;
+}
+
+#toolbar {
+  visibility: hidden;
+  padding: 0px;
+  border-width: 0px;
+  border-style: dashed;
+}
+
+#dialog, #output, #toolbar, #doorsDiv {
+  color: #aaa;
+  padding: 15px;
+  border-color: #444;
+  border-style: solid;
+  border-width: 0.5px;
+  line-height: 130%;
+}
+#dialog {
+  overflow-y: scroll;
+  height: 450px;
+}
+
+#output, #doorsDiv {
+  padding: 10px;
+  color: #bbb;
+  overflow-y: scroll;
+  height: 150px;
+  line-height: 150%;
+  font-size:14px;
+}
+
+.person {
+  position: absolute;
+  z-index: 100;
+  color:#008;
+  text-align:center;
+  background:#fff;
+}
+
+.mapElement {
+  color: black;
+  position: absolute;
+  font-weight: normal;
+  font-size:12px;
+  text-align:center;
+}
+
+#map {
+  background-color: #420;
+  position: absolute;
+  display: none;
+}
+
+.fadeIn8 {
+  animation-name: fadeIn;
+  animation-duration: 8s;
+}
+
+.fadeIn2 {
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+
+.fadeIn4 {
+  animation-name: fadeIn;
+  animation-duration: 4s;
+}
+
+.fadeIn6 {
+  animation-name: fadeIn;
+  animation-duration: 3s;
+}
+
+.fadeIn12 {
+  animation-name: fadeIn;
+  animation-duration: 12s;
+}
+
+.blackText {
+  color: #eee;
+}
+
+.redText {
+  color: red;
+}
+
+.yellowText {
+  color: #aa0;
+  font-style: italic;
+}
+
+.blueText {
+  color: blue;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

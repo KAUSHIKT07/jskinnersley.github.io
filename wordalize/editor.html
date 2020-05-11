@@ -1,0 +1,134 @@
+<html><head> </head>
+<body class="edApp">
+  <table>
+    <tr>
+      <td colspan=2>
+        <div id="edTitle">EDITOR</div>
+        <div>
+          <input id="file-input" type="file" name="name" style="display: none;"  onchange="loadSpecFile()"/>
+          <div  class='edButton' onclick="document.getElementById('file-input').click();">Load from Spec file</div>
+          <a class='edLink' href='' id="saveSpec" download="test.json" >
+            <div class='edButton'>Save</div></a>
+          <div  class='edButton' onclick="testSpec();">Test Spec file</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="editor">
+            <div id="editorSingleGroups" class="edTopGroup">
+            </div>
+            <div id="editorMultiGroups" class="edTopGroup">
+            </div>
+          </div>
+          <div id="editorPanel">
+            <table height="100%" width="100%">
+              <tr width="100%" valign="top">
+                <td>
+                  <div id="editorCloseButton" class="edApp">
+                  <a class="edLink" href="" onclick="hideEdPanel(); return false;">&nbsp;X&nbsp;</a>
+                </div>
+                </td>
+              </tr>
+              <tr height="100%" width="100%" valign="top">
+                <td>
+                  <div id="editorPanelContent"></div>
+                </td>
+              </tr>
+              <tr halign="right">
+                <td>
+                  <button class="edButton" onclick="saveEdPanel()">Save</button>
+                  <button class="edButton" onclick="hideEdPanel()">Cancel</button>
+                  <button class="edButton" onclick="deleteEdObject()">Delete</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        <td valign="top">
+          <div class="adventure" id="storyTest">
+            <audio id="advAudio"></audio>
+            <div id="storyTable">
+              <table width="600px">
+                <tbody>
+                  <tr>
+                    <td colspan=2 align="center">
+                      <table width="100%">
+                        <tr colspan=2>
+                          <td>
+                            <div id="title"></div>
+                          </td>
+                          <td rowspan=2>
+                            <div id="icon"></div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div id="menu"></div>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan=2>
+                      <div id="toolbar">
+                      </div>
+                      <div id="map">
+                        <div id="me" class="person">ME</div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan=2>
+                      <div class="output" id="dialog"></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="50%">
+                      <div id="output"></div>
+                    </td>
+                    <td width="50%">
+                      <div id="doorsDiv"></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div id="popup">
+                <table><tr>
+                  <td colspan=2>
+                    <div id="closePopup"><a href='' onclick='hidePopup(); return false;'>X</a></div>
+                  </td></tr>
+                  <tr><td>
+                    <div id="popupMessage">POPUP</div>
+                  </td>
+                </tr><tr>
+                  <td>
+                    <div id="popupInputDiv">
+                      <input id="popupInput">
+                    </div>
+                  </td></tr></table>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <script src="spec.js"></script>
+
+      <script src="code/utils.js"></script>
+      <script src="code/object.js"></script>
+      <script src="code/room.js"></script>
+      <script src="code/door.js"></script>
+      <script src="code/character.js"></script>
+      <script src="code/game.js"></script>
+      <link rel="stylesheet" type="text/css" href="adv.css">
+
+    </body>
+
+    <script src="spec.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="code/editor.css">
+    <script src="code/spec-edit-def.js"></script>
+    <script src="code/editor.js"></script>
+    </html>
