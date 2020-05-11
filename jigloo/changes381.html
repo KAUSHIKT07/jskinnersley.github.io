@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>What's new in Jigloo 3.8.1</title>
+
+  
+
+</head>
+<body>
+<small><br style="font-family: helvetica,arial,sans-serif; font-weight: bold;">
+<font face="Helvetica, Arial, sans-serif"><big><big style="text-decoration: underline;"><span style="font-family: helvetica,arial,sans-serif; font-weight: bold;">What's
+new in
+Jigloo 3.8.1<br>
+<small><br>
+</small></span></big></big></font><font face="Helvetica, Arial, sans-serif"><small><big><big style="text-decoration: underline;"><span style="font-family: helvetica,arial,sans-serif; font-weight: bold;"></span></big></big></small>Mainly a bug-fix release, but with a few new features - setting tab order, and invoking non-setter methods</font></small><br style="font-family: helvetica,arial,sans-serif; font-weight: bold;">
+
+
+
+<small><font face="Helvetica, Arial, sans-serif"><big><big style="text-decoration: underline;"><span style="font-family: helvetica,arial,sans-serif; font-weight: bold;"></span></big></big></font></small><small>
+<br style="font-family: helvetica,arial,sans-serif; font-weight: bold;">
+</small>
+<small> </small><small> </small><small> </small><small> </small><small> </small>
+  
+<table style="font-family: helvetica,arial,sans-serif; font-weight: bold;" border="0" cellpadding="2" cellspacing="2" height="1000" width="1156">
+
+
+
+
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><small> </small>
+      <hr size="2" width="100%"><small> </small>
+      <small> </small><small> </small><small> </small><small> </small><small> </small><small> </small>
+        <small> </small>
+      
+      <table border="0" cellpadding="2" cellspacing="2" width="100%">
+
+        <tbody>
+          <tr>
+            <td valign="top" width="200"><small><span style="font-weight: bold;">Setting tab order in SWT Composites</span><br>
+            </small></td>
+            <td valign="top"><small>It
+is now possible to set the tabList property for SWT Composites by
+selecting the children of the Composite in the desired order.<br>
+First, click on the "tabList" property of the selected Composite in the
+"GUI Properties" view and click on the editor button to display a popup
+dialog with instructions and "Apply", "Clear" and "Cancel" buttons.
+Then click on the children of the composite in the order you wish them
+to be in the tab list. The little green boxes will display numbers
+indicating the order. If you make a mistake, hit the "Clear" button.
+When the order is correct, hit the "Apply" button and the changes will
+be applied to the code.<br>
+<br>
+            <img alt="" src="changes381/tabList.PNG" style="border: 1px solid ;" border="1" height="429" width="451"><br>
+            <br>
+            </small></td>
+            </tr>
+          </tbody>
+      </table>
+<br>
+<hr>
+<br>
+<table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td valign="top" width="200"><small><span style="font-weight: bold;">Ability to invoke non-setter methods</span><br>
+            </small></td>
+            <td valign="top"><small>In
+earlier versions Jigloo would only invoke property-setter/getter
+methods as it parsed the code. Now it will invoke non-setter methods if
+it is allowed to by the "Non-setter methods" preference page. By
+default it will not invoke non-setter methods until the class name is
+added to the "Allowed" superclasses list in the preferences page (as
+shown below).<br>
+<br>
+            </small><small><img alt="" src="changes381/non-setters.PNG" style="border: 1px solid ;" height="550" width="662"></small><small><br>
+            <br>
+            <br>
+As an example, the quick.dbtable.DBTable class only populates it's
+table (from a database query) when it's refresh() method is called, so
+in order to see the populated table in Jigloo (shown below) you must
+add the DBTable class name to the "Allowed" list.<br>
+            <br>
+            <img alt="" src="changes381/quickTable.PNG" border="1" height="385" width="361"><br>
+<br>
+            </small></td>
+            </tr>
+          </tbody></table>
+      <small> <br>
+      </small>
+      <hr size="2" width="100%"><small><br>
+      </small>
+      <small> </small><small> </small><small> </small><small> </small><small> </small><small> </small>
+        <small> </small>
+      <table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td valign="top" width="200"><small><span style="font-weight: bold;">Bug fixed: import of beans from archive, and support for Borland beans</span><br>
+            </small></td>
+            <td valign="top"><small>There
+was a problem with the "import beans from archive" tool in Jigloo - it
+would not allow classes inside an archive to be imported if they
+depended on classes in a different archive. That has now been resolved,
+and some other bug fixes now allow the Borland beans to be used in
+Jigloo. The image below shows one of the DataExpress Borland samples
+being edited in Jigloo, and a new "dbSwing" custom palette tab filled with Borland dbSwing beans.<br>
+            <br>
+            <img alt="" src="changes381/borland.PNG" border="1" height="433" width="663">&nbsp; <br>
+            </small><small> </small></td>
+            </tr>
+          </tbody></table>
+      <small> <br>
+      </small>
+      <hr size="2" width="100%"><small><br>
+      </small>
+      <small> </small><small> </small><small> </small><small> </small><small> </small><small> </small>
+        <small> </small>
+      <table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td style="font-weight: bold;" valign="top" width="200"><small>Parsing enhancements<br>
+</small></td>
+            <td valign="top"><small>Arrays of objects are
+now handled better by Jigloo, as well as the handling of method calls
+as arguments to methods. Jigloo is now able to display more complicated
+GUIs correctly, as shown by this ButtonOrderExample from the JGoodies
+FormLayout/builder examples.<br>
+            </small><small><img alt="" src="changes381/parsing.PNG" border="1" height="475" width="416"></small><br>
+</td>
+            </tr>
+          </tbody></table>
+      <small> <br>
+</small><hr size="2" width="100%"><small><br>
+      </small>
+      <small> </small><small> </small><small> </small><small> </small><small> </small><small> </small>
+        <small> </small>
+      <table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td valign="top" width="200"><small><span style="font-weight: bold;">Other bug fixes:</span> </small></td>
+            <td valign="top">
+            <ul>
+              <li><small>Title and icon for JFrame/JDialog and Shell displayed in Linux<br>
+                </small></li>
+              <li><small>JList added to standard Swing component palette</small></li>
+              <li><small>Custom event handlers created correctly</small></li>
+              <li><small>Problem when adding bean to a class in the default package fixed.<br>
+                </small></li>
+              <li><small>Speed improvement when adding a new class to a big project</small></li>
+              <li><small>Bug in code placement fixed<br>
+                </small></li>
+            </ul>
+            <small>
+<br>
+            </small></td>
+            </tr>
+          </tbody></table>
+      <small><small><br>
+      </small>
+      </small>
+<hr style="width: 100%; height: 2px;"><small><small><small><small><small><small><br>
+      </small>
+      <small> </small><small> </small><small> </small><small> </small><small> </small><small> </small>
+        <small> </small>
+      </small></small></small></small></small><table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td valign="top" width="200"><small><span style="font-weight: bold;">Eclipse
+3.2M4 supported</span><br>
+            </small></td>
+            <td valign="top"><small>Works
+with all current milestone versions of Eclipse 3.2<br>
+            </small></td>
+            </tr>
+          </tbody></table>
+<small><small><small><small><small>      <small> </small></small></small></small></small></small></td>
+      </tr>
+    </tbody>
+</table>
+
+
+
+
+
+<small><br style="font-family: helvetica,arial,sans-serif; font-weight: bold;">
+</small>
+<br>
+
+
+
+
+
+</body></html>

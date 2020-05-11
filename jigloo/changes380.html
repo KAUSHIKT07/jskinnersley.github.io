@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>What's new in Jigloo 3.8</title></head>
+<body>
+<small><br style="font-family: helvetica,arial,sans-serif; font-weight: bold;">
+<font face="Helvetica, Arial, sans-serif"><big><big style="text-decoration: underline;"><span style="font-family: helvetica,arial,sans-serif; font-weight: bold;">What's
+new in
+Jigloo 3.8.0</span></big></big></font><br style="font-family: helvetica,arial,sans-serif; font-weight: bold;">
+<br style="font-family: helvetica,arial,sans-serif; font-weight: bold;">
+</small>
+<small> </small><small> </small><small> </small><small> </small><small> </small>
+  
+<table style="font-family: helvetica,arial,sans-serif; font-weight: bold;" border="0" cellpadding="2" cellspacing="2" height="5367" width="951">
+
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><small> </small>
+      <hr size="2" width="100%"><small> </small>
+      <small> </small><small> </small><small> </small><small> </small><small> </small><small> </small>
+        <small> </small>
+      <table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td valign="top" width="200"><small><span style="font-weight: bold;">Customizable
+component palettes</span><br>
+            </small></td>
+            <td valign="top"><small>The
+component/layout palettes shown at the top of the GUI editor can
+be edited using a new Jigloo preference page.&nbsp; You can
+add/delete/re-arrange component palettes, as well as standard and
+custom classes. Palettes and classes can be moved by selecting one or
+more palettes or classes and dragging them to the desired position.<br>
+            </small><small><img alt="" src="changes380/paletteEditor.PNG" style="border: 1px solid ;" height="403" width="452"></small><small><br>
+            <br>
+Also, multiple classes may be imported in one step from archive files
+(using the "Add beans from Archive" button in the above preference
+page).<br>
+            <img alt="" src="changes380/addArchive.PNG" style="border: 1px solid ; width: 540px; height: 357px;"><br>
+            <br>
+            </small></td>
+            </tr>
+          </tbody></table>
+      <small> <br>
+      </small>
+      <hr size="2" width="100%"><small><br>
+      </small>
+      <small> </small><small> </small><small> </small><small> </small><small> </small><small> </small>
+        <small> </small>
+      <table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td valign="top" width="200"><small><span style="font-weight: bold;">Grid-adjust bars improved</span><br>
+            </small></td>
+            <td valign="top"><small>The bars at the
+edge of containers with GridBag, Table or Form layout managers now only
+appear when&nbsp; the container
+is selected, and not when the mouse enters the container, to minimise visual
+distractions when designing forms.<br>
+            <br>
+Also, new "Insert/delete spacer rows/columns" options have been added
+to the right-click menu.<br>
+            <img alt="" src="changes380/gridEdgeOptions.PNG" style="border: 1px solid ; width: 249px; height: 137px;"> <br>
+            </small><small> </small></td>
+            </tr>
+          </tbody></table>
+      <small> <br>
+      </small>
+      <hr size="2" width="100%"><small><br>
+      </small>
+      <small> </small><small> </small><small> </small><small> </small><small> </small><small> </small>
+        <small> </small>
+      <table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td style="font-weight: bold;" valign="top" width="200"><small>Customizable
+property categories</small></td>
+            <td valign="top"><small>Properties are now
+displayed under "Categories". The deafult categories are "Basic",
+"Expert" and "Hidden", but categories can be added/deleted or renamed.
+Certain properties are by default assigned to the "Basic" category, but
+you can define a category for a property by right-clicking on the property and choosing one of the
+"Set property category..." options.<br>
+            </small><small><img alt="" src="changes380/propCategory2.PNG" style="border: 1px solid ; width: 424px; height: 200px;"><br>
+            </small><small><br>
+You can also right-click on categories to change their name, delete or
+add new categories.<br>
+            <img alt="" src="changes380/propCategory.PNG" style="border: 1px solid ; width: 357px; height: 224px;"><br>
+            <br>
+            <br>
+            <br>
+            </small></td>
+            </tr>
+          </tbody></table>
+      <small> <br>
+      </small>
+      <hr size="2" width="100%"><small><br>
+      </small>
+      <small> </small><small> </small><small> </small><small> </small><small> </small><small> </small>
+        <small> </small>
+      <table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td valign="top" width="200"><small><span style="font-weight: bold;">Alignment
+button added (with alignment assistant dialog)</span><br>
+            </small></td>
+            <td valign="top"><small>A
+small button with an arrow has been added to the top-right of the frame
+displayed around each selected element of a GUI form, allowing quick
+access to either a drop-down menu of alignment constraint options (for
+BorderLayout and TableLayout) or for popping up an "alignment
+assistant" dialog.<br>
+<img alt="" src="changes380/menuButton1.PNG" style="border: 1px solid ; width: 274px; height: 49px;"><br>
+            <br>
+Here is the result of clicking on the arrow for a component in a TableLayout:<br>
+            <img alt="" src="changes380/menuButton2.PNG" style="border: 1px solid ; width: 218px; height: 153px;"><br>
+            <br>
+Here is the result for a component in a GridBagLayout - the assistant
+will stay visible and on-top while different components (even multiple
+components) are selected:<br>
+            <img alt="" src="changes380/alignmentAssistant.PNG" style="border: 1px solid ; width: 313px; height: 240px;"><br>
+            <br>
+...and here is the "anchor assistant" for a Swing AnchorLayout or a SWT FormLayout:<br>
+            <img alt="" src="changes380/anchorAssistant.PNG" style="border: 1px solid ; width: 287px; height: 190px;"><br>
+            <br>
+            </small></td>
+            </tr>
+          </tbody></table>
+      <small> <br>
+      </small>
+      <hr size="2" width="100%"><small><br>
+      </small>
+      <small> </small><small> </small><small> </small><small> </small><small> </small><small> </small>
+        <small> </small>
+      <table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td valign="top" width="200"><small><span style="font-weight: bold;">Frame
+decorations shown in GUI editor</span> </small></td>
+            <td valign="top"><small>A
+window frame is now shown in the GUI editor when designing Swing
+JFrames and JDialogs, and SWT Composites and Dialogs, allowing the
+frame title and icon to be displayed when they have been defined.<br>
+<img alt="" src="changes380/frame.PNG" style="border: 1px solid ; width: 287px; height: 147px;"><br>
+            </small></td>
+            </tr>
+          </tbody></table>
+      <small> <br>
+      </small>
+      <hr style="width: 100%; height: 2px;"><small><br>
+</small><table border="0" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr>
+<td style="font-weight: bold;" valign="top" width="200"><small>Snap-Grid changes</small></td>
+<td valign="top"><small>The
+snap-grid is automatically shown if an element in an Absolute, Anchor
+or SWT FormLayout is selected or dragged. Otherwise it is hidden.<br>
+<img alt="" src="changes380/grid1.PNG" style="border: 1px solid ; width: 244px; height: 164px;"><br>
+<br>
+This behaviour can be turned off (the snap-grid can still be toggled
+manually using the button in the "Outline" view) in the Jigloo
+preferences page, and the size of the grid can also be set.<br>
+<img alt="" src="changes380/gridPrefs.PNG" style="border: 1px solid ; width: 475px; height: 175px;"><br>
+</small></td>
+</tr>
+</tbody></table>
+<hr size="2" width="100%"><small><br>
+<br>
+      </small><table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td style="font-weight: bold;" valign="top" width="200"><small>Button
+bar for alignments, etc and preferences
+popup</small></td>
+            <td valign="top"><small>A
+vertical toolbar has been added to the left side of the GUI form
+editor, allowing quick access to the Jigloo preference pages and the
+Jigloo documentation, as well as to actions for aligning components
+with respect to each other and to the snap-grid (when it is shown).
+Most of the alignment buttons will stay disabled till more than one
+form element is selected.<br>
+            <img alt="" src="changes380/leftToolbar.PNG" style="border: 1px solid ; width: 125px; height: 365px;"><br>
+            </small></td>
+            </tr>
+          </tbody></table>
+<small>      <small> <br>
+      </small>
+      </small>
+<hr style="width: 100%; height: 2px;"><small><small><br>
+</small></small><table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td style="font-weight: bold;" valign="top" width="200"><small>Custom
+property editor support improved</small></td>
+            <td valign="top"><small>Custom property editors are now displayed inside a SWT dialog shell, with "OK" and "Cancel" buttons.<br>
+            <br>
+            </small></td>
+            </tr>
+          </tbody></table>
+<hr style="width: 100%; height: 2px;"><small><small><small><small><br>
+</small></small></small></small><table border="0" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr>
+<td style="font-weight: bold;" valign="top" width="200"><small><span style="font-weight: bold;">Preferences
+pages as tree nodes. </span></small></td>
+<td valign="top"><small>Instead
+of being all in a single tabbed-panel, the Jigloo preferences pages are
+now a page each, grouped under the "Jigloo GUI Builder" tree node in
+the preferences dialog.<br>
+            <img alt="" src="changes380/jiglooPrefs.PNG" border="1" height="306" width="184"><br>
+ </small></td>
+</tr>
+</tbody></table>
+<small><small><small><small><small>      <small> <br>
+      </small>
+      </small></small></small></small></small><hr size="2" width="100%"><small><small><small><small><small><small><br>
+      </small>
+      <small> </small><small> </small><small> </small><small> </small><small> </small><small> </small>
+        <small> </small>
+      </small></small></small></small></small><table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td valign="top" width="200"><small><span style="font-weight: bold;">Look and Feel preference page added.</span><br>
+            </small></td>
+            <td valign="top"><small>A
+"Look and Feel" page has also been added, allowing the user to add
+and delete Look and Feels without having to place the jar files in the
+JRE's folders. Any of the Look &amp; Feels can be set as the "default"
+L&amp;F by checking it's checkbox in the preference page - if a default
+is set then any Swing container will be shown in the GUI editor using
+this L&amp;F;.<br>
+            <img alt="" src="changes380/lnfPref.PNG" height="374" width="442"><br>
+            </small></td>
+            </tr>
+          </tbody></table>
+<small><small><small><small><small>      <small> <br>
+      </small>
+      </small></small></small></small></small><hr size="2" width="100%"><small><small><small><small><small><small><br>
+      </small>
+      <small> </small><small> </small><small> </small><small> </small><small> </small><small> </small>
+        <small> </small>
+      </small></small></small></small></small><table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td style="font-weight: bold;" valign="top" width="200"><small>Hold
+SHIFT down to place multiple components</small></td>
+            <td valign="top"><small>To
+add multiple components of the same type, hold the SHIFT key down when
+adding a component. To cancel the crosshair cursor (if you change your
+mind after holding SHIFT down and before adding another component) you
+can use the ESC key.<br>
+            </small></td>
+            </tr>
+          </tbody></table>
+<small><small><small><small><small>      <small> <br>
+      </small>
+      </small></small></small></small></small><hr size="2" width="100%"><small><small><small><small><small><small><br>
+      </small>
+      </small></small></small></small></small><table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td style="font-weight: bold;" valign="top" width="200"><small>Option
+to time-out on set property method calls</small></td>
+            <td valign="top"><small>Occasionally,
+a set-property method called by Jigloo when in design mode might freeze
+Eclipse. If this happens, check the "Use timeouts..." option in the
+"Parsing" tab of the Jigloo preferences (after re-starting Eclipse) and
+all set-property methods will be timed out after less than a second -
+and the problematic method reported to the user. This option should
+only be checked if Eclipse freezes since it leads to a slight
+performance cost.<br>
+<img alt="" src="changes380/timeoutPref.PNG" style="border: 1px solid ;" height="169" width="372"><br>
+            </small></td>
+            </tr>
+          </tbody></table>
+<small><small><small><small><small>      <br>
+      </small></small></small></small></small><hr size="2" width="100%"><small><small><small><small><small><small><br>
+      </small>
+      <small> </small><small> </small><small> </small><small> </small><small> </small><small> </small>
+        <small> </small>
+      </small></small></small></small></small><table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td style="font-weight: bold;" valign="top" width="200"><small>Improved error handling</small></td>
+            <td valign="top"><small>If
+Jigloo encounters an error while parsing your code, the "View Log"
+button will flash between white and red, indicating that you should
+click on it to see the error report - this will help to diagnose any
+problems Jigloo might have in displaying your form correctly.<br>
+<img alt="" src="changes380/errors.PNG" style="border: 1px solid ; width: 381px; height: 125px;"><br>
+            </small></td>
+            </tr>
+          </tbody></table>
+<small><small><small><small><small>      <small> <br>
+      </small>
+      </small></small></small></small></small><hr size="2" width="100%"><small><small><small><small><small><small><br>
+      </small>
+      <small> </small><small> </small><small> </small><small> </small><small> </small><small> </small>
+        <small> </small>
+      </small></small></small></small></small><table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td valign="top" width="200"><small><span style="font-weight: bold;">Eclipse
+3.2 supported</span><br>
+            </small></td>
+            <td valign="top"><small>Works
+with Eclipse 3.2M1, M2 and M3<br>
+            </small></td>
+            </tr>
+          </tbody></table>
+<small><small><small><small><small>      <small> </small></small></small></small></small></small></td>
+      </tr>
+    </tbody>
+</table>
+
+
+<small><br style="font-family: helvetica,arial,sans-serif; font-weight: bold;">
+</small>
+<br>
+
+
+</body></html>

@@ -1,0 +1,523 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Jigloo GUI Builder Guide</title>
+  
+
+  
+  
+  <link rel="STYLESHEET" href="book.css" type="text/css">
+
+  
+  <meta name="author" content="Cloudgarden.com"></head>
+<body bgcolor="white">
+<small><font face="Tahoma"><big><b>Tips And FAQs</b></big><br>
+<big><b><small><br>
+</small></b></big></font><font face="Tahoma"><b>Installation</b><br>
+
+</font></small>
+
+
+<ul><small>
+  </small><li><small><font face="Tahoma"><big><a href="#help3"><small>Why does Eclipse not recognize that Jigloo (or the latest version of Jigloo) is installed?</small></a></big></font></small></li><small>
+  </small></ul>
+
+
+
+<small><font face="Tahoma"><big><b><small>
+Opening files with Jigloo</small></b><br>
+</big></font></small>
+<ul><small>
+
+  </small><li><small><font face="Tahoma"><big><a href="#help1"><small>I have a Java class written with a different IDE/GUI builder - how can I open it with Jigloo?</small></a></big></font></small></li><li><small><font face="Tahoma"><big><a href="#help2"><small>I
+created a java class with Jigloo, but now when I open it it opens just
+like a regular java class in the java editor - how can I open it with
+Jigloo?</small></a></big></font></small></li><small>
+  </small></ul>
+
+
+<small><font face="Tahoma"><b>Performance</b><br>
+
+</font></small>
+<ul><small>
+
+  </small><li><small><font face="Tahoma"><big><a href="#help4"><small>Why does eclipse go really slowly with Jigloo open?</small></a></big></font></small></li><small>
+  </small></ul>
+
+
+<small><font face="Tahoma"><big><small><b>Code Parsing</b><br>
+
+</small></big></font></small>
+<ul><small>
+  </small><li><small><font face="Tahoma"><a href="#help16_0">Which methods will Jigloo parse in my code?</a></font></small></li><li><small><font face="Tahoma"><a href="#help16_1">Which classes will Jigloo instantiate as it parses my code?
+    </a></font></small></li><li><small><font face="Tahoma"><a href="#help16">Hiding code from Jigloo.</a></font></small></li><small>
+  </small></ul>
+<small><font face="Tahoma"><big><b><small>Coding Tips<br>
+
+</small></b></big></font></small>
+<ul><small>
+
+  </small><li><small><font face="Tahoma"><a href="#help7">Using Jigloo's visual inheritance.</a></font></small></li><li><small><font face="Tahoma"><a href="#help8">Reformatting the source code.</a><br>
+    </font></small></li><small>
+  </small></ul>
+
+
+<small><font face="Tahoma"><big><b><small>Productivity Tips</small></b><small><br>
+
+</small></big></font></small>
+<ul><small>
+
+  </small><li><small><font face="Tahoma"><a href="#help9">Stopping &amp; starting code parsing.</a></font></small></li><li><small><font face="Tahoma"><a href="#help10">Multi-selecting elements (by CTRL and selection marquee).</a></font></small></li><li><small><font face="Tahoma"><a href="#help11">Select a component in the Outline by holding Alt down while clicking in the source editor.</a></font></small></li><small>
+  </small><li><small><font face="Tahoma"><a href="#help12">Moving elements</a></font></small></li><li><small><font face="Tahoma"><a href="#help13">Copying &amp; pasting elements</a></font></small></li><li><small><font face="Tahoma"><a href="#help14">Changing preferred sizes in GridBag and Form Layouts</a></font></small></li><li><small><font face="Tahoma"><a href="#help15">Changing an element's text property quickly.</a></font></small></li><small>
+  </small></ul>
+
+<small><font face="Tahoma"><b>Custom components</b><br>
+
+</font></small>
+<ul><small>
+  </small><li><small><font face="Tahoma"><big><a href="#help5"><small>How
+can I give my custom component an icon that will show up in Jigloo's
+"Custom" palette, instead of the default java-bean icon?</small></a></big></font></small></li><li><small><font face="Tahoma"><big><a href="#help6"><small>Why doesn't my BeanInfo icon show up in Jigloo?</small></a></big></font></small></li><small>
+  </small></ul>
+
+
+<small><font face="Tahoma"><big><b><small>Miscellaneous<br>
+
+</small></b></big></font></small>
+<ul><small>
+  </small><li><small><font face="Tahoma"><a href="#help17">Maximize the main editor by double-clicking on it's name tag.</a></font></small></li><small>
+
+  </small><li><small><font face="Tahoma"><a href="#help18">How to move a component that is behind another
+component.</a></font></small></li><small>
+  </small><li><small><font face="Tahoma"><a href="#help19">Working with SWT classes not initially created by Jigloo</a></font></small></li><small>
+  </small></ul>
+
+<small><font face="Tahoma"><big><b><small>Problems</small></b><small><br>
+
+</small></big></font></small>
+<ul><small>
+
+  </small><li><small><font face="Tahoma"><a href="#help20_0"><big><small>Why can't I change the location/size of my GUI elements?</small></big></a><br>
+    </font>
+    </small></li><li><small><font face="Tahoma"><a href="#help20">Errors with properties or fields not being recognized</a></font></small></li><small>
+  </small><li><small><font face="Tahoma"><a href="#help21">Problems on Linux</a></font></small></li><small>
+  </small></ul>
+
+<small><font face="Tahoma"><u><big><big><br>
+</big></big></u><big><b><small><br>
+
+</small></b><u><b>Installation<br>
+<br>
+</b></u></big><big><b><small>
+</small><small><a name="help3"></a>Why does Eclipse not recognize that Jigloo (or the latest version of Jigloo) is installed?</small></b><br>
+</big></font><font face="Tahoma"><br>
+
+Eclipse 3 has problems with it's plugin cache and sometimes does not
+recognize that a plugin has been installed or upgraded. You can force
+Eclipse to re-load all the plugin definitions by either:<br>
+
+</font></small>
+
+
+<ol><small>
+  </small><li><small><font face="Tahoma">deleting or moving the eclipse/configuration folder or</font></small></li><li><small><font face="Tahoma">starting eclipse by opening a command-line console in the eclipse folder and executing "eclipse -clean -vmargs -Xmx300m"<br>
+
+    </font></small></li><small>
+  </small></ol>
+
+
+
+<small><font face="Tahoma"><big><b><small><br>
+
+</small></b></big><u><big><big><b><small>Opening files with Jigloo</small></b></big></big></u><br>
+<br>
+<big><b><small><a name="help1"></a>I have a Java class written with a different IDE/GUI builder - how can I open it with Jigloo?</small><br>
+</b></big></font><font face="Tahoma"><br>
+
+Locate your class in Eclipse's Package Explorer view, then right-click
+on it and choose "Open with-&gt;Form Editor". Jigloo should open the
+class.<big><br>
+<b><small><br>
+
+<br>
+
+<br>
+
+<a name="help2"></a>I
+created a java class with Jigloo, but now when I open it it opens just
+like a regular java class in the java editor - how can I open it with
+Jigloo?<br>
+
+</small></b></big></font><font face="Tahoma"><br>
+
+Sometimes Eclipse does not remember which editor it used previously to
+open a file, so you need to make sure that your class is not opened in
+any editor in eclipse, then right-click on the file and choose "Open
+with-&gt;Form Editor".<big><br>
+<b><small><br>
+
+</small></b></big><big><u><b>Performance</b></u></big><br>
+<big><b><small><br>
+
+<a name="help4"></a>Why does eclipse go really slowly with Jigloo open?<br>
+
+</small></b></big></font><font face="Tahoma"><br>
+
+By
+default, Eclipse does not start with a large allocation of memory, and
+using Jigloo inside Eclipse to open a large file can require 20-100MB
+of memory, so it is a good idea to allow Eclipse to use about
+200-400MB. One way to do this is to start Eclipse using a
+script or batch file in the eclipse folder which executes the command:<br>
+
+<br>
+
+java -Xmx300m -cp startup.jar org.eclipse.core.launcher.Main<br>
+
+</font><font face="Tahoma"><br>
+
+or alternatively executing the eclipse executable with these arguments:<br>
+
+<br>
+
+eclipse -vmargs -Xmx300m<br>
+
+<br>
+
+</font><font face="Tahoma"><b><u><big><br>
+Code Parsing</big></u><br>
+<br>
+</b></font><font face="Tahoma"><b><br>
+<a name="help16_0"></a>W</b><b><font><font>hich methods will Jigloo parse in my code?</font></font></b></font><font face="Tahoma"><br>
+</font></small>
+
+
+
+
+
+
+
+
+<blockquote><small><font face="Tahoma">Jigloo starts by
+parsing the constructors of your class. If it finds a call to other
+class methods (eg, if "createComponents" is a method of your class, and
+it is called from your constructor), then those methods will be parsed
+by jigloo as it encounters the method calls. Similarly, if those
+methods call other methods then those methods will be parsed and so on.
+If, in the course of parsing the constructors and all the methods
+called by the constructors etc, one of the "GUI initialization" methods
+is parsed, then jigloo will stop parsing your code. <i><br>
+  <br>
+The "GUI initialization" methods are by default {initGUI,
+initComponents, initialize, open, createPartControl, createContents,
+createControl and createDialogArea} but this list can be changed in the
+  <a href="preferences_page.html">Jigloo Preferences Page</a>.</i> <br>
+  <br>
+If, however, none of the "GUI initialization" methods have been parsed
+then Jigloo will search the code for one of these methods (in the order
+in which they appear in the list) and will parse the first one it
+finds. Eg, if a class has methods "open" and "initialize", then
+"initialize" will be parsed because it appears first in the </font><font face="Tahoma">"GUI initialization" list. If none of the </font><font face="Tahoma">"GUI initialization" methods appear in a class, then every method in the class will be parsed. <br>
+  <br>
+Therefore if you always use a method "initializeGUI", say, to create
+your code then you would add "initializeGUI" to the start of the </font><font face="Tahoma">"GUI initialization" list.<br>
+  </font></small></blockquote>
+
+<small><font face="Tahoma"><br>
+</font><font face="Tahoma"><b><a name="help16_1"></a>Which classes will Jigloo instantiate as it parses my code?</b>
+<br></font></small>
+
+
+
+<blockquote><small><font face="Tahoma">As jigloo tries
+to render your GUI in it's Form Editor, it needs to instantiate the
+visual classes used and also any classes which are used as properties
+of these visual classes. Also, if a method is called on a visual class
+then Jigloo will try and instantiate the classes passed as parameters
+for this method. However, Jigloo will not instantiate any other
+classes. If you find that Jigloo is instantiating a class that you do
+not want it to instantiate, add this class to the "Forbidden
+superclasses" list in the "Class creation" tab of </font><font face="Tahoma">the <a href="preferences_page.html">Jigloo Preferences Page</a>. </font></small></blockquote>
+
+
+<small><font face="Tahoma"><br>
+</font><font face="Tahoma"><b><a name="help16"></a>Hiding code from Jigloo.</b>
+<br>
+</font></small>
+<blockquote><small><font face="Tahoma">Surround a block
+of code with a //$hide&gt;&gt;$ and a //$hide&lt;&lt;$
+comment and Jigloo will not parse that block. Useful for designing a
+GUI which only appears if a condition is true or false - hide the part
+of the conditional block which you don't want to design with Jigloo
+just yet. Or for making sure that Jigloo doesn't try and instantiate
+classes that you don't want to be instantiated (perhaps if they try and
+make a DB connection or write to a file when instantiated).<br>
+  </font></small></blockquote>
+<small><font face="Tahoma"><u><b><big>Coding tips</big></b></u><br>
+<br>
+</font><font face="Tahoma"><b><a name="help7"></a>Use Jigloo's visual inheritance.</b>&nbsp;
+<br>
+</font></small>
+
+
+
+
+<blockquote><small><font face="Tahoma">Instead of designing a lot of separate but similar visual classes,
+design a base class with publically-accessible buttons, panels etc, and
+use Jigloo to build extensions of this class. The "Flowershop" <a href="other.html#examples">examples</a> which Jigloo can create for you demonstrate visual inheritance.<br>
+  </font>
+  </small></blockquote>
+
+<small><font face="Tahoma"><br>
+</font><font face="Tahoma"><b><a name="help8"></a>Re-formatting the source code</b><br>
+</font></small>
+<blockquote><small><font face="Tahoma">Jigloo allows you
+to define how you want GUI elements to be coded - either using getter
+methods for Swing elements (as produced by JBuilder, the Eclipse VE
+project, etc) or as blocks separated by braces, tagged comments or
+blank lines. Elements created by Jigloo will be added to the code using
+the defined style, but to re-format the entire source using the current
+style, right-click anywhere in the Form Editor and choose
+"Source-&gt;Reformat code to current coding style".&nbsp; For more
+details, refer to <a href="code.html#code_gen">this section</a>.<br>
+  </font>
+  </small></blockquote>
+
+<small><font face="Tahoma"><br>
+<br>
+</font></small>
+
+
+<div align="left"><small><font face="Tahoma"><b><u><big>Productivity tips</big></u><br>
+</b><br>
+Here are some tips, mainly involving key strokes, which will increase your productivity.<b><br>
+<br>
+<a name="help9"></a>Stopping &amp; starting code parsing.<br>
+</b></font>
+</small><blockquote><small><font face="Tahoma">Since Jigloo will
+automatically parse any changes you make to your code, after a given
+delay, if you are making a lot of code changes, you will save time by
+turning parsing off, and on again when you have finished.</font><font face="Tahoma"> Just hit Ctrl+Alt+P in the source editor to toggle code parsing on and off.<br>
+  </font>
+  </small></blockquote><small>
+<font face="Tahoma"><b><a name="help10"></a>Multi-selecting elements (by CTRL and selection marquee).</b></font><font face="Tahoma"><b><img alt="" src="images/multi-sel2.PNG" align="right" border="1" height="65" width="184"></b></font><font face="Tahoma"><b><img alt="" src="images/multi-sel1.PNG" align="right" border="1" height="65" width="182"></b></font><font face="Tahoma"><b><br>
+</b></font>
+</small><blockquote><small><font face="Tahoma">You can hold CTRL
+down when selecting elements in the form editor and this will
+multi-select the elements. <br>
+  <br>
+In addition, you can hold SHIFT down while
+dragging the mouse and a red rectangle (a selection marquee) will appear which you can drag
+around all the elements you wish to select (see figures). <i>Note that to select an element you only need to intersect it with the marquee</i>. Then any
+properties you change, or any resizing or moving or copy/cut/pasting
+you do will apply to all selected elements.<br>
+  </font>
+  </small></blockquote><small>
+<font face="Tahoma"><b><a name="help11"></a>Select a component in the Outline by holding Alt down while clicking in the source editor. </b><br>
+</font>
+</small><blockquote><small><font face="Tahoma">Normally,
+clicking or moving the cursor over a piece of code (eg a property
+setter) selects the relevant component in the form editor, but shows
+the java outline in the Outline view - holding Alt down while clicking
+on the mouse shows the component tree in the Outline view instead.
+  
+  
+  
+  
+  
+  
+  This may not work on Linux systems where Alt may have a pre-defined function.<br>
+  </font>
+  </small></blockquote><small>
+<font face="Tahoma"><b><a name="help12"></a>Moving elements<br>
+</b></font>
+</small><blockquote><small><font face="Tahoma"><b><img alt="" src="images/move2.PNG" align="right" border="1" height="58" width="268"></b></font><font face="Tahoma"><b><img alt="" src="images/move1.PNG" align="right" border="1" height="58" width="264"></b></font><font face="Tahoma">Depending on the layout used by a container, components can be rearranged inside a container by dragging with the mouse.<br>
+  </font>
+  </small></blockquote><small>
+<font face="Tahoma"><b><a name="help13"></a>Copying &amp; pasting elements<br>
+</b></font>
+</small><blockquote><small><font face="Tahoma">You can hold CTRL down when dragging one or more elements in the form editor and this will paste copies of the elements.<br>
+  </font>
+  </small></blockquote><small>
+<font face="Tahoma"><b><a name="help14"></a>Changing preferred sizes in GridBag and Form Layouts<br>
+</b></font>
+</small><blockquote><small><font face="Tahoma">When using a GridBag or JGoodies Form layout, normally resizing a component will change it's </font><font face="Tahoma">gridx/y/width/height values. However, </font><font face="Tahoma">by
+holding SHIFT down when resizing an element you will change the
+preferredSize property of an element, rather than it's
+gridx/y/width/height values.<br>
+  </font>
+  </small></blockquote><small>
+<font face="Tahoma"><b><a name="help15"></a>Changing an element's text property quickly</b>.
+<br>
+</font>
+</small><blockquote><small><font face="Tahoma">Double-click on a button, label, group, etc in the Form Editor and a
+text field will appear, allowing you to edit it's text. This applies to
+any component which has a "text" property.<big><br>
+  </big></font>
+  </small></blockquote><small>
+<font face="Tahoma"><b><u><big><br>
+</big></u></b><big><u><b>Custom components</b></u></big><br>
+</font>
+
+
+<font face="Tahoma">
+<br>
+
+<big><b><small><a name="help5"></a>How
+can I give my custom component an icon that will show up in Jigloo's
+"Custom" palette, instead of the default java-bean icon?<br>
+
+</small></b></big></font><font face="Tahoma"><br>
+
+You
+need to create a BeanInfo class for your custom class, and define the
+getIcon method. For an example of how to do this, look at the Swing
+FlowerShop</font><font face="Tahoma"> example which you can
+create by hitting CTRL+N, then in the "New" wizard, select "GUI
+Forms-&gt;Examples-&gt;Swing Inheritance/JavaBean (FlowerShop) example".<big><br>
+<b><small><br>
+
+<br>
+
+<br>
+
+</small></b><b><small><a name="help6"></a>Why doesn't my BeanInfo icon show up in Jigloo?</small></b><br>
+</big><small><big><br>
+
+Eclipse
+3.0+ sets a ContentHandlerFactory for URLConnections which doesn't seem
+capable of handling gif images, and so the url.getContent() method in
+the SimpleBeanInfo loadImage method does *not* return an ImageProducer,
+and hence the method does not return an image. The method below,
+however, does work in Eclipse 3.0+ because it does not depend on the
+url.getContent(), so to see your icon in Jigloo, simply add this method
+to your BeanInfo, which will over-ride SimpleBeanInfo's loadImage
+method.</big><br>
+
+<br>
+
+&nbsp;&nbsp; &nbsp;public Image loadImage(String imgUrl) {<br>
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;try {<br>
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;super.loadImage(imgUrl);<br>
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;URL url = getClass().getClassLoader().getResource(imgUrl);<br>
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if(url != null)<br>
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return new ImageIcon(url).getImage();<br>
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;} catch (Exception e) {<br>
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;e.printStackTrace();<br>
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br>
+
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return null;<br>
+
+&nbsp;&nbsp; &nbsp;}</small><br>
+<br>
+</font>
+
+
+
+
+<font face="Tahoma"><b><u><big>Miscellaneous</big></u></b></font>
+</small><blockquote><small>
+  </small></blockquote><small>
+
+<font face="Tahoma"><b><a name="help17"></a>Maximize the main editor by double-clicking on it's name tag</b>. <br>
+</font>
+</small><blockquote><small><font face="Tahoma">Fills Eclipse with the parts of Jigloo essential for designing forms.<br>
+  </font>
+  </small></blockquote><small>
+<font face="Tahoma"><img alt="" src="images/move3.PNG" align="right" border="1" height="112" width="291"></font><font face="Tahoma"><b><a name="help18"></a>How to move a component that is behind another
+component.</b><br>
+</font>
+</small><blockquote><small><font face="Tahoma">Say you have a JPanel inside a
+JScrollPane and you want to move the JScrollPane - first select the
+JScrollPane in the Outline view, then click and drag a <i><b>blue</b></i>
+region of the selection border (which is made up of alternating black
+and blue regions.</font><font face="Tahoma"><b><br>
+</b></font></small></blockquote><div align="left"><small><font face="Tahoma"><b><a name="help19"></a>Working with SWT classes not initially created by Jigloo<br>
+</b></font>
+</small><blockquote><small><font face="Tahoma">Many Java GUIs
+built by hand or by other GUI builders can be modified succesfully by
+Jigloo, but for SWT GUIs you might want to use some Jigloo tools to
+migrate the code to a more Jigloo-friendly form:<br>
+  </font>
+  </small><ul><small>
+    </small><li><small><font face="Tahoma">Migrate to using the
+SWTResourceManager to manage fonts, colors and images - do this by
+right-clicking anywhere on the Form Editor and choosing
+"Source-&gt;Convert to using SWTResourceManager"</font></small></li><small>
+    </small><li><small><font face="Tahoma">Insert a new showGUI
+method which will display the SWT Composite inside a Shell, using the
+size of the Composite (if it is defined) to set the size of the Shell.</font></small></li><small>
+  </small></ul><small>
+  <font face="Tahoma">For more details, <a href="getting_started.html#migrating">read this</a>.<br>
+  </font></small></blockquote><small>
+<font face="Tahoma"><b><br>
+<u><big>Problems<br>
+</big></u></b></font><font face="Tahoma"><b><u><big><br>
+</big></u></b></font><font face="Tahoma"><b><a name="help20_0"></a></b><b><big><font><small><big><small>Why can't I change the location/size of my GUI elements?</small></big></small></font></big></b></font>
+
+</small><blockquote><small><font face="Tahoma">This is probably because of the layout
+manager you are using. For example, if you have a JPanel which uses a
+FlowLayout and you keep adding JButtons to it, then the JButtons will
+assume their most natural sizes - you will be able to change their
+sizes and re-order them but you will not be able to set their absolute
+position in the JPanel, since that is determined by the JPanel's layout
+manager. If you want to set the absolute position as well as size, then
+try using the Anchor or Absolute layouts (for Swing), or Form or
+Absolute layouts (for SWT).<br>
+  <br>
+But reading up a bit about the other layouts - the GridBag or JGoodies
+Form layouts for Swing, or the Grid layout for SWT can be particularly
+useful - will allow you to benefit from these layout managers.<br>
+  <br>
+  </font><font face="Tahoma"><b><u><big>
+</big></u></b></font></small></blockquote><small>
+<font face="Tahoma"><b><a name="help20"></a>Errors with properties or fields not being recognized</b><br>
+</font>
+
+
+</small><blockquote><small><font face="Tahoma">&lt;&gt;</font><font face="Tahoma">If say Java 1.5 is used to run Eclipse, then the
+properties of Swing components generated by Jigloo will be those for
+Java 1.5, but if you use a Java 1.4 JRE inside Eclipse to build and run
+programs then some properties added by the Java 1.5 version will cause
+a compile error. The same goes for the SWT library - if SWT version 3
+is used to run Eclipse, but SWT 2 is used to run and build programs
+inside Eclipse then you might get compile errors. The solution is to
+use the same Java or SWT libraries to run Eclipse as to run programs
+inside Eclipse.<br>
+  </font></small></blockquote><small>
+
+
+<font face="Tahoma"><b><a name="help21"></a>Problems on Linux<br>
+</b></font>
+</small><blockquote><small><font face="Tahoma">If you have
+problems on Linux/GTK (such as the "+" signs not expanding in the GUI
+Properties editor) then make sure you have version 2.1.1 of GTK and
+it's accompanying packages (pango, glib, atk) - a useful article, with
+download links is here:&nbsp; <a href="http://developer.gnome.org/doc/API/2.4/gtk/gtk-building.html">http://developer.gnome.org/doc/API/2.4/gtk/gtk-building.html</a><br>
+  </font>
+  </small></blockquote><small>
+<font face="Tahoma"><br>
+<br>
+</font>
+</small><blockquote><small>
+  </small></blockquote><small>
+
+</small></div><small>
+</small><blockquote><small><font face="Tahoma">
+  </font></small></blockquote><small>
+
+</small></div>
+
+<ul><small>
+
+  </small></ul>
+
+</body></html>

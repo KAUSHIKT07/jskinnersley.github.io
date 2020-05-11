@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form style="Swing" ide="eclipse" builder="jigloo" version="1.0.0">
+<ExtraComponents>
+		<Component class="javax.swing.JMenuBar" name="jMenuBar1">
+			<Constraints>
+				<LayoutConstraint/>
+			</Constraints>
+			<Layout class="Box">
+			</Layout>
+			<Events>
+			</Events>
+			<Properties>
+			</Properties>
+			<SubComponents>
+				<Component class="javax.swing.JMenu" name="jMenu1">
+					<Constraints>
+						<LayoutConstraint/>
+					</Constraints>
+					<Layout class="Absolute">
+					</Layout>
+					<Events>
+					</Events>
+					<Properties>
+						<Property name="text" type="String" value="jMenu1"/>
+						<Property name="visible" type="boolean" value="true"/>
+					</Properties>
+					<SubComponents>
+						<Component class="javax.swing.JMenu" name="jMenu2">
+							<Constraints>
+								<LayoutConstraint/>
+							</Constraints>
+							<Layout class="Absolute">
+							</Layout>
+							<Events>
+							</Events>
+							<Properties>
+								<Property name="text" type="String" value="jMenu2"/>
+								<Property name="visible" type="boolean" value="true"/>
+							</Properties>
+							<SubComponents>
+								<Component class="javax.swing.JMenuItem" name="jMenuItem1">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="jMenuItem1"/>
+										<Property name="icon" type="Icon">
+											<Icon name="\icons\form.gif"/>
+										</Property>
+										<Property name="visible" type="boolean" value="true"/>
+									</Properties>
+								</Component>
+								<Component class="javax.swing.JSeparator" name="jSeparator1">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="visible" type="boolean" value="true"/>
+									</Properties>
+								</Component>
+								<Component class="javax.swing.JMenu" name="jMenu3">
+									<Constraints>
+										<LayoutConstraint/>
+									</Constraints>
+									<Layout class="Absolute">
+									</Layout>
+									<Events>
+									</Events>
+									<Properties>
+										<Property name="text" type="String" value="jMenu3"/>
+										<Property name="visible" type="boolean" value="true"/>
+									</Properties>
+									<SubComponents>
+										<Component class="javax.swing.JMenuItem" name="jMenuItem2">
+											<Constraints>
+												<LayoutConstraint/>
+											</Constraints>
+											<Layout class="Absolute">
+											</Layout>
+											<Events>
+											</Events>
+											<Properties>
+												<Property name="text" type="String" value="jMenuItem2"/>
+												<Property name="icon" type="Icon">
+													<Icon name="\icons\sample.gif"/>
+												</Property>
+												<Property name="visible" type="boolean" value="true"/>
+											</Properties>
+										</Component>
+									</SubComponents>
+								</Component>
+							</SubComponents>
+						</Component>
+					</SubComponents>
+				</Component>
+			</SubComponents>
+		</Component></ExtraComponents>
+	<Component class="javax.swing.JApplet" name="TestJApplet1">
+		<Constraints>
+			<LayoutConstraint/>
+		</Constraints>
+		<Layout class="Border">
+			<Property name="vgap" type="int" value="0"/>
+			<Property name="hgap" type="int" value="0"/>
+		</Layout>
+		<Events>
+		</Events>
+		<Properties>
+			<Property name="size" type="Dimension">
+				<Dimension value="[356, 180]"/>
+			</Property>
+			<Property name="bounds" type="Rectangle">
+				<Rectangle value="[0, 0, 356, 203]"/>
+			</Property>
+		</Properties>
+		<SubComponents>
+			<Component class="javax.swing.JPanel" name="jPanel1">
+				<Constraints>
+					<Constraint direction="Center"/>
+					<LayoutConstraint>
+						<Property name="direction" type="String" value="Center"/>
+					</LayoutConstraint>
+				</Constraints>
+				<Layout class="Border">
+					<Property name="vgap" type="int" value="0"/>
+					<Property name="hgap" type="int" value="0"/>
+				</Layout>
+				<Events>
+				</Events>
+				<Properties>
+					<Property name="preferredSize" type="Dimension">
+						<Dimension value="[284, 162]"/>
+					</Property>
+					<Property name="bounds" type="Rectangle">
+						<Rectangle value="[0, 0, 356, 180]"/>
+					</Property>
+				</Properties>
+				<SubComponents>
+					<Component class="javax.swing.JTabbedPane" name="jTabbedPane1">
+						<Constraints>
+							<Constraint direction="Center"/>
+							<LayoutConstraint>
+								<Property name="direction" type="String" value="Center"/>
+							</LayoutConstraint>
+						</Constraints>
+						<Events>
+						</Events>
+						<Properties>
+							<Property name="preferredSize" type="Dimension">
+								<Dimension value="[256, 164]"/>
+							</Property>
+							<Property name="bounds" type="Rectangle">
+								<Rectangle value="[0, 0, 356, 180]"/>
+							</Property>
+						</Properties>
+						<SubComponents>
+							<Component class="javax.swing.JButton" name="jButton1">
+								<Constraints>
+									<Constraint tabTitle="test tab"/>
+									<LayoutConstraint/>
+								</Constraints>
+								<Events>
+									<EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" handler="jButton1ActionPerformed"/>
+								</Events>
+								<Properties>
+									<Property name="text" type="String" value="jButton1"/>
+								</Properties>
+							</Component>
+							<Component class="javax.swing.JPanel" name="jPanel2">
+								<Constraints>
+									<Constraint tabTitle="tab2"/>
+									<LayoutConstraint/>
+								</Constraints>
+								<Layout class="GridBag">
+									<Property name="rowHeights" type="String" value="null"/>
+									<Property name="columnWidths" type="String" value="null"/>
+									<Property name="rowWeights" type="String" value="null"/>
+									<Property name="columnWeights" type="String" value="null"/>
+								</Layout>
+								<Events>
+								</Events>
+								<Properties>
+								</Properties>
+								<SubComponents>
+									<Component class="javax.swing.JComboBox" name="jComboBox1">
+										<Constraints>
+											<LayoutConstraint>
+												<Property name="gridx" type="int" value="-1"/>
+												<Property name="gridy" type="int" value="-1"/>
+												<Property name="gridwidth" type="int" value="1"/>
+												<Property name="gridheight" type="int" value="1"/>
+												<Property name="weightx" type="double" value="0.0"/>
+												<Property name="weighty" type="double" value="0.0"/>
+												<Property name="anchor" type="int" value="10"/>
+												<Property name="fill" type="int" value="0"/>
+												<Property name="insets" type="Insets">
+												<Insets value="[0, 0, 0, 0]"/>
+											</Property>
+												<Property name="ipadx" type="int" value="0"/>
+												<Property name="ipady" type="int" value="0"/>
+											</LayoutConstraint>
+										</Constraints>
+										<Events>
+										</Events>
+										<Properties>
+											<Property name="preferredSize" type="Dimension">
+												<Dimension value="[83, 35]"/>
+											</Property>
+											<Property name="bounds" type="Rectangle">
+												<Rectangle value="[53, 45, 83, 35]"/>
+											</Property>
+										</Properties>
+									</Component>
+									<Component class="javax.swing.JButton" name="jButton2">
+										<Constraints>
+											<Constraint class="java.awt.GridBagConstraints"/>
+											<LayoutConstraint class="java.awt.GridBagConstraints">
+												<Property name="gridx" type="int" value="-1"/>
+												<Property name="gridy" type="int" value="-1"/>
+												<Property name="gridwidth" type="int" value="-1"/>
+												<Property name="gridheight" type="int" value="1"/>
+												<Property name="weightx" type="double" value="0.0"/>
+												<Property name="weighty" type="double" value="0.0"/>
+												<Property name="anchor" type="int" value="10"/>
+												<Property name="fill" type="int" value="0"/>
+												<Property name="insets" type="Insets">
+												<Insets value="[0, 0, 0, 0]"/>
+											</Property>
+												<Property name="ipadx" type="int" value="0"/>
+												<Property name="ipady" type="int" value="0"/>
+											</LayoutConstraint>
+										</Constraints>
+										<Events>
+										</Events>
+										<Properties>
+											<Property name="text" type="String" value="jButton2"/>
+										</Properties>
+									</Component>
+									<Component class="javax.swing.JButton" name="jButton3">
+										<Constraints>
+											<Constraint class="java.awt.GridBagConstraints"/>
+											<LayoutConstraint class="java.awt.GridBagConstraints">
+												<Property name="gridx" type="int" value="-1"/>
+												<Property name="gridy" type="int" value="-1"/>
+												<Property name="gridwidth" type="int" value="0"/>
+												<Property name="gridheight" type="int" value="1"/>
+												<Property name="weightx" type="double" value="0.0"/>
+												<Property name="weighty" type="double" value="0.0"/>
+												<Property name="anchor" type="int" value="10"/>
+												<Property name="fill" type="int" value="0"/>
+												<Property name="insets" type="Insets">
+												<Insets value="[0, 0, 0, 0]"/>
+											</Property>
+												<Property name="ipadx" type="int" value="0"/>
+												<Property name="ipady" type="int" value="0"/>
+											</LayoutConstraint>
+										</Constraints>
+										<Events>
+										</Events>
+										<Properties>
+											<Property name="text" type="String" value="jButton2"/>
+										</Properties>
+									</Component>
+									<Component class="javax.swing.JButton" name="jButton4">
+										<Constraints>
+											<Constraint class="java.awt.GridBagConstraints"/>
+											<LayoutConstraint class="java.awt.GridBagConstraints">
+												<Property name="gridx" type="int" value="-1"/>
+												<Property name="gridy" type="int" value="-1"/>
+												<Property name="gridwidth" type="int" value="-1"/>
+												<Property name="gridheight" type="int" value="1"/>
+												<Property name="weightx" type="double" value="0.0"/>
+												<Property name="weighty" type="double" value="0.0"/>
+												<Property name="anchor" type="int" value="10"/>
+												<Property name="fill" type="int" value="0"/>
+												<Property name="insets" type="Insets">
+												<Insets value="[0, 0, 0, 0]"/>
+											</Property>
+												<Property name="ipadx" type="int" value="0"/>
+												<Property name="ipady" type="int" value="0"/>
+											</LayoutConstraint>
+										</Constraints>
+										<Events>
+										</Events>
+										<Properties>
+											<Property name="text" type="String" value="jButton2"/>
+										</Properties>
+									</Component>
+								</SubComponents>
+							</Component>
+							<Component class="javax.swing.JDesktopPane" name="jDesktopPane1">
+								<Constraints>
+									<Constraint tabTitle="tab3"/>
+									<LayoutConstraint/>
+								</Constraints>
+								<Layout class="Absolute">
+								</Layout>
+								<Events>
+								</Events>
+								<Properties>
+								</Properties>
+								<SubComponents>
+									<Component class="javax.swing.JInternalFrame" name="jInternalFrame1">
+										<Constraints>
+											<LayoutConstraint/>
+										</Constraints>
+										<Layout class="Border">
+											<Property name="vgap" type="int" value="0"/>
+											<Property name="hgap" type="int" value="0"/>
+										</Layout>
+										<Events>
+										</Events>
+										<Properties>
+											<Property name="closable" type="boolean" value="true"/>
+											<Property name="maximizable" type="boolean" value="true"/>
+											<Property name="frameIcon" type="Icon">
+												<Icon name="\icons\form.gif"/>
+											</Property>
+											<Property name="visible" type="boolean" value="true"/>
+											<Property name="preferredSize" type="Dimension">
+												<Dimension value="[121, 85]"/>
+											</Property>
+											<Property name="location" type="Dimension">
+												<Dimension value="[220, 20]"/>
+											</Property>
+											<Property name="bounds" type="Rectangle">
+												<Rectangle value="[186, 36, 121, 85]"/>
+											</Property>
+										</Properties>
+										<SubComponents>
+											<Component class="javax.swing.JPanel" name="jPanel6">
+												<Constraints>
+													<Constraint direction="North"/>
+													<LayoutConstraint>
+														<Property name="direction" type="String" value="North"/>
+													</LayoutConstraint>
+												</Constraints>
+												<Layout class="Flow">
+													<Property name="vgap" type="int" value="0"/>
+													<Property name="alignment" type="int" value="0"/>
+													<Property name="hgap" type="int" value="0"/>
+												</Layout>
+												<Events>
+												</Events>
+												<Properties>
+													<Property name="visible" type="boolean" value="true"/>
+												</Properties>
+											</Component>
+										</SubComponents>
+									</Component>
+									<Component class="test.TestJInternalFrame" name="jInternalFrame2">
+										<Constraints>
+											<LayoutConstraint/>
+										</Constraints>
+										<Events>
+										</Events>
+										<Properties>
+											<Property name="frameIcon" type="Icon">
+												<Icon name="\icons\sample.gif"/>
+											</Property>
+											<Property name="visible" type="boolean" value="true"/>
+											<Property name="preferredSize" type="Dimension">
+												<Dimension value="[161, 114]"/>
+											</Property>
+											<Property name="bounds" type="Rectangle">
+												<Rectangle value="[8, 33, 161, 114]"/>
+											</Property>
+										</Properties>
+									</Component>
+								</SubComponents>
+							</Component>
+							<Component class="javax.swing.JPanel" name="jPanel3">
+								<Constraints>
+									<Constraint tabTitle="testTab"/>
+									<LayoutConstraint/>
+								</Constraints>
+								<Layout class="Border">
+									<Property name="vgap" type="int" value="0"/>
+									<Property name="hgap" type="int" value="0"/>
+								</Layout>
+								<Events>
+								</Events>
+								<Properties>
+									<Property name="visible" type="boolean" value="true"/>
+									<Property name="preferredSize" type="Dimension">
+										<Dimension value="[267, 125]"/>
+									</Property>
+									<Property name="bounds" type="Rectangle">
+										<Rectangle value="[0, 0, 0, 0]"/>
+									</Property>
+								</Properties>
+								<SubComponents>
+									<Component class="javax.swing.JPanel" name="jPanel4">
+										<Constraints>
+											<Constraint direction="North"/>
+											<LayoutConstraint>
+												<Property name="direction" type="String" value="North"/>
+											</LayoutConstraint>
+										</Constraints>
+										<Layout class="Flow">
+											<Property name="vgap" type="int" value="5"/>
+											<Property name="alignment" type="int" value="1"/>
+											<Property name="hgap" type="int" value="5"/>
+										</Layout>
+										<Events>
+										</Events>
+										<Properties>
+											<Property name="visible" type="boolean" value="true"/>
+										</Properties>
+										<SubComponents>
+											<Component class="javax.swing.JButton" name="jButton5">
+												<Constraints>
+													<LayoutConstraint/>
+												</Constraints>
+												<Events>
+													<EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" handler="jButton5ActionPerformed"/>
+												</Events>
+												<Properties>
+													<Property name="text" type="String" value="jButton5"/>
+													<Property name="visible" type="boolean" value="true"/>
+												</Properties>
+											</Component>
+											<Component class="javax.swing.JButton" name="jButton7">
+												<Constraints>
+													<LayoutConstraint/>
+												</Constraints>
+												<Events>
+													<EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" handler="jButton7ActionPerformed"/>
+												</Events>
+												<Properties>
+													<Property name="text" type="String" value="jButton7"/>
+													<Property name="visible" type="boolean" value="true"/>
+												</Properties>
+											</Component>
+										</SubComponents>
+									</Component>
+									<Component class="javax.swing.JPanel" name="jPanel5">
+										<Constraints>
+											<Constraint direction="Center"/>
+											<LayoutConstraint>
+												<Property name="direction" type="String" value="Center"/>
+											</LayoutConstraint>
+										</Constraints>
+										<Layout class="Card">
+											<Property name="vgap" type="int" value="0"/>
+											<Property name="hgap" type="int" value="0"/>
+										</Layout>
+										<Events>
+										</Events>
+										<Properties>
+											<Property name="visible" type="boolean" value="true"/>
+										</Properties>
+										<SubComponents>
+											<Component class="javax.swing.JButton" name="jButton6">
+												<Constraints>
+													<Constraint CardName="jButton6"/>
+													<LayoutConstraint>
+														<Property name="CardName" type="String" value="jButton6"/>
+													</LayoutConstraint>
+												</Constraints>
+												<Events>
+												</Events>
+												<Properties>
+													<Property name="text" type="String" value="jButton6"/>
+													<Property name="visible" type="boolean" value="true"/>
+												</Properties>
+											</Component>
+											<Component class="javax.swing.JRadioButton" name="jRadioButton1">
+												<Constraints>
+													<Constraint CardName="jRadioButton1"/>
+													<LayoutConstraint>
+														<Property name="CardName" type="String" value="jRadioButton1"/>
+													</LayoutConstraint>
+												</Constraints>
+												<Events>
+												</Events>
+												<Properties>
+													<Property name="text" type="String" value="jRadioButton1"/>
+													<Property name="visible" type="boolean" value="true"/>
+												</Properties>
+											</Component>
+										</SubComponents>
+									</Component>
+								</SubComponents>
+							</Component>
+						</SubComponents>
+					</Component>
+				</SubComponents>
+			</Component>
+		</SubComponents>
+	</Component>
+</Form>

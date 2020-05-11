@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head></head>
+<body>
+<font face="Tahoma"><big><b>Jigloo Help / Frequently-asked questions</b></big></font><br>
+<b><small><font face="Tahoma"><br>
+</font></small></b><br>
+<b><small><font face="Tahoma">Opening files with Jigloo</font></small></b><br>
+<ul>
+  <li><a href="#help1"><small><font face="Courier New, Courier, monospace"><font face="Tahoma">I have a Java class written with a different IDE/GUI builder - how can I open it with Jigloo?</font></font></small></a></li>
+  <li><a href="#help2"><small><font face="Courier New, Courier, monospace"><font face="Tahoma">I
+created a java class with Jigloo, but now when I open it it opens just
+like a regular java class in the java editor - how can I open it with
+Jigloo?</font></font></small></a></li>
+</ul>
+<small><font face="Courier New, Courier, monospace"><font face="Tahoma"><b>Installation</b><br>
+</font></font></small>
+<ul>
+  <li><a href="#help3"><small><font face="Courier New, Courier, monospace"><font face="Tahoma">Why does Eclipse not recognize that Jigloo (or the latest version of Jigloo) is installed?</font></font></small></a></li>
+</ul>
+<small><font face="Courier New, Courier, monospace"><font face="Tahoma"><b>Performance</b><br>
+</font></font></small>
+<ul>
+  <li><a href="#help4"><small><font face="Courier New, Courier, monospace"><font face="Tahoma">Why does eclipse go really slowly with Jigloo open?</font></font></small></a></li>
+</ul>
+<small><font face="Courier New, Courier, monospace"><font face="Tahoma"><b>Custom components</b><br>
+</font></font></small>
+<ul>
+  <li><a href="#help5"><small><font face="Courier New, Courier, monospace"><font face="Tahoma">How
+can I give my custom component an icon that will show up in Jigloo's
+"Custom" palette, instead of the default java-bean icon?</font></font></small></a></li>
+  <li><a href="#help6"><small><font face="Courier New, Courier, monospace"><font face="Tahoma">Why doesn't my BeanInfo icon show up in Jigloo?</font></font></small></a></li>
+</ul>
+<ul>
+
+  
+  
+  
+  
+</ul>
+
+<br>
+<br>
+<br>
+<b><small><font face="Courier New, Courier, monospace"><font face="Tahoma"><a name="help1"></a>I have a Java class written with a different IDE/GUI builder - how can I open it with Jigloo?</font></font></small><br>
+</b><small><font face="Courier New, Courier, monospace"><font face="Tahoma"><br>
+Locate your class in Eclipse's Package Explorer view, then right-click
+on it and choose "Open with-&gt;Form Editor". Jigloo should open the
+class.</font></font></small><br>
+<b><small><font face="Courier New, Courier, monospace"><font face="Tahoma"><br>
+<br>
+<br>
+<a name="help2"></a>I
+created a java class with Jigloo, but now when I open it it opens just
+like a regular java class in the java editor - how can I open it with
+Jigloo?<br>
+</font></font></small></b><small><font face="Courier New, Courier, monospace"><font face="Tahoma"><br>
+Sometimes Eclipse does not remember which editor it used previously to
+open a file, so you need to make sure that your class is not opened in
+any editor in eclipse, then right-click on the file and choose "Open
+with-&gt;Form Editor".</font></font></small><br>
+<b><small><font face="Courier New, Courier, monospace"><font face="Tahoma"><br>
+<br>
+<br>
+</font></font></small><small><font face="Courier New, Courier, monospace"><font face="Tahoma"><a name="help3"></a>Why does Eclipse not recognize that Jigloo (or the latest version of Jigloo) is installed?</font></font></small></b><br>
+<small><font face="Courier New, Courier, monospace"><font face="Tahoma"><br>
+Eclipse 3 has problems with it's plugin cache and sometimes does not
+recognize that a plugin has been installed or upgraded. You can force
+Eclipse to re-load all the plugin definitions by either:<br>
+</font></font></small>
+<ol>
+  <li><small><font face="Courier New, Courier, monospace"><font face="Tahoma">deleting or moving the eclipse/configuration folder or</font></font></small></li>
+  <li><small><font face="Courier New, Courier, monospace"><font face="Tahoma">starting eclipse by opening a command-line console in the eclipse folder and executing<font face="Courier New, Courier, monospace"> "eclipse -clean -vmargs -Xmx300m</font>"<br>
+    </font></font></small></li>
+</ol>
+<b><small><font face="Courier New, Courier, monospace"><font face="Tahoma"><br>
+<br>
+<a name="help4"></a>Why does eclipse go really slowly with Jigloo open?<br>
+</font></font></small></b><small><font face="Courier New, Courier, monospace"><font face="Tahoma"><br>
+By
+default, Eclipse does not start with a large allocation of memory, and
+using Jigloo inside Eclipse to open a large file can require 20-100MB
+of memory, so it is a good idea to allow Eclipse to use about
+200-400MB. One way to do this is to start Eclipse using a
+script or batch file in the eclipse folder which executes the command:<br>
+<font face="Courier"><br>
+java -Xmx300m -cp startup.jar org.eclipse.core.launcher.Main</font><br>
+</font></font></small><small><font face="Courier New, Courier, monospace"><font face="Tahoma"><br>
+or alternatively executing the eclipse executable with these arguments:<br>
+<br>
+<font face="Courier">eclipse -vmargs -Xmx300m<br>
+<br>
+<br>
+<br>
+</font></font></font></small><b><small><font face="Courier New, Courier, monospace"><font face="Tahoma"><a name="help5"></a>How
+can I give my custom component an icon that will show up in Jigloo's
+"Custom" palette, instead of the default java-bean icon?<br>
+</font></font></small></b><small><font face="Courier New, Courier, monospace"><font face="Tahoma"><br>
+You
+need to create a BeanInfo class for your custom class, and define the
+getIcon method. For an example of how to do this, look at the Swing
+FlowerShop</font></font><font face="Tahoma"> example which you can
+create by hitting CTRL+N, then in the "New" wizard, select "GUI
+Forms-&gt;Examples-&gt;Swing Inheritance/JavaBean (FlowerShop) example".</font></small><br>
+<b><small><font face="Courier New, Courier, monospace"><font face="Tahoma"><br>
+<br>
+<br>
+</font></font></small></b><b><small><font face="Courier New, Courier, monospace"><font face="Tahoma"><a name="help6"></a>Why doesn't my BeanInfo icon show up in Jigloo?</font></font></small></b><br>
+<small><font face="Courier New, Courier, monospace"><font face="Tahoma"><br>
+Eclipse
+3.0+ sets a ContentHandlerFactory for URLConnections which doesn't seem
+capable of handling gif images, and so the url.getContent() method in
+the SimpleBeanInfo loadImage method does *not* return an ImageProducer,
+and hence the method does not return an image. The method below,
+however, does work in Eclipse 3.0+ because it does not depend on the
+url.getContent(), so to see your icon in Jigloo, simply add this method
+to your BeanInfo, which will over-ride SimpleBeanInfo's loadImage
+method.<br>
+</font><br>
+&nbsp;&nbsp; &nbsp;public Image loadImage(String imgUrl) {<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;try {<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;super.loadImage(imgUrl);<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;URL url = getClass().getClassLoader().getResource(imgUrl);<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if(url != null)<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return new ImageIcon(url).getImage();<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;} catch (Exception e) {<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;e.printStackTrace();<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return null;<br>
+&nbsp;&nbsp; &nbsp;}</font></small><br>
+<br>
+</body></html>

@@ -1,0 +1,1146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <title>Jigloo GUI Builder Guide</title>
+  <meta name="author" content="Cloudgarden.com">
+  <script>
+//<!--
+function checkFrame() {
+  nf = parent.frames.length;
+  if(nf<2) location="index.html"
+}
+checkFrame();
+//-->
+  </script>
+</head>
+<body>
+<h3><font><u><font face="Arial"><u>Jigloo Revision History</u></font></u></font><br>
+</h3>
+<font face="Arial" size="-1">
+</font><small><font face="Arial"><b>Version 4.6.4 - released Dec 19th
+2010</b></font></small><br>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: GroupLayout support broken in 4.6.3<span style="font-weight: bold;"><br>
+    </span></span></small></li>
+</ul>
+<small><font face="Arial"><b><br>
+</b></font></small><small><font face="Arial"><b>Version 4.6.3 -
+released Dec 16th
+2010<br>
+</b></font></small>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">New
+Feature: when adding a new component to a form, the constructor can now
+be chosen. Besides the added flexibility of being able to choose a
+constructor with arguments, this now allows components without a
+no-argument constructor to be added.<br>
+    </span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: Failure to extract part of a form to a new form.</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: Failure to recognise an inherited TableLayout</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: Failure to find classes in related projects from a different
+workspace</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: Failure to instantiate inner classes of a form.</span></small></li>
+</ul>
+<small><font face="Arial"><b><br>
+</b></font></small><small><font face="Arial"><b><br>
+</b></font></small><small><font face="Arial"><b>Version 4.6.2 -
+released May 28th
+2010<br>
+</b></font></small>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">New
+Feature: templates are now stored in separate folder inside jigloo
+plugin installation folder - after backing up this folder, users can
+modify individual templates, eg templates/swing/JFrame.txt is the
+template for a JFrame. Some documentation and more flexibility will be
+added in future versions.</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">New
+Feature: when a form is reloaded using the context-menu "reload form
+editor" option, all classes are reloaded in addition to the form being
+re-built.<br>
+    </span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: SWT widgets with borders would be moved a few pixels when resizing.<br>
+    </span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: SWT widgets would lose their FormAttachments when their style was
+changed<br>
+    </span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: when a form uses a widget class defined in a related project, and
+that widget class was changed, the original form would not be reloaded
+and would only update on restarting eclipse.</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: when changing the text for a text component, the Java
+representation of the code is edited, allowing back-slashes to be
+handled more intuitively.<br>
+    </span></small></li>
+</ul>
+<small><font face="Arial"><b><br>
+</b></font></small><small><font face="Arial"><b>Version 4.6.1 -
+released May 15th
+2010<br>
+</b></font></small>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">New
+Feature: Support for objects with constructors with arguments<br>
+    </span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Change:
+When resizing the root component, the size will be changed in code
+unless SHIFT is held down - previously the opposite was true.<br>
+    </span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: multi-select behaviour was not correct</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: when using absolute layout with a Swing component with a JMenu the
+components would be shifted down by two menu heights</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: (hopefully since I was not able to replicate it) - the absence of
+enfinlayout.jar does not cause Jigloo to fail.<br>
+    </span></small></li>
+</ul>
+<small><font face="Arial"><b><br>
+</b></font></small><small><font face="Arial"><b>Version 4.6.0 -
+released Dec 22nd
+2009<br>
+</b></font></small>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">New
+Feature: JLayeredPane support added</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: GUI editor fails under certain perspective configurations</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: when creating a new class, changing the superclass in the "New"
+dialog had no effect<br>
+    </span></small></li>
+</ul>
+<small><font face="Arial"><b><br>
+</b></font></small><small><font face="Arial"><b><br>
+</b></font></small>
+<small><font face="Arial"><b>Version 4.5.4 - released Dec 19th
+2009<br>
+</b></font></small>
+<small><span style="font-family: Helvetica,Arial,sans-serif;"></span></small>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">New
+Feature: When a component is selected and has focus in the GUI editor,
+then hitting "P" will select the parent component instead. In this mode
+(parent-select-mode) whenever the original component is clicked on the
+parent will be selected. This allows parents which are obscured by
+their children to be moved/resized/edited. Hitting the "P" button again
+when the parent is selected will revert to the original behaviour. Any
+number of components can be in parent-select-mode at the same time.<br>
+    </span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: When code-generation is set to generate brace-delimited blocks of
+code for components, the generated code for SWT components set layout
+data for components before they were created.</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: Look and Feels were not imported from a jar file.</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: Adding a JMenuBar to a swing JFrame caused the GroupLayout's
+bottom boundary to separate from the container.</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: Components added to a JLayeredPane were not added to any layer -
+they are now added to DEFAULT_LAYER</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: New component dialog did not show check boxes for creating main
+and showGUI methods.<br>
+    </span></small></li>
+</ul>
+<small><font face="Arial"><b><br>
+</b></font></small><small><font face="Arial"><b>Version 4.5.3 -
+released Nov 17th
+2009<br>
+</b></font></small>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: Table layout constraints such as "center", "left", "right", "top",
+"bottom" are now not reset to "full" when moving an element or changing
+the number of rows or columns</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: class-reloading is handled better when classes are re-compiled.</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: undo-redo did not always work correctly - now it does.</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: pressing the control key without a mouse-click could de-select a
+component</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: IllegalArgumentException when closing FormEditor</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: JPopupMenus caused Jigloo to throw ClassCastException</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fix: "meta" (or "apple" key) was not recognised as part of a key-stroke
+combination<br>
+    </span></small></li>
+</ul>
+<small><font face="Arial"><b>Version 4.5.2 - released Oct 20th 2009<br>
+</b></font></small>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">realised
+jigloo.jar was still a Java 1.6 file - this time succeeded in compiling
+with Java 1.4.</span></small><br>
+  </li>
+</ul>
+<small><font face="Arial"><b>Version 4.5.1 - released Oct 5th 2009<br>
+</b></font></small>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">attempt
+at compiling jigloo.jar with Java 1.4 - in fact it is still Java 1.6,
+so running eclipse with Java 1.5 causes Jigloo to fail</span></small><br>
+  </li>
+</ul>
+<small><font face="Arial"><b>Version 4.5.0 - released Sep 9th
+2009</b></font></small><small><font face="Arial"><b>.</b></font></small><br>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">"Extract
+to new form" feature enhanced:</span></small></li>
+  <ul>
+    <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Adds
+capability to replace original element with an instance of the
+extracted class</span></small></li>
+    <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Adds
+capability to automatically add extracted class to custom component
+palette</span></small></li>
+  </ul>
+</ul>
+<small><span style="font-family: Helvetica,Arial,sans-serif;"></span></small><small><font
+ face="Arial"><b>Version 4.4.4 - released Apr 18th
+2009</b></font></small><small><font face="Arial"><b>.</b></font></small><br>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+Fix: Windows would be tiny when code was run: this was due to the size
+of the container not being set (as of version 4.4.3) but a pack()
+method call might not have existed to force window to assume it's
+preferred size. A "pack()" call is now inserted at end of initGUI
+method if one does not already exist.<br>
+    </span></small></li>
+</ul>
+<small><span style="font-family: Helvetica,Arial,sans-serif;"></span></small><small><font
+ face="Arial"><b>Version 4.4.3 - released Mar 24th
+2009</b></font></small><small><font face="Arial"><b>.</b></font></small><br>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Root
+container (eg, JFrame Shell) now does not have it's size set in code
+(unless the user holds "shift" down while resizing the form). This
+allows the form to adjust to it's preferred size so that it's elements
+are layed out correctly. If "shift" is held down while resizing the
+form the the size is set as in older versions of Jigloo.<br>
+    </span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fixed: several small useability bugs in the GroupLayout editor have
+been fixed</span></small><small><span
+ style="font-family: Helvetica,Arial,sans-serif;"></span></small><small><span
+ style="font-family: Helvetica,Arial,sans-serif;"></span></small><br>
+  </li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;"></span></small><small><span
+ style="font-family: Helvetica,Arial,sans-serif;">Bug fixed: Jigloo
+failed to parse the form correctly if "this" was used infront of
+variable assignments.</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fixed: Icons for SWT buttons and menu items would sometimes appear as
+the "bean" icon.</span></small></li>
+</ul>
+<small><font face="Arial"><b>Version 4.4.2 - released Mar 13th
+2009</b></font></small><small><font face="Arial"><b>.<br>
+</b></font></small>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fixed: moving </span></small><small><span
+ style="font-family: Helvetica,Arial,sans-serif;">elements </span></small><small><span
+ style="font-family: Helvetica,Arial,sans-serif;">from one layout
+manager to another would sometimes not work</span></small><small><span
+ style="font-family: Helvetica,Arial,sans-serif;"></span></small><br>
+  </li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;"></span></small><small><span
+ style="font-family: Helvetica,Arial,sans-serif;">Bug fixed: Jigloo
+would not work with Java 1.4<br>
+    </span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fixed: if any corner of an element is visible in the form editor and
+that element is selected then Jigloo does not scroll the whole editor
+so the top-left corner of the element is visible - this was unnecessary
+and often unwelcome scrolling.<br>
+    </span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fixed: the "metal" look and feel would often not be rendered properly
+if switching between look and feels.<br>
+    </span></small></li>
+</ul>
+<small><font face="Arial"><b>Version 4.4.1 - released Mar 12th
+2009</b></font></small><small><font face="Arial"><b>.<br>
+</b></font></small>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fixed: Rendering on Linux OSes was broken</span></small><small><span
+ style="font-family: Helvetica,Arial,sans-serif;"></span></small><br>
+  </li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;"></span></small><small><span
+ style="font-family: Helvetica,Arial,sans-serif;">Bug fixed: Minor bugs
+fixed in visual editing of menus</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fixed: elements can now be added (as in version 4.2.0) using Outline
+view</span></small></li>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Bug
+fixed: SWT libraries were only added if requested, and if an
+org.eclipse.swt jar file existed with the same version number as the
+eclipse version - now it will take the latest jar file.<br>
+    </span></small></li>
+</ul>
+<small><font face="Arial"><b>Version 4.4.0 - released Mar 3rd
+2009</b></font></small><small><font face="Arial"><b>.<br>
+</b></font></small>
+<small><span style="font-family: Helvetica,Arial,sans-serif;"></span></small>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Visual
+editing of menus</span></small><br>
+  </li>
+  <li><small><font face="Arial">MigLayout supported for SWT as well as
+Swing<br>
+    </font></small></li>
+  <li><small><font face="Arial">resource folder for appframework
+properties files can be spacified<br>
+    </font></small></li>
+  <li><small><font face="Arial">for-loops are parsed<br>
+    </font></small></li>
+  <li><small><font face="Arial">Several bugs fixed, in particular<br>
+    </font></small></li>
+  <ul>
+    <li><small><font face="Arial">delay when saving appFramework files
+fixed</font></small></li>
+    <li><small><font face="Arial">problem of creating code for the
+wrong version of GroupLayout fixed<br>
+      </font></small></li>
+  </ul>
+</ul>
+<small><font face="Arial">
+</font></small><br>
+<small><font face="Arial"><b>Version 4.2.0 - released Aug 7th
+2008</b></font></small><small><font face="Arial"><b>.<br>
+</b></font></small>
+<small><span style="font-family: Helvetica,Arial,sans-serif;"></span></small>
+<ul>
+  <li><small><span style="font-family: Helvetica,Arial,sans-serif;">Improved
+performance, memory leaks fixed</span></small><br>
+  </li>
+  <li><small><font face="Arial">MigLayout supported</font></small></li>
+  <li><small><font face="Arial">Generics supported</font></small></li>
+  <li><small><font face="Arial">Component palette improvements</font></small></li>
+  <li><small><font face="Arial">Global bean icon and info folders</font></small></li>
+  <li><small><font face="Arial">Protected superclass fields/getters now
+recognised</font></small></li>
+  <li><small><font face="Arial">Grid-type layout support improvements<br>
+    </font></small></li>
+  <li><small><font face="Arial">Several bugs fixed<br>
+    </font></small></li>
+</ul>
+<small><font face="Arial"><br>
+</font></small><small><font face="Arial"><b>Version 4.0.5 - released
+Nov 28th
+2007</b></font></small><small><font face="Arial"><b>.<br>
+</b></font></small>
+<ul>
+  <li><small><font face="Arial">JPanel can now be resized as small as
+possible - previously it was limited to the minimum size of a JFrame</font></small></li>
+  <li><small><font face="Arial">Bug Fixed: unable to set the size of a
+JFrame (introduced in 4.0.4)<br>
+    </font></small></li>
+</ul>
+<small><font face="Arial"><br>
+</font></small><small><font face="Arial"><br>
+</font></small><small><font face="Arial"><b>Version 4.0.4 - released
+Nov 26th
+2007</b></font></small><small><font face="Arial"><b>.</b></font></small><br>
+<ul>
+  <li><small><font face="Arial">Support for OpenSwing GridControl and
+Columns - double-click on a GridControl or Column and a "customiser"
+dialog will appear allowing you to set the ValueObjectClassName for the
+GridControl and choose which properties are displayed in which type of
+column.<br>
+    </font></small></li>
+  <li><small><font face="Arial">Borland XYLayout now supported - also
+if a layout constraint is not recognised by Jigloo it will not create
+faulty code when layout is updated.<br>
+    </font></small></li>
+</ul>
+<small><font face="Arial"><b>Version 4.0.3 - released Nov 6th
+2007</b></font></small><small><font face="Arial"><b>.</b></font></small><br>
+<ul>
+  <li><small><font face="Arial">Inner classes can now be designed. Open
+the main class in the Jigloo editor and the select the inner class in
+Package Explorer<br>
+    </font></small></li>
+  <li><small><font face="Arial">Bug fix: in SWT FormLayout, FormData
+initialisation code was incorrectly placed before component
+initialisation</font></small></li>
+  <li><small><font face="Arial">Bug fix: when GUI Properties view was
+minimized, it would start flickering.</font></small></li>
+  <li><small><font face="Arial">Bug fix: a new SecurityManager is set </font></small><small><font
+ face="Arial">when a Jigloo editor is active </font></small><small><font
+ face="Arial">to prevent System.exits (resulting in sudden eclipse
+shutdown) <br>
+    </font></small></li>
+</ul>
+<small><font face="Arial"><b><br>
+</b></font></small><small><font face="Arial"><b>Version 4.0.2 -
+released Sep 19th
+2007</b></font></small><small><font face="Arial"><b>.<br>
+</b></font></small>
+<ul>
+  <li><small><font face="Arial">Supports version 1.0 of the Swing
+Application Framework (JSR 296). This involves a renaming of the
+application package name from "application" to
+"org.jdesktop.application". <br>
+    </font></small></li>
+  <li><small><font face="Arial">Jigloo should rename any old imports it
+finds in existing classes and add the appFramework-1.0.jar file to your
+project.<br>
+    </font></small></li>
+</ul>
+<small><font face="Arial"><b><br>
+Version 4.0.1 - released Sep 12th
+2007</b></font></small><small><font face="Arial"><b>.</b></font></small><br>
+<small><font face="Arial"><b><br>
+Bugs fixed:<br>
+</b></font></small>
+<ul>
+  <li><small><font face="Arial">on Mac OSX: drag-and-drop in outline
+view should work correctly</font></small></li>
+  <li><small><font face="Arial">on Mac OSX: browser component did not
+render correctly (due to the nature of the SWT browser implementation
+on OSX) so it is rendered by a label instead.</font></small></li>
+  <li><small><font face="Arial">on Mac OSX: delete button did not work.</font></small></li>
+  <li><small><font face="Arial">accelerator property was not added to
+properties file in Swing AppFramework apps.</font></small></li>
+  <li><small><font face="Arial">hidden or protected methods were still
+parsed if called from non-protected or non-hidden code</font></small></li>
+  <li><small><font face="Arial">all java source key-stroke actions
+called for Swing AppFramework forms.</font></small></li>
+  <li><small><font face="Arial">key-strokes should all function
+correctly in all editors</font></small></li>
+  <li><small><font face="Arial">mnemonics (as displayed in property
+editor) are extracted from the text (the mnemonic being the character
+after the "&amp;", eg "&amp;File")</font></small></li>
+  <li><small><font face="Arial">add" cursor displayed correctly on all
+platforms.</font></small></li>
+</ul>
+<small><font face="Arial"><b>&nbsp; <br>
+Version 4.0.0 - released Aug 15th
+2007</b></font></small><small><font face="Arial"><b>.</b></font></small>
+<br>
+<ul>
+  <li style="font-family: arial;"><small>Mac OSX support for Swing.<br>
+    </small></li>
+  <li style="font-family: arial;"><small>Support for Swing App
+Framework (JSR 296)<br>
+    </small></li>
+  <li style="font-family: arial;"><small>Libraries added to
+projects automatically</small></li>
+  <li style="font-family: arial;"><small>Support for Swing
+AbstractActions</small></li>
+  <li style="font-family: arial;"><small>"Surround by" feature </small><small>(for
+Swing and SWT) </small><small>- surround an existing element with a
+new container <br>
+    </small></li>
+  <li style="font-family: arial;"><small>GroupLayout support enhanced</small></li>
+  <li style="font-family: arial;"><small>Multiple "root" elements
+supported<br>
+    </small></li>
+  <li style="font-family: arial;"><small>Enhancements for absolute-type
+layouts</small></li>
+  <li style="font-family: arial;"><small>Component palette import and
+export</small></li>
+  <li><small><span style="font-family: tahoma;"><span
+ style="font-family: arial;">Accelerators and mnemonics supported</span><br>
+    </span></small></li>
+</ul>
+<small><font face="Arial"><b>Version 3.9.5 - released Nov 4th
+2006</b></font></small><small><font face="Arial"><b>.</b></font></small>
+<br>
+<ul>
+  <li style="font-family: arial;"><small>Bug fixed in synchronization
+of subclass when superclass changes.<br>
+    </small></li>
+  <li style="font-family: arial;"><small>Display in Outline and GUI
+Properties views now changes correctly depending on whether java or GUI
+editor has focus.<br>
+    </small></li>
+  <li style="font-family: arial;"><small>Event handler methods renamed
+if element renamed</small></li>
+  <li><small><span style="font-family: arial;">\r handled correctly
+when in "text" property</span></small></li>
+</ul>
+<small><font face="Arial"><b>Version 3.9.4 - released Oct 6th
+2006</b></font></small><small><font face="Arial"><b>.</b></font></small>
+<ul>
+  <li><small><font face="Helvetica, Arial, sans-serif">Non-commercial
+"nag" popup only appears once per Eclipse session (instead of every
+time a Jigloo editor is opened)<br>
+    </font></small></li>
+</ul>
+<small><font face="Arial"><b>Version 3.9.3 - released Sep 22nd
+2006</b></font></small><small><font face="Arial"><b>.</b></font></small>
+<ul>
+  <li><small><font face="Helvetica, Arial, sans-serif">Few minor bugs
+fixed</font></small></li>
+</ul>
+<small><font face="Arial"><b>Version 3.9.2 - released Aug 2nd
+2006</b></font></small><small><font face="Arial"><b>.</b></font></small>
+<ul>
+  <li><small><span style="font-family: helvetica,arial,sans-serif;">Support
+for java beans Customizers improved.</span></small><br>
+  </li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed -
+further problem with Ctrl-C, Ctrl-V and other key-actions not being
+always active in Java editor when supposed to be.<br>
+    </font></small></li>
+</ul>
+<small><font face="Arial"><b>Version 3.9.1 - released July 18th 2006</b></font></small><small><font
+ face="Arial"><b>.</b></font></small>
+<ul>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed -
+Ctrl-C, Ctrl-V and other key-actions were not always active in Java
+editor when supposed to be.<br>
+    </font></small></li>
+</ul>
+<small><font face="Arial"><b>Version 3.9.0 - released July 16th 2006</b></font></small><small><font
+ face="Arial"><b> - <a href="changes390.html">more detail here</a>.</b></font></small>
+<ul>
+  <li><small><font face="Helvetica, Arial, sans-serif">Swing
+GroupLayout support</font></small><small><font
+ face="Helvetica, Arial, sans-serif"> (as used by Netbean's Matisse
+editor).<br>
+    </font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Several bug
+fixes and small enhancements</font></small></li>
+</ul>
+<small><font face="Arial"><b>Version 3.8.2 - released February 18th 2006</b></font></small><small><font
+ face="Arial"><b> - <a href="changes382.html">more detail here</a>.</b></font></small>
+<ul>
+  <li><small><font face="Helvetica, Arial, sans-serif">Tab order
+(focusTraversalPolicy property) can be set for Swing Containers</font></small><small><font
+ face="Helvetica, Arial, sans-serif"> by selecting child components in
+order (using mouse), the same as for SWT (version 3.8.1)<br>
+    </font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Several bug
+fixes and small enhancements</font></small></li>
+</ul>
+<small><font face="Arial"><b>Version 3.8.1 - released February 3rd 2006</b></font></small><small><font
+ face="Arial"><b> - <a href="changes381.html">more detail here</a>.</b></font></small>
+<ul>
+  <li><small><font face="Helvetica, Arial, sans-serif">Tab order can be
+set for SWT Composites by selecting child controls in order (using
+mouse)<br>
+    </font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Non-setter
+methods can be selectively invoked to enhance rendering (for example,
+using a DBTable)<br>
+    </font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Several bug
+fixes and small enhancements<br>
+    </font></small></li>
+</ul>
+<small><font face="Arial"><b>Version 3.8.0 - released November 27th
+2005 - <a href="changes380.html">more detail here</a>.</b></font></small><br>
+<ul>
+  <li><small><font face="Helvetica, Arial, sans-serif">Customizable
+component palettes</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Grid-adjust bars
+improved</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Customizable
+property categories</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Alignment button
+added (with alignment assistant dialog)</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Frame
+decorations shown in GUI editor</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Snap-Grid changes</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Button bar for
+alignments, etc and preferences popup</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Custom property
+editor support improved</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Preferences
+pages as tree nodes</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Look and Feel
+preference page added.</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Hold SHIFT down
+to place multiple components</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Option to
+time-out on set property method calls</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Improved error
+handling</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Eclipse 3.2
+supported</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Improved
+performance</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Many bugs fixed.</font><span
+ style="font-weight: bold;"><br>
+    </span></small></li>
+</ul>
+<br>
+<small><font face="Arial"><b>Version 3.5.2 - released July 26th 2005.</b></font></small><br>
+<ul>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed:
+JDialogs, JFrames and JApplets were not displayed correctly if their
+preferredSize (a Java 1.5 addition) was set in the code.<br>
+    </font></small></li>
+</ul>
+<small><font face="Arial"><b>Version 3.5.1 - released July 26th 2005.</b></font></small><br>
+<ul>
+  <li><small><font face="Helvetica, Arial, sans-serif">SWT_AWT support
+- both Swing in SWT and SWT in Swing</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Clearthought's
+TableLayout supported</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Enhanced
+graphical support for GridBag, JGoodies FormLayout and TableLayout</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Enhanced parsing
+capabilities</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Enhanced support
+for parsing JGoodies Builder methods</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Tabbed-pane
+editor layout improved (quicker response, etc).</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">New eclipse 3.1
+SWT widgets supported</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Eclipse 3.1
+supported</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">"View log"
+button for more feedback when a form is not displayed correctly by
+Jigloo</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Several bugs
+fixed<br>
+    </font></small></li>
+</ul>
+<small><font face="Helvetica, Arial, sans-serif"><br>
+</font></small><small><font face="Arial"><b>Version 3.1.2 - released
+Mar 18th 2005.</b></font></small><br>
+<ul>
+  <li><small><font face="Helvetica, Arial, sans-serif">Properties
+listed in the GUI Properties view are now separated into basic and
+"advanced" properties. This separation can be turned off using the
+Jigloo preferences page.<br>
+    </font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Support for any
+"non-standard" Object property. The drop-down contains a list of all
+available elements of matching type in code. For example, for a
+JLabel's "labelFor" property, all Components defined in the java class
+are available in the "labelFor" drop-down.<br>
+    </font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Existing weights
+and heights/widths for GridBag layout are re-used when changing column
+or row count.</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Swing Flowershop
+example updated.</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Error handling:
+Errors caused by non-existence of public constructor for custom classes
+now handled with more-specific error messages (as opposed to just
+"Unable to create class").</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed:
+Transparency on java beans icons - the icons are now displayed
+correctly.</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed:
+Problems caused when one visual component is set as a property of
+another visual component - the property component was treated as a
+non-visual component.</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed:
+JavaBean PropertyEditors handled correctly.</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed: No
+longer hangs when parsing methods like: <br>
+&nbsp;&nbsp;&nbsp; public void open() {<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ...<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; dialogShell.open();<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ...<br>
+&nbsp;&nbsp;&nbsp; }<br>
+    </font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed:
+Occasional stalling of Jigloo fixed.</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed:
+Methods are never invoked on JFace Viewer objects by Jigloo when
+rendering a form, since this can sometimes cause Eclipse to crash.<br>
+    </font></small></li>
+</ul>
+<small><font face="Arial"><b>Version 3.1.1 - released Mar 8th 2005.</b></font></small><font
+ face="Tahoma"><small><br>
+</small></font>
+<ul>
+  <li><small><font face="Helvetica, Arial, sans-serif">Java AWT
+components now displayed as their Swing counterparts (since Jigloo
+can't display AWT components)</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Box struts and
+glue components are displayed correctly (though Jigloo does not provide
+a mechanism for creating them yet)<br>
+    </font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed:
+Jigloo would hang if more than 9 inline components of the same class
+occured in a single Java class</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed:
+Jigloo would not display Swing components added to a variable assigned
+from getContentPane()</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Various other
+bugs fixed - mainly to do with displaying and managing inline elements.<br>
+    </font></small></li>
+</ul>
+<small><font face="Arial"><b>Version 3.1.0 - released Feb 28th 2005.<br>
+</b></font></small>
+<blockquote><small><font face="Tahoma">Changes are described <a
+ href="http://cloudgarden.soft-gems.net/jigloo310/changes.html">here</a>.</font></small><br>
+</blockquote>
+<small><font face="Arial"><b>Version 3.0.1
+- released Oct 4th 2004.<small><font face="Helvetica, Arial, sans-serif"><br>
+</font></small>
+</b></font></small>
+<ul>
+  <li><small><font face="Helvetica, Arial, sans-serif">Added
+pop-up window when a java class is opened the pre-v3 Jigloo style of
+creating colors, fonts and images instead of&nbsp; SWTResourceManager -
+the pop-up recommends that the file is converted to using
+SWTResourceManager by using the right-click option in the Form Editor.</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed: the
+Swing border property "Reset to default" function in the property
+editor did not work.</font></small><br>
+  </li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed:
+version 3.0.0 did not work with Java 1.3 (which includes WebSphere
+platforms)</font></small><br>
+  </li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed: if
+upgrading from version 2.7.2 with a layout preference of "form and java
+editors separate" several errors would cause Jigloo to be
+non-functional.</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed: code
+indentation improved.</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug
+fixed: preview of subclass of custom class using a GridBagLayout would
+not have the correct GridBagConstraints for components<br>
+    </font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bug fixed:
+SWTResourceManager was missing a line "users.add(widget);"<br>
+    </font></small></li>
+</ul>
+<small><font face="Arial"><b>Version 3.0.0
+- released Sep 23rd 2004.<small><font
+ face="Helvetica, Arial, sans-serif"><br>
+</font></small>
+</b></font></small>
+<ul>
+  <li><small><font face="Helvetica, Arial, sans-serif">Round-trip code
+generation - parsing of java code to form WYSIWYG form editor contents.</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Many options for
+code generation - getters, elements in blocks separated by braces,
+tags, new lines</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Many options for
+code parsing - tags for hiding blocks of code, fine-grained control
+over classes instantiated by Jigloo.</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Support of
+visual inheritance (including support for abstract and non-public
+classes)</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Models
+recognized (and stub models generated) for Swing JTable, JList etc.<br>
+    </font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Easy navigation
+between code and form editor</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Easy generation
+of example code from Eclipse "New" wizard.<br>
+    </font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">many other
+smaller features added</font></small><br>
+  </li>
+</ul>
+<small><font face="Arial"><br>
+</font></small><small><font face="Arial"><b>Version 2.7.2
+- released Mar 30th 2004.<br>
+</b></font></small>
+<ul>
+  <li><small><font face="Arial">Context menu option "Goto Java code"
+re-introduced when form and java editors are not combined</font></small></li>
+  <li><small><font face="Arial">Bug Fix: Sometimes java file would not
+be generated when creating a new form<br>
+    </font></small></li>
+  <li><small><font face="Arial">Bug
+Fix: Generated code for SWT GUIs would sometimes look totally wrong
+when run, due to layout() being called before all controls were added
+to a parent Composite (this bug introduced in version 2.7.0). Now,
+layout() is called after child controls added (as in version 2.6.*)</font></small></li>
+  <li><small><font face="Arial">Bug
+Fix: When ButtonGroups were deleted/added, they were not always removed
+from/added to a Button's "buttonGroup" drop-down list.</font></small></li>
+  <li><small><font face="Arial">Bug Fix: When ButtonGroups were
+deleted, if a Button's buttonGroup property was pointing to the deleted
+group, the generated code would have an error.</font></small></li>
+  <li><small><font face="Arial">Bug Fix: Sometimes, some forms would
+always be marked as "dirty" on opening, even if they had just been
+saved.<br>
+    </font></small></li>
+</ul>
+<small><font face="Arial"><b>Version 2.7.1
+- released Mar 28th 2004.<br>
+</b></font></small>
+<ul>
+  <li><small><font face="Arial">Bug Fix: When code was changed in
+embedded Java editor, form editor was not marked as "dirty" and so code
+changes by themselves could not be saved (the workaround was to change
+the GUI). </font></small></li>
+</ul>
+<small><font face="Arial">
+</font></small><small><font face="Arial"><b>Version 2.7.0
+- released Mar 25th 2004.<br>
+</b></font></small>
+<ul>
+  <li><small><font face="Arial"><b>New GridBagLayout editor</b> - can
+set columns and rows in
+property editor, can add or drag components to specific locations in
+grid, and can set a component's grid width and height by dragging it's
+edges.</font></small></li>
+  <li><small><font face="Arial"><b>ButtonGroup support added</b> - a
+ButtonGroup can be selected in the
+component palette and added to the Outline's "Non-visual components"
+node, and a Button's "buttonGroup" can be set to point to any of the
+added ButtonGroups.</font></small></li>
+  <li><small><font face="Arial"><b> </b><b>Externalizable Strings</b>
+- select the
+"externalizeStrings" property for a component and
+the value of all set String properties will be externalized to a
+properties file, or externalize individual String properties by
+prefixing with $EXT$. Also, context-menu option to externalize Strings
+for the whole GUI in one step.<br>
+    </font></small></li>
+  <li><small><font face="Arial"><b>JPopupMenus, JWindows and JDialogs</b>
+can be added to the "Extra components" node.</font></small></li>
+  <li><small><font face="Arial">Context-menu
+options for quick-setting of layout constraints for components inside
+Swing Border and GridBag layouts, SWT Grid layouts, and children of
+JSplitPanes.<br>
+    </font></small></li>
+  <li><small><font face="Arial">Can set </font></small><small><font
+ face="Arial">GridBagLayout's </font></small><small><font face="Arial">columnsWeights,
+columnWidths, rowWeights and rowHeights in property editor</font></small></li>
+  <li><small><font face="Arial">Preferences added: option to not
+combine the java editor with the form editor; option to delete Netbeans
+comments on import.</font></small></li>
+  <li><small><font face="Arial">Code generation layout improved -
+spaces inserted between code for separate elements.</font></small></li>
+  <li><small><font face="Arial">Works with Eclipse version 3M8<br>
+    </font></small></li>
+  <li><small><font face="Arial">Bug Fix: Added components would
+sometimes appear with incorrect (very small) sizes.</font></small></li>
+  <li><small><font face="Arial">Bug Fix: Java outline would not always
+open when using embedded java editor.</font></small></li>
+  <li><small><font face="Arial">Bug Fix: a few small</font></small><small><font
+ face="Arial">er bugs were fixed (eg, problems with import of icons or
+vertical toolbars from Netbeans forms).</font></small></li>
+</ul>
+<small><font face="Arial">
+<br>
+</font></small><small><font face="Arial"><b>Version 2.6.2
+- released Mar 15th 2004.<br>
+</b></font></small>
+<ul>
+  <li><small><font face="Arial"><b> </b>Custom classes are added to
+the "Custom" component palette, and
+can be managed (added/removed/order changed) by preferences pages.</font></small></li>
+  <li><small><font face="Arial"><b> </b>Swing LookAndFeel support -
+right-click on GUI Form and choose a look-and-feel.</font></small></li>
+  <li><small><font face="Arial">Adding a CoolBar now
+automatically adds a CoolItem, ToolBar and ToolItem as children, since
+this is the most common usage of a CoolBar.</font></small></li>
+  <li><small><font face="Arial">Adding a CoolItem now
+automatically adds a ToolBar and ToolItem as children, since
+this is the most common usage of a CoolItem.</font></small></li>
+  <li><small><font face="Arial">Adding a ToolBar now
+automatically adds a ToolItem as a child, since
+this is the only thing that can be added to a ToolBar.</font></small></li>
+  <li><small><font face="Arial">Adding a CASCADE MenuItem now
+automatically adds a Menu as a child,
+since this is the only element that can be added to a CASCADE MenuItem
+- and therefore "Menu" has been removed from the component palette.</font></small></li>
+  <li><small><font face="Arial">Bug Fix: Swing layouts
+initially created would not be able to be changed and would need to be
+re-set in order to be used.</font></small></li>
+  <li><small><font face="Arial">Bug Fix: GUI Properties view
+would disappear and not re-appear when the Form Editor was clicked on.</font></small></li>
+  <li><small><font face="Arial">Bug Fix: custom classes in
+projects referenced by the current project could not always be found.</font></small></li>
+  <li><small><font face="Arial">Bug Fix: indentation was not
+correct for implemented event listeners
+with multiple event methods. </font></small></li>
+</ul>
+<small><font face="Arial">
+</font></small><small><font face="Arial"><br>
+</font></small><small><font face="Arial"><b>Version 2.6.1
+- released Mar 3rd 2004. <br>
+</b></font></small>
+<ul>
+  <li><small><font face="Arial">Bug Fix: when SWT
+controls were added to root container, the display would not be
+refreshed and they would be invisible.</font></small></li>
+  <li><small><font face="Arial">Bug Fix: when a form component was
+moved and then copied, the copied
+component would have the same name as the original</font></small></li>
+  <li><small><font face="Arial">Bug Fix: when a Separator was added to
+a SWT menu and then moved,
+code for it would not be generated.</font></small></li>
+</ul>
+<small><font face="Arial">
+<br>
+</font></small><small><font face="Arial"><b>Version 2.6.0
+- released Feb 24th 2004. <br>
+</b></font></small>
+<ul>
+  <li><small><font face="Arial">Added infinite undo/redo
+support
+for grouped changes (ie, changes on multiple components
+simultaneously), for layout and layout constraint changes, and for cut,
+paste and delete (ie, for all actions).</font></small></li>
+  <li><small><font face="Arial">GUI Editor and Java Source now both
+shown in editor frame - you can
+choose between tabbed-panel, split-pane (vertical) and split-pane
+(horizontal). This makes it easier to enter event-handler code, and to
+follow the code when making changes to the GUI. The layout is selected
+in the "Jigloo preferences" panel.</font></small></li>
+  <li><small><font face="Arial">Generated code now re-uses SWT Colors,
+Fonts and Images, so only one
+instance of the same Color, for instance, is created if several
+Controls use the same Color.</font></small></li>
+  <li><small><font face="Arial">Better support for SWT fonts -
+underline and strikeout fonts now
+available for Windows platforms.</font></small></li>
+  <li><small><font face="Arial">Better support for Swing fonts -
+correct list of Swing fonts now
+displayed (which is slightly different from SWT set).</font></small></li>
+  <li><small><font face="Arial">"Anchor" row in Layout part of GUI
+Properties view - label is like
+"[T,r,B]", where upper case denotes an absolute anchor, lower case a
+relative anchor, no letter means no anchor. Clicking on the label will
+open the Anchor dialog.</font></small></li>
+  <li><small><font face="Arial"> </font><font face="Arial"> Support
+for non-visual components - to add
+a non-visual component, add a custom component and enter a non-visual
+class, then click on the "non-visual components" node in the Outline
+view.</font></small></li>
+  <li><small><font face="Arial">Better formatting of code (the Jigloo
+preference
+to automatically format code has therefore been removed and code is not
+automatically re-formatted). Comments added to initGUI method to
+separate setting of properties for different form components.</font></small></li>
+  <li><small><font face="Arial">Works with Java 1.5.0 beta.</font></small></li>
+  <li><small><font face="Arial"> </font><font face="Arial">Some Swing
+components added to the palette
+(JOptionPane, JSpinner, JFormattedTextField - the latter two only for
+Java 1.4 or 1.5) </font></small></li>
+  <li><small><font face="Arial">Bug Fixed: the GridBagLayout editor
+mode should now not set large
+values for gridx/y, gridheight/width</font></small></li>
+  <li><small><font face="Arial">Bug Fixed: In some situations,
+impossible
+to drop components on
+Groups or Composites.</font></small></li>
+  <li><small><font face="Arial">Bug Fixed: When running code, if menus
+added to GUI, then a JDialog
+was smaller than designed while a Composite was bigger, both by the
+height of the menu bar.</font></small></li>
+  <li><small><font face="Arial">Several other bugs fixed.</font></small></li>
+</ul>
+<small><font face="Arial"><br>
+</font></small><small><font face="Arial"><b>Version 2.5.0
+- released Feb 3rd 2004. <br>
+</b></font></small>
+<ul>
+  <li><small><font face="Arial">Component/Layout palette
+added to top of form editor - as well as dropping elements directly on
+the form elements can also be dropped in the Outline view, which is
+useful for populating menus and containers whose children fill the
+container space, such as a SashForm.</font></small></li>
+  <li><small><font face="Arial">Anchor dialog for components in Form or
+Anchor layouts - allows all
+four sides to be anchored at once, and for multiple components.</font></small></li>
+  <li><small><font face="Arial">Border around selected
+component changed to include regions where component can be dragged to
+a different location (instead of just resized).</font></small></li>
+  <li><small><font face="Arial">Support for customizers and custom
+properties of JavaBeans.</font></small></li>
+  <li><small><font face="Arial">When new components are added, they
+appear on top of all other
+components, allowing them to be easily moved.</font></small></li>
+  <li><small><font face="Arial">Constant fields written explicitly in
+code instead of as numbers (eg,
+SWT.PUSH instead of it's numerical value).</font></small></li>
+  <li><small><font face="Arial">CheckBoxes for boolean properties
+(toggled by single or
+double-clicks) instead of drop-downs - cuts down
+on mouse clicks. To choose between single or double-click to toggle
+boolean property, use the Jigloo preferences page.</font></small></li>
+  <li><small><font face="Arial">Parts of forms can be extracted and
+saved as new forms.</font></small></li>
+  <li><small><font face="Arial">The "GUI Properties" view shows the
+component(s) currently selected
+in it's title.</font></small></li>
+  <li><small><font face="Arial">Limits placed on
+re-parenting of Swing components - eg, JButtons cannot now be placed
+inside other JButtons.</font></small></li>
+  <li><small><font face="Arial">Generated event handlers are protected
+instead of public.</font></small></li>
+  <li><small><font face="Arial">"Run", "Preview" etc buttons moved to
+Outline view.</font></small></li>
+  <li><small><font face="Arial">Update site used to release plugin
+(http://www.javametric.com/update-site/).</font></small></li>
+  <li><small><font face="Arial">Bug fixed: problems finding custom
+classes or images</font></small></li>
+  <li><small><font face="Arial">Bug fixed: sometimes
+changing a multiple-choice property in the property editor would not be
+effective.</font></small></li>
+  <li><small><font face="Arial">Bug fixed: small problems with moving
+&amp;
+copying multiple components in Form Editor</font></small></li>
+  <li><small><font face="Arial">Bug fixed: imported Netbeans event
+handlers were duplicated</font></small></li>
+  <li><small><font face="Arial">Bug fixed: Setting a Box Layout on a
+JInternalFrame failed.</font></small></li>
+  <li><small><font face="Arial">Bug fixed: Images were not found if
+source folder was not "src" or
+the root folder of the project - and image file dialog was not
+correctly initialized.</font></small></li>
+  <li><small><font face="Arial">Bug fixed: Components were renamed on
+cut &amp; paste.</font></small></li>
+  <li><small><font face="Arial">Bug fixed: declarations of child
+components were not removed when
+parent component was removed</font></small></li>
+</ul>
+<small><font face="Arial">
+<br>
+</font></small><small><font face="Arial"><b>Version 2.2.0
+- released Jan 16th 2004. <br>
+</b></font></small>
+<ul>
+  <li><small><font face="Arial">Delphi/Visual Studio style layout mode
+added for SWT FormLayout and
+Swing AnchorLayout (allows component sides to be anchored absolutely or
+relatively to parent sides).</font></small></li>
+  <li><small><font face="Arial">Added
+com.cloudgarden.layout.AnchorLayout for Swing components.</font></small></li>
+  <li><small><font face="Arial">Added snap-grid which allows components
+to be easily located or sized
+at 5, 10, 15 or 20 pixel spacings.</font></small></li>
+  <li><small><font face="Arial">Added alignment options for components
+inside an Anchor or Form
+Layout - allows multiple controls to be quickly aligned with respect to
+each other, or to the snap-grid.</font></small></li>
+  <li><small><font face="Arial">Added drag-n-drop capability to Outline
+view - allows single or
+multiple components to be moved or copied within or between containers.</font></small></li>
+  <li><small><font face="Arial">Added keyboard-controlled (CTRL on
+Windows/Linux, ALT on Mac)
+copy-n-drop capability to Form editor.</font></small></li>
+  <li><small><font face="Arial">Toolbar added to Form editor to allow
+quick access to "Preview" and
+"Run" features.</font></small></li>
+  <li><small><font face="Arial">"Add Custom Class..." option added to
+context menu, allowing custom
+classes to be added directly to GUIs.</font></small></li>
+  <li><small><font face="Arial">Performance of Swing editor improved.</font></small></li>
+  <li><small><font face="Arial">Bug fixed: components were not
+correctly moved when multiply-selected
+in Form editor.</font></small></li>
+</ul>
+<small><font face="Arial">
+<br>
+</font></small><small><font face="Arial"><b>Version 2.0.1
+- released Jan 7th 2004. <br>
+</b></font></small>
+<ul>
+  <li><small><font face="Arial">Bug-fix release, (mainly bugs related
+to Swing components, and
+performance on a Mac).</font></small></li>
+  <li><small><font face="Arial">Bug fixed: layout of SWT Dialog in
+generated Java code did not
+correspond to layout in GUI builder.</font></small></li>
+  <li><small><font face="Arial">Bug fixed: bug made it impossible to
+add, or cut/paste, some Swing
+components</font></small></li>
+  <li><small><font face="Arial">Bug fixed: CoolBar contents were not
+displayed in Java code generated
+on Mac.</font></small></li>
+  <li><small><font face="Arial">Bug fixed: CoolItems were not correctly
+sized (this was worse on a
+Mac)</font></small></li>
+  <li><small><font face="Arial">Bug fixed: Font chooser dialog did not
+work on a Mac.</font></small></li>
+</ul>
+<small><font face="Arial">
+</font></small><small><font face="Arial"><br>
+</font></small><small><font face="Arial"><b>Version 2.0.0
+- released Jan 5th 2004. <br>
+</b></font></small>
+<ul>
+  <li><small><font face="Arial">All feaures are available for
+non-commercial as well as commercial
+use:</font></small><small> <font face="Arial"><i>(ie, there are no
+longer two separate Standard and Professional
+editions), but commercial use still requires purchase of a Professional
+License.</i></font></small></li>
+  <li><small><font face="Arial">Creation of SWT Dialogs now
+supported.</font></small></li>
+  <li><small><font face="Arial">Double-click on components allows quick
+edit of a component's "text"
+property.</font></small></li>
+  <li><small><font face="Arial">Creation dialog allows "text" and image
+properties and layout options
+to be
+entered quickly and easily (and for default layout preferences to be
+set).</font></small></li>
+  <li><small><font face="Arial">Option to have "GUI Properties" view
+displayed as tabbed panel, with
+tabs for "Properties", "Layout" and "Events".</font></small></li>
+  <li><small><font face="Arial">Added individual icons for all SWT and
+Swing components (in outline
+and context menus).</font></small></li>
+  <li><small><font face="Arial">Layouts can also be changed using the
+"GUI Properties" view, not just
+by a right-click option.</font></small></li>
+  <li><small><font face="Arial">Added preInitGUI() and
+postInitGUI() methods for
+inserting custom code before and after auto-generated GUI code.</font></small></li>
+  <li><small><font face="Arial">Nows runs on Mac OS X (but with support
+for SWT GUIs only).</font></small></li>
+  <li><small><font face="Arial">Several minor bugs fixed: inability to
+set defaultCloseOperation for
+JFrame, sizing of CoolBars.</font></small></li>
+</ul>
+<small><font face="Arial">
+<br>
+</font></small><small><font face="Arial"><b>Version 1.0.3
+- released Nov 29th 2003. <br>
+</b>- The "Run" menu option now always does a build before
+running (instead of only if the form has been modified).<br>
+- Fixed a bug which resulted in SWT Grid Layouts sometimes not being
+generated as seen in Jigloo (specifically, the widthHint and heightHint
+parameters for components inside a Grid layout were not always set
+equal to the size of the control).<br>
+</font><font face="Arial"><br>
+</font></small><small><font face="Arial"><br>
+</font></small><font face="Arial" size="-1">
+<b>Version 1.0.2
+- released Nov 11th 2003. </b><br>
+- Added support for WebSphere Studio IDEs (version
+5.1.0 tested).<br>
+- Added JTree to Swing component menu.<br>
+- Fixed bug which prevented creation of a new GUI form
+in the project root folder.<br>
+<br>
+<b>Version 1.0.1
+- released Nov 6th 2003.</b><br>
+- Fixed bug
+apparent when creating a new GUI form in the default package. Fixed bug
+apparent after 10-day trial period expired.<br>
+</font>
+<div style="margin-left: 40px;"><font face="Arial" size="-1"><br>
+</font></div>
+<font face="Arial" size="-1"><b>Version 1.0.0 - released Oct 22nd 2003.<br>
+</b>- Initial Release<b><br>
+</b></font>
+</body>
+</html>

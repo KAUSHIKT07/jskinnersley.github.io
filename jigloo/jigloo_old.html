@@ -1,0 +1,445 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <title>Jigloo GUI Builder Guide</title>
+  <meta name="author" content="Cloudgarden.com">
+  <script>
+//<!--
+function checkFrame() {
+  nf = parent.frames.length;
+  if(nf<2) location="index.html"
+}
+checkFrame();
+//-->
+  </script>
+</head>
+<body>
+<table cellpadding="2" cellspacing="2" border="0" width="804"
+ height="427">
+  <tbody>
+    <tr>
+      <td valign="top">
+      <h3><font face="Arial"><u>Jigloo GUI Builder
+(Swing and SWT) for the
+Eclipse and WebSphere IDEs<img src="images/clip1.PNG" title="" alt=""
+ width="526" height="404" align="right"></u></font></h3>
+      <font face="Arial" size="-1"><i><b>Current version: 2.0.1, </b>released
+Jan 7th 2004 (support for SWT Dialog, all features available for
+non-commercial use, several bugs fixed, quick-set of properties on
+creation of components, improved user-interface,
+support for SWT on Macs).</i><br style="font-family: verdana;">
+      </font>
+      <h3 style="font-family: verdana;"><font face="Arial" size="-1"><a
+ name="intro"></a>Introduction</font></h3>
+      <font face="Arial" size="-1"><b>Note: Jigloo is free for
+non-commercial use, but purchase of a Professional License is required
+for commercial use.<br>
+      </b><br>
+Cloudgarden's
+Jigloo GUI
+Builder is
+a plugin for IBM's <a href="http://www.eclipse.org" target="_blank">Eclipse</a>
+Java IDE and <a href="http://www.ibm.com/websphere/studio"
+ target="_blank">WebSphere
+Studio</a> IDEs, which allows you
+to build
+and manage both<i> </i>Swing and SWT GUIs.<br
+ style="font-family: verdana;">
+      </font><font face="Arial" size="-1">Jigloo
+creates and
+manages code
+for
+all the parts of the GUI as well as
+code to handle events, and shows you the GUIs as
+they are being built, allowing you to experiment with various
+properties of controls/components as well as the more complex
+features of the Swing GridBagLayout or SWT's FormLayout, for instance. </font><font
+ face="Arial" size="-1">Jigloo
+is
+straightforward, powerful
+and easy
+to use and can lead to a very large time-saving (over
+hand-coding) for GUI
+development and maintainance tasks. Also, because Jigloo
+is integrated with the
+Eclipse IDE the invaluable code-management features of Eclipse are
+immediately available to further modify the generated code. </font></td>
+    </tr>
+  </tbody>
+</table>
+<p style="font-family: verdana;"><font face="Arial" size="-1">Components
+are added, layouts changed etc, by options in the
+right-click context menus.<br>
+</font></p>
+<p style="font-family: verdana;"><font face="Arial" size="-1">A
+basic knowledge of the Swing and SWT
+components is useful, but not essential - and the javadoc can be easily
+accessed directly from the GUI editor.<br>
+</font></p>
+<p style="font-family: verdana;"><font face="Arial" size="-1">Jigloo
+has been tested successfully on the Windows and Linux (GTK) platforms.</font></p>
+<p style="font-family: verdana;"><font face="Arial" size="-1">On the
+Mac OSX platform it can be used to generate SWT GUIs (Swing GUIs
+cannot be built on a mac as yet). <br>
+</font></p>
+<p style="font-family: verdana;"><font face="Arial" size="-1">It has
+not been tested on other platforms, but may perform successfully
+on them.<br>
+</font></p>
+<p style="font-family: verdana;"><font face="Arial" size="-1"><br>
+<b><a name="features"></a>Features<br>
+</b></font>
+</p>
+<p style="font-family: verdana;"><font face="Arial" size="-1">The
+Jigloo GUI
+builder
+offers
+the
+following features:<br>
+</font></p>
+<ul style="font-family: verdana;">
+  <li><font face="Arial" size="-1">Builds complete Java
+classes for GUIs in
+SWT or Swing using a
+simple WYSIWYG* editor, <br>
+    </font> </li>
+  <li><font face="Arial" size="-1">Manipulates most
+properties of the GUI
+components, such as
+colors,
+fonts, images, sizes etc,</font></li>
+  <li><font face="Arial" size="-1">Handles all Swing and
+SWT layouts
+(including GridBag, Form and
+absolute layouts),</font></li>
+  <li><font face="Arial" size="-1">Handles Swing Borders -
+CompoundBorders
+can be nested to as many
+levels as needed.<br>
+    </font> </li>
+  <li><font face="Arial" size="-1">Creates event handlers
+for any
+of the component's events.</font></li>
+  <li><font face="Arial" size="-1">Provides the basic
+editing commands,
+copy/cut/paste/delete, as
+well as "Move up/down", to rearrange components.</font></li>
+  <li><font face="Arial" size="-1">Components can be
+drag-and-dropped
+between containers.</font></li>
+  <li><font face="Arial" size="-1">Components can be
+resized by dragging
+their edges.</font></li>
+  <li><small><font face="Arial">Imports
+GUIs already built using
+the Netbeans Java IDE.</font></small></li>
+  <li><small><font face="Arial">When creating components, initial text,
+image and layout properties can be quickly set using a single creation
+dialog.<br>
+    </font></small></li>
+  <li><small><font face="Arial">Allows
+multi-selection of
+components for tasks such as setting
+of properties, and copy/cut/paste/delete.</font></small></li>
+  <li><small><font face="Arial">Undo/Redo
+capability for setting of
+properties</font></small></li>
+  <li><small><font face="Arial">Easy
+access
+to the javadoc for
+Swing and SWT components and
+layouts</font></small></li>
+  <li><small><font face="Arial">Ability to
+run the generated java
+code from a quick
+context-menu option</font></small></li>
+  <li><small><font face="Arial">Converts
+between
+Swing and SWT GUIs (both ways).</font></small></li>
+</ul>
+<font face="Arial" size="-1">
+* WYSIWYG = What You
+See Is What You
+Get.<br>
+<br>
+<b><a name="screenshot"></a>Screenshot<br>
+</b><br>
+Below is a screenshot of Jigloo (click on it for the full-sized image
+in a new window), being used (in a Windows platform) to
+build a GUI similar to the Eclipse GUI. In the GUI editor, "button5" is
+highlighted with a blue border, and it's properties, layout, layout
+constraints and event handlers are shown ready for editing in the lower
+"GUI Properties" view. The tree view of the whole form is shown in the
+"Outline" view on the right-hand side. The context menu is showing for
+button5, ready to jump to the java code for the "widgetSelected" event
+handler.<br>
+<a href="images/screenshot1.PNG" target="_blank"><br>
+<img src="images/screenshot1_sm.gif" title="" alt="" width="512"
+ height="361" border="0"><br>
+</a><br>
+<br>
+<b><a name="download"></a>Download<br>
+<br>
+</b></font><font face="Arial" size="-1">Jigloo plugin
+for <b>Eclipse </b>(Windows, Linux and Mac OS X): &nbsp; &nbsp; </font><font
+ face="Arial" size="-1"><a
+ href="http://hostingprod.com/@javametric.com/jigloo201.zip">jigloo201.zip</a><br>
+<br>
+</font><font face="Arial" size="-1">Jigloo plugin
+for <b>WebSphere </b>(Windows, Linux and Mac OS X): &nbsp; &nbsp; </font><font
+ face="Arial" size="-1"><a href="jigloo201ws.zip">jigloo201ws.zip</a><br>
+</font><font face="Arial" size="-1"><br>
+</font><font face="Arial"><b><font size="-1">Jigloo is free for
+non-commercial use, but if you use
+Jigloo as part of your work for a business or company</font></b><b><font
+ size="-1"> you
+must <a href="jigloo.html#purchase">purchase a Professional license</a>
+- one license is required per
+developer.</font></b></font><font face="Arial" size="-1">
+<br>
+<br>
+By downloading, installing and using Jigloo you are agreeing to the
+following license terms:<br>
+</font>
+<ul style="font-family: verdana;">
+  <li style="font-weight: bold;"><font face="Arial"><b><font size="-1">You
+(the user) will not
+disassemble, reverse-engineer or copy the Jigloo code.<br>
+    </font></b></font> </li>
+  <li><font face="Arial"><b><font size="-1">If you use
+Jigloo as part of your work for a business or company</font></b><b><font
+ size="-1">, you
+will <a href="jigloo.html#purchase">purchase a Professional license</a>.
+One license is required per
+developer.</font></b></font></li>
+  <li><font face="Arial" size="-1"><b>This
+software is provided "AS IS'' and any express or implied warranties,
+including, but not limited to, the implied warranties of
+merchantability and fitness for a particular purpose are disclaimed. </b><br>
+    </font> </li>
+</ul>
+<font face="Arial" size="-1">
+You will also need to have downloaded
+and installed the Eclipse SDK version 2.1 (or version 3) from the <a
+ href="http://www.eclipse.org" target="_blank">Eclipse</a> website.
+Jigloo
+has been tested successfully on the Windows and Linux (GTK) platforms.
+It will also run on the Mac OS X, but it can be used only for SWT GUIs.
+It has not been tested on other platforms, but may perform successfully
+on them.<br style="font-family: verdana;">
+<br>
+<br>
+<b><a name="examples"></a>Examples<br>
+</b><br>
+Some examples are contained in the file <a href="jiglooexamples.zip">jiglooexamples.zip</a>
+. <br>
+<br>
+The above zip file contains form and java files in a "exampleForms"
+package folder, as well as an "icons" folder. To look at them you can
+import them into your existing project (you will need to set your
+project up to run SWT classes, as described in the "Installation"
+section below). The examples are:<br>
+</font>
+<ul>
+  <li style="font-family: verdana;"><font face="Arial" size="-1">DummyEclipse.form
+- demonstrates how an Eclipse-like GUI can be built<br>
+    </font> </li>
+  <li style="font-family: verdana;"><font face="Arial" size="-1">FormLayoutTest.form
+- demonstrates four controls in a SWT FormLayout<br>
+    </font> </li>
+  <li style="font-family: verdana;"><font face="Arial" size="-1">TestJApplet1.form
+- demonstrates many Swing features<br>
+    </font> </li>
+  <li style="font-family: verdana;"><font face="Arial" size="-1">TestJInternalFrame.form
+- a
+JInternalFrame used by TestJApplet2 - you need to compile and build
+this before opening TestJApplet2<br>
+    </font> </li>
+  <li><font face="Arial" size="-1">TestJApplet2.form
+- like
+TestJApplet1.form, but includes an import of TestJInternalFrame (see
+"tab3"). <br>
+    </font> </li>
+</ul>
+<font face="Arial" size="-1"><br>
+<br>
+<b><a name="installation"></a>Installation<br>
+</b><br>
+Like any eclipse plugin, shut down eclipse, extract the jigloo201.zip
+file
+into your eclipse installation folder - the
+"com.cloudgarden.jigloo_2.0.1" folder should end up inside the
+"plugins" directory. Then start up eclipse, and consult the jigloo <a
+ href="jigloo.html#docs">documentation</a>
+(see the "Documentation" section
+below).&nbsp; <br>
+<br>
+If you will be running SWT applications inside Eclipse,
+it is important that you read the "Preparing your project to use the
+SWT classes" part of the "Getting Started" section of the "Jigloo GUI
+Builder Guide".<br>
+<br>
+If upgrading from a previous release, you will need to delete that
+folder (eg, delete "com.cloudgarden.jigloo_1.0.0"
+if
+upgrading from version 1.0.0), so that there is only one
+com.cloudgarden.jigloo_n.n.n plugin
+folder.<br>
+<br>
+<br>
+<b><a name="docs"></a>Documentation<br>
+</b><br>
+You can browse the "Jigloo GUI Builder User's Guide" online <a
+ href="doc/index.html">here</a>.<br>
+<br>
+The guide is also contained in the Jigloo plugin - after
+you install Jigloo, open up the "Help-&gt;Help Contents" menu and go to
+the entry for "Jigloo GUI Builder Guide". If you will be running SWT
+applications inside Eclipse, it is important that you read the
+"Preparing your project to use the SWT classes" part of the "Getting
+Started" section of the "Jigloo GUI Builder Guide".<br>
+<br>
+<br>
+<a name="purchase"></a><b>Purchasing a
+Professional license<br>
+</b><br>
+The Professional License costs $45 USD for a single-user
+license. For volume purchases or other questions, please contact <a
+ href="mailto:jigloo@cloudgarden.com">jigloo@cloudgarden.com</a><br>
+<br>
+You may
+purchase
+Professional Edition Licenses using your credit card via the
+PayPal
+site.<br style="font-family: verdana;">
+</font><!-- Begin PayPal Logo -->
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post"
+ style="font-family: verdana;" target="_blank"><input type="hidden"
+ name="cmd" value="_xclick"> <input type="hidden" name="business"
+ value="jigloo@cloudgarden.com"><input type="hidden" name="return"
+ value="http://www.cloudgarden.com/jigloo/thanks.html"> <input
+ type="hidden" name="item_name"
+ value="Professional Edition License for Cloudgarden's Jigloo GUI Builder"><input
+ type="hidden" name="undefined_quantity" value="1"><input type="hidden"
+ name="item_number" value="4"><input type="hidden" name="amount"
+ value="45.00"> <input type="hidden" name="cancel_return"
+ value="http://www.cloudgarden.com/jigloo/cancel.html"><input
+ type="hidden" name="no_shipping" value="1"> <font face="Arial"
+ size="-1"><input type="image"
+ src="http://images.paypal.com/images/x-click-but5.gif" border="0"
+ name="submit"
+ alt="Make payments with PayPal - it's fast, free and secure!"><br>
+  <br style="font-style: italic;">
+  </font> </form>
+<p style="font-style: italic; font-family: verdana;">
+</p>
+<p style="font-style: italic; font-family: verdana;"><font face="Arial"
+ size="-1">Note
+for Non-US
+users:
+You can still use PayPal, but you need to open a PayPal account to do
+so.
+To open an account, you can go to the following page on the PayPal
+site:
+<a
+ href="https://www.paypal.com/cgi-bin/webscr?cmd=_international-register"
+ target="_blank">https://www.paypal.com/cgi-bin/webscr?cmd=_international-register</a>
+and then come back to this page to purchase a license.
+</font></p>
+<p style="font-family: verdana;"><font face="Arial" size="-1"><br>
+After your payment is accepted you will automatically be emailed a
+license code (it should arrive within minutes) which
+you can insert into the text area in the Jigloo preferences page, which
+will permanently activate the professional features. In the event of
+complications, please contact <a href="mailto:jigloo@cloudgarden.com">jigloo@cloudgarden.com</a></font>
+</p>
+<font face="Arial" size="-1"><br>
+<a name="bugs"></a><b>Reporting Bugs and
+Requesting Features</b><br>
+<br>
+To report bugs or request new features, please use the "Jigloo" section
+of the <a href="../forums.html" target="_top">Cloudgarden Discussion
+Forums</a>.<br>
+<br>
+<br>
+<a name="history"></a><b>Revision History</b><br>
+<br>
+</font><small><font face="Arial"><b>Version 2.0.1
+- released Jan 7th 2004. <br>
+</b></font></small><small><font face="Arial">
+- Bug-fix release, (mainly bugs related to Swing components, and
+performance on a Mac).<br>
+- Bug fixed: layout of SWT Dialog in generated Java code did not
+correspond to layout in GUI builder.<br>
+- Bug fixed: bug made it impossible to add, or cut/paste, some Swing
+components<br>
+- Bug fixed: CoolBar contents were not displayed in Java code generated
+on Mac.<br>
+- Bug fixed: CoolItems were not correctly sized (this was worse on a
+Mac)<br>
+- Bug fixed: Font chooser dialog did not work on a Mac.<br>
+<br>
+</font></small><small><font face="Arial"><b>Version 2.0.0
+- released Jan 5th 2004. <br>
+</b></font></small><small><font face="Arial">
+- All feaures are available for non-commercial as well as commercial
+use:</font></small><small> <font face="Arial"><i>(ie, there are no
+longer two separate Standard and Professional
+editions), but commercial use still requires purchase of a Professional
+License.</i><br>
+</font></small><small><font face="Arial">- Creation of SWT Dialogs now
+supported.<br>
+- Double-click on components allows quick edit of a component's "text"
+property.<br>
+- Creation dialog allows "text" and image properties and layout options
+to be
+entered quickly and easily (and for default layout preferences to be
+set).<br>
+- Option to have "GUI Properties" view displayed as tabbed panel, with
+tabs for "Properties", "Layout" and "Events".<br>
+- Added individual icons for all SWT and Swing components (in outline
+and context menus).<br>
+- Layouts can also be changed using the "GUI Properties" view, not just
+by a right-click option.<br>
+</font></small><small><font face="Arial">- Added preInitGUI() and
+postInitGUI() methods for
+inserting custom code before and after auto-generated GUI code.<br>
+- Nows runs on Mac OS X (but with support for SWT GUIs only).<br>
+</font></small><small><font face="Arial">
+- Several minor bugs fixed: inability to set defaultCloseOperation for
+JFrame, sizing of CoolBars.<br>
+<br>
+</font></small><small><font face="Arial"><b>Version 1.0.3
+- released Nov 29th 2003. <br>
+</b>- The "Run" menu option now always does a build before
+running (instead of only if the form has been modified).<br>
+- Fixed a bug which resulted in SWT Grid Layouts sometimes not being
+generated as seen in Jigloo (specifically, the widthHint and heightHint
+parameters for components inside a Grid layout were not always set
+equal to the size of the control).<br>
+</font><font face="Arial"><br>
+</font></small><small><font face="Arial"><br>
+</font></small><font face="Arial" size="-1">
+<b>Version 1.0.2
+- released Nov 11th 2003. </b><br>
+- Added support for WebSphere Studio IDEs (version
+5.1.0 tested).<br>
+- Added JTree to Swing component menu.<br>
+- Fixed bug which prevented creation of a new GUI form
+in the project root folder.<br>
+<br>
+<b>Version 1.0.1
+- released Nov 6th 2003.</b><br>
+- Fixed bug
+apparent when creating a new GUI form in the default package. Fixed bug
+apparent after 10-day trial period expired.<br>
+</font>
+<div style="margin-left: 40px;"><font face="Arial" size="-1"><br>
+</font></div>
+<font face="Arial" size="-1"><b>Version 1.0.0 - released Oct 22nd 2003.<br>
+</b>- Initial Release<b><br>
+</b></font>
+</body>
+</html>
