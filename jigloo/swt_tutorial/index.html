@@ -1,0 +1,355 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=windows-1252">
+  <title>Jigloo SWT Tutorial</title>
+  <meta name="GENERATOR" content="OpenOffice.org 2.0  (Win32)">
+  <meta name="AUTHOR" content="cloudgardensoftware.com">
+  <meta name="CREATED" content="20051126;10023565">
+  <meta name="CHANGED" content="16010101;0">
+  <style>
+	<!--
+		TD P { margin-top: 0.1in; margin-bottom: 0.1in; color: #000000; font-family: "Arial", "Helvetica", sans-serif; font-size: 10pt }
+		P { margin-top: 0.1in; margin-bottom: 0.1in; color: #000000; font-family: "Arial", "Helvetica", sans-serif; font-size: 10pt }
+		H3 { font-size: 11pt }
+		A:link { color: #0000ff }
+	-->
+	</style>
+  <meta name="author" content="Jonathan Kinnersley">
+</head>
+<body dir="ltr" style="background-color: rgb(255, 255, 255);"
+ lang="en-US" link="#0000ff">
+<h4 style="font-family: tahoma;"><small>A Jigloo SWT Tutorial</small></h4>
+<small><font style="font-family: tahoma;"
+ face="Helvetica, Arial, sans-serif">In this simple tutorial you will
+create a
+simple browser with an "About" dialog.<br>
+<br>
+<span style="font-weight: bold;">Topics covered:</span><br>
+</font></small>
+<ul style="font-family: tahoma;">
+  <li><small>Arranging elements using FormLayout<br>
+    </small></li>
+  <li><small>Navigating between visual elements in the tree outline and
+their code</small></li>
+  <li><small>Adding multiple&nbsp;</small><small>elements </small><small>
+    </small><small>of the same type to a form<br>
+    </small></li>
+  <li><small>Multi-selecting </small><small>elements </small></li>
+  <li><small>"Surround by" action - useful for times when you realise
+you really need your elements to be in a tab folder, etc</small></li>
+  <li><small>Changing which properties appear under the "Basic" and
+"Expert" headings in the "GUI Properties" editor.</small></li>
+</ul>
+<small><font style="font-family: tahoma;"
+ face="Helvetica, Arial, sans-serif"><br>
+First you will need a Java project and (preferably) a package to hold
+your classes. <br>
+If you don't know how to do this then hitting <span
+ style="font-weight: bold;">Ctrl+N</span> is a quick way to bring up
+the "Create" dialog from which you can perform both these steps.<br>
+<br>
+<span style="font-weight: bold;">Creating the main application window<br>
+<br>
+</span></font></small>
+<div style="margin-left: 40px; font-family: tahoma;"><small><span
+ style="font-weight: bold;">Create new Composite</span><br>
+</small>
+<div style="margin-left: 40px;"><small>...again, Ctrl+N will show the
+"create" dialog, from which you should select "GUI
+forms-&gt;SWT-&gt;Composite"<br>
+<br>
+<img src="new_comp.png" title="" alt=""
+ style="width: 497px; height: 397px;"><br>
+<br>
+As well as creating your composite, Jigloo will copy the jar and native
+libraries into your project. It copies all the native libraries, even
+though you generally will not need them all, but you never know...<br>
+<br>
+</small></div>
+<small><span style="font-weight: bold;">Choose your editor preferences<br>
+</span></small>
+<div style="margin-left: 40px;"><small>Now we've got a Jigloo editor
+open, let's change how it looks. Click on the "Open Jigloo preferences
+editor" button in the toolbar to the left of the Jigloo editor. The
+Eclipse preferences window appears with Jigloo selected. Choose
+"Appearance and Behaviour" and then "Tabbed panels". This is useful
+when you want to maximize your design area, but "Split-pane" can be
+useful if you want to see immediately the connection between code and
+GUI. <br>
+<img src="../swing_tutorial/prefs.png" title="" alt=""
+ style="width: 715px; height: 572px;"><br>
+<br>
+Now hit "OK" and close and re-open the Jigloo editor (you need to
+do this to change to tabbed panels). If your java class does not
+immediately re-open in the Jigloo editor, you can ensure that it uses
+Jigloo's Form Editor by right-clicking on the class and choosing "Open
+with-&gt;Form editor".<br>
+<br>
+<img src="../swing_tutorial/open_jigloo.png" title="" alt=""
+ style="width: 518px; height: 314px;"><br>
+</small><br>
+</div>
+<small><span style="font-weight: bold;"></span></small>
+<div style="margin-left: 40px;"><small><br>
+</small></div>
+<small><span style="font-weight: bold;">
+Start adding controls<br>
+<br>
+</span></small>
+<div style="margin-left: 40px;"><small>The composite is created
+initially with a FormLayout manager, which allows you to position
+elements absolutely and relatively on the form and automatically
+resizes them as the form changes shape. However, other layouts are
+useful for certain purposes - for example GridLayout is very useful for
+situations where your elements are layed out in a grid, with elements
+spanning multiple rows or columns. If you wish to set a layout manager
+for a composite, select it from the "layout" palette and then click on
+the element you wish to apply it to, or right-click on the element and
+use the "Set Layout" options.<br>
+<br>
+Let's add a "GO" button to the top right of the form. First click on
+the "Button" icon in the "Controls" palette and "drop" the button in
+the top-right corner of the form, using the alignment lines.<br>
+<br>
+<img src="go_align.png" title="" alt=""
+ style="width: 105px; height: 73px;"><br>
+<br>
+Then enter a name and initial text (and an icon image if you like) in
+the dialog that will appear.<br>
+<br>
+<img src="go_button.png" title="" alt=""
+ style="width: 457px; height: 390px;"><br>
+<br>
+You may need to re-adjust the position of the button after it is added
+to the form - Jigloo does a better job once it knows exactly how big
+the button is.<br>
+Then add a CCombo control to the top left of the form, call it
+addressCombo with initial value "www.cloudgardensoftware.com" and stretch it
+over to meet the "GO" button. You can also drag it's bottom edge to
+make it the same height as the goButton. Then right-click on the
+addressCombo and choose "Set/Change style...-&gt;BORDER", which will
+give it a 3D border.<br>
+<br>
+Now click on the alignment button at the top-right of the addressCombo
+- an "alignment helper" should pop up (see image)<br>
+<img src="align.png" title="" alt=""
+ style="width: 386px; height: 235px;"><br>
+<br>
+Click on the right anchor button till the anchors look the same as in
+the image above. Now the addressCombo's top, left and right edges are
+anchored fixed distances from the top, left and right edges of the form
+and it will expand horizontally if the form is resized.<br>
+<br>
+Then select the goButton and anchor it as shown in the image below, so
+that it stays fixed in the top right corner of the form (and does not
+resize) as the form is resized.<br>
+<img src="go_anchor.png" title="" alt=""
+ style="width: 276px; height: 235px;"><br>
+<br>
+Now close the alignment helper and make the main form bigger because we
+will add more controls - notice that the addressCombo gets wider.<br>
+<br>
+Now add a "Status" CLabel to the bottom left of the form, an "About"
+Button called (surprise) aboutButton to the bottom-right of the form, a
+CLabel called statusLabel stretched along the bottom edge between the
+other label and the aboutButton, and then add a Browser control in the
+center of the form. <br>
+<br>
+<img src="browser1.png" title="" alt=""
+ style="width: 739px; height: 490px;"><br>
+<br>
+Anchor all controls so that the browser control expands in both
+directions and the statusLabel expands horizontally.<br>
+<br>
+You can test whether your form behaves as expected when it is resized
+by clicking the "Preview" button in the outline view.<br>
+<img src="preview.png" title="" alt=""
+ style="width: 330px; height: 203px;"><br>
+<br>
+<br style="font-weight: bold;">
+</small></div>
+<small><span style="font-weight: bold;">Creating the About Dialog<br>
+</span></small>
+<div style="margin-left: 40px;"><small>Create a new SWT Dialog called
+AboutDialog (use CTRL+N to open the "New" dialog)</small><br>
+<small><img src="newDialog.png" title="" alt=""
+ style="width: 500px; height: 167px;"></small><br>
+<br>
+<small>Again, it will already have FormLayout set as it's layout
+manager.</small><br>
+<br>
+<small>Add a Button and CLabel as shown, and anchor them so the label
+stretches both ways and the button is anchored to the bottom-right.</small><br>
+<small><img src="about_dialog1.png" title="" alt=""
+ style="width: 376px; height: 145px;"><br>
+<br>
+<br>
+</small></div>
+<small><span style="font-weight: bold;">A bit about properties</span></small><br>
+<br>
+<div style="margin-left: 40px;"><small>Now, use the property editor to
+set the CLabel's alignment to CENTER</small><br>
+<br>
+<small><img src="center_align.png" title="" alt=""
+ style="width: 244px; height: 208px;"></small><br>
+<br>
+<small>Since we are in the property editor, we should take a moment to
+look at
+property "categories" which organise properties into "Basic", "Expert",
+"Hidden" and any other category you might want to create. For instance,
+if you scroll down a bit in the property list you'll see the "Expert"
+category, and a property "backgroundImage". You may want to use this
+property a lot and so move it to the "Basic" category. You can do this
+by simply right-clicking on a property name and choosing the category
+you want from the list (see below).</small><br>
+<br>
+<small><img src="prop_category.png" title="" alt=""
+ style="width: 484px; height: 219px;"></small><br>
+</div>
+<small><br>
+</small><small><span style="font-weight: bold;"><br>
+Back to the dialog</span></small><br>
+<br>
+<div style="margin-left: 40px;"><small>Now, just to demonstrate the
+"Surround by" feature, right-click on the label and choose "Surround by
+container...-&gt;CTabFolder"<br>
+<br>
+<img src="surround_by.png" title="" alt=""
+ style="width: 458px; height: 182px;"><br>
+<br>
+Then add a new CTabItem (from the "Items" palette) to the newly-created
+CTabFolder, add a CLabel to the CTabItem<br>
+<br>
+<img src="add_ctabitem.png" title="" alt=""
+ style="width: 282px; height: 217px;"><br>
+</small><small><br>
+<br>
+</small></div>
+</div>
+<div style="margin-left: 40px; font-family: tahoma;"><small><span
+ style="font-weight: bold;">Add code to dispose dialog<br>
+<br>
+</span></small>
+<div style="margin-left: 40px;"><small>Now, select the OK button and
+find the "Events" section in the "GUI Properties" view. Then scroll
+down and open the "SelectionListener" node, and set "widgetSelected" to
+"inline"<br>
+<img src="selected_event.png" title="" alt=""
+ style="width: 247px; height: 186px;"><br>
+<br>
+Jigloo will flip to the source code editor, at the place where the
+widgetSelected event handler has been inserted. Edit the code to add <br>
+</small>
+<pre style="font-weight: bold;">dialogShell.dispose()</pre>
+<small>as shown, so that the dialog will close when the OK button is
+hit.<br>
+<br>
+<img src="dispose_code.png" title="" alt=""
+ style="width: 574px; height: 157px;"><br>
+<br style="font-weight: bold;">
+</small></div>
+</div>
+<div style="margin-left: 40px; font-family: tahoma;"><small><span
+ style="font-weight: bold;"><br>
+Add event code to main composite<br>
+<br>
+</span></small></div>
+<div style="margin-left: 80px; font-family: tahoma;"><small>But how
+will the dialog appear in the first place? We will add code to the main
+composite's aboutButton event handler, so go back to the main composite
+and add a SelectionListener.widgetSelected event handler for the
+aboutButton. If you like, use a "handlerMethod" instead of "inline"
+this time. Then add the following code to the event handler:<br>
+<br>
+</small><span style="font-family: monospace;"><span
+ style="font-weight: bold;">AboutDialog about = new
+AboutDialog(getShell(), SWT.DIALOG_TRIM);</span><br
+ style="font-weight: bold;">
+<span style="font-weight: bold;">about.open();</span><br>
+<br>
+</span><small><span style="font-family: tahoma;">Now, it would be nice
+if the statusLabel's text were updated from the browser, so add a
+StatusTextListener.changed event handler to the browser control (using
+Jigloo's event editor, of course) and add a single line of code (shown
+in bold text below) so the handler looks like this:</span></small><span
+ style="font-family: monospace;"><br>
+<br>
+browser1.addStatusTextListener(new StatusTextListener() {<br>
+&nbsp;&nbsp;&nbsp; &nbsp; public void changed(StatusTextEvent evt) {<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <span
+ style="font-weight: bold;">statusLabel.setText(evt.text);</span><br>
+&nbsp;&nbsp;&nbsp; &nbsp; }<br>
+});<br>
+<br>
+</span><small><br style="font-family: tahoma;">
+<span style="font-family: tahoma;">Now, we need to be able to send a
+url to the browser, so we will add a method that will do that, and also
+add the url to the addressCombo's list (if it is not already in it)<br>
+<br>
+</span></small><span style="font-family: monospace; font-weight: bold;">private
+void go() {<br>
+&nbsp;&nbsp;&nbsp; String url = addressCombo.getText();</span><br
+ style="font-weight: bold;">
+<span style="font-family: monospace; font-weight: bold;">&nbsp;&nbsp;&nbsp;
+if(addressCombo.indexOf(url) &lt; 0)<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; addressCombo.add(url);<br>
+&nbsp;&nbsp;&nbsp; browser1.setUrl(url</span><span
+ style="font-family: monospace;"><span style="font-weight: bold;">);</span><br
+ style="font-weight: bold;">
+<span style="font-weight: bold;">}</span><br>
+<br>
+</span><small><span style="font-family: tahoma;">Then we will add a
+KeyListener.keyPressed handler to the addressCombo </span></small><small><span
+ style="font-family: tahoma;">(using Jigloo's event editor)</span></small><small><span
+ style="font-family: tahoma;">, so that when "Enter" is pressed the url
+will be sent to the browser<br>
+<br>
+</span></small><span style="font-family: monospace;">addressCombo</span><span
+ style="font-family: monospace;">.addKeyListener(new KeyAdapter() {<br>
+&nbsp;&nbsp; public void keyPressed(KeyEvent evt) {<br>
+&nbsp;&nbsp;&nbsp; &nbsp; <span style="font-weight: bold;">if(evt.keyCode
+== SWT.CR)</span><br style="font-weight: bold;">
+<span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; go();</span><br>
+&nbsp;&nbsp; }<br>
+});<br>
+<small><br>
+</small></span><small><span style="font-family: tahoma;">And finally, a
+simple SelectionListener.widgetSelected handler to the goButton</span></small><span
+ style="font-family: monospace;"><br>
+<br>
+goButton.addSelectionListener(new SelectionAdapter() {<br>
+&nbsp;&nbsp;&nbsp; public void widgetSelected(SelectionEvent evt) {<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="font-weight: bold;">go();</span><br>
+&nbsp;&nbsp;&nbsp; }<br>
+});<br>
+<br>
+<br>
+</span></div>
+<small><span style="font-weight: bold; font-family: tahoma;">Running
+the app<br>
+<br style="font-family: tahoma;">
+</span></small>
+<div style="margin-left: 40px; font-family: tahoma;"><small>Congratulations!
+You are all done! Hit CTRL+S to save the form. A quick way to run the
+main method of the class you
+just created is to click the "Run" button in the Outline view.<br>
+<img src="../swing_tutorial/run.png" title="" alt=""
+ style="width: 238px; height: 55px;"><br>
+<br>
+And here it is running...<br>
+<br>
+<img src="browser2.png" title="" alt=""
+ style="width: 606px; height: 401px;"><br>
+<br>
+</small><small>&nbsp;<br>
+<br>
+<br>
+</small></div>
+<p style="font-family: tahoma;"><small><br>
+<br>
+</small></p>
+</body>
+</html>

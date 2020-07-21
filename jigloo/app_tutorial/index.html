@@ -1,0 +1,291 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=windows-1252">
+  <title>Jigloo Swing App Framework (JSR 296) Tutorial</title>
+  <meta name="GENERATOR" content="OpenOffice.org 2.0  (Win32)">
+  <meta name="AUTHOR" content="cloudgardensoftware.com">
+  <meta name="CREATED" content="20051126;10023565">
+  <meta name="CHANGED" content="16010101;0">
+  <style>
+	<!--
+		TD P { margin-top: 0.1in; margin-bottom: 0.1in; color: #000000; font-family: "Arial", "Helvetica", sans-serif; font-size: 10pt }
+		P { margin-top: 0.1in; margin-bottom: 0.1in; color: #000000; font-family: "Arial", "Helvetica", sans-serif; font-size: 10pt }
+		H3 { font-size: 11pt }
+		A:link { color: #0000ff }
+	-->
+	</style>
+  <meta name="author" content="Jonathan Kinnersley">
+</head>
+<body bgcolor="#ffffff" dir="ltr" lang="en-US" link="#0000ff">
+<h4 style="font-family: tahoma;"><small>A Jigloo Swing Application
+Framework (JSR 296) Tutorial</small></h4>
+<small><font face="Helvetica, Arial, sans-serif"
+ style="font-family: tahoma;">In this simple tutorial you will create a
+small text editor application with an "About" dialog based on the <a
+ href="https://appframework.dev.java.net/">Swing Application Framework
+(JSR 296)</a>.<br>
+<br>
+You will use GroupLayout to
+arrange the elements on both forms, and will use pre-defined actions as
+well as creating some new ones.<br>
+<br>
+Since some of the topics (involving basic use of Jigloo to create
+forms) have already been covered in <a
+ href="../swing_tutorial/index.html">"A Jigloo Swing Tutorial"</a> they
+will not be repeated here. <br>
+You are therefore encouraged to at least have a brief&nbsp; look at
+that tutorial.<br>
+<br>
+<span style="font-weight: bold;">New Topics covered:</span><br>
+</font></small>
+<ul style="font-family: tahoma;">
+  <li><small>Creating a SingleFrameApplication and an associated
+JDialog which also uses the appFramework classes.<br>
+    </small></li>
+  <li><small>Using properties files</small><br>
+  </li>
+  <li><small>Using pre-defined copy/cut/delete/paste actions</small></li>
+  <li><small>Getting the action's text property to be used for a button</small></li>
+  <li><small>Synchronization between the form and the properties file<br>
+    </small></li>
+</ul>
+<small><font face="Helvetica, Arial, sans-serif"
+ style="font-family: tahoma;">
+First you will need a Java project and (preferably) a package to hold
+your classes. <br>
+If you don't know how to do this then hitting <span
+ style="font-weight: bold;">Ctrl+N</span> is a quick way to bring up
+the "Create" dialog from which you can perform both these steps.<br>
+<br>
+</font></small><small><font face="Helvetica, Arial, sans-serif"
+ style="font-family: tahoma;"><span
+ style="font-weight: bold; font-style: italic;">NOTE: You also need to
+set your project to use Java 6, since the Swing Application Framework
+requires it.</span></font></small><br>
+<small><font face="Helvetica, Arial, sans-serif"
+ style="font-family: tahoma;"><br>
+<span style="font-weight: bold;">Creating the main Application<br>
+<br>
+</span></font></small>
+<div style="margin-left: 40px; font-family: tahoma;"><small><span
+ style="font-weight: bold;">Create new Empty SingleFrameApplication<br>
+</span></small>
+<div style="margin-left: 40px;"><small>...again, Ctrl+N will show the
+"create" dialog, from which you should select "GUI
+forms-&gt;Swing Application Framework-&gt;Empty SingleFrameApplication"<br>
+<img src="new_app.png" title="" alt=""
+ style="width: 493px; height: 389px;"><br>
+<br>
+Before showing the editor Jigloo will offer to add the required jar
+files to your project - there are two of them and unless you have a
+good reason not to, you should accept - otherwise your classes won't
+compile or run.<br>
+<img src="add_lib1.png" title="" alt=""
+ style="width: 440px; height: 159px;"><br>
+<br>
+<br>
+</small></div>
+<small><span style="font-weight: bold;">Choose your editor preferences<br>
+</span></small>
+<div style="margin-left: 40px;"><small>Now we've got a Jigloo editor
+open, let's change how it looks. Click on the "Open Jigloo preferences
+editor" button in the toolbar to the left of the Jigloo editor. The
+Eclipse preferences window appears with Jigloo selected. Choose
+"Appearance and Behaviour" and then "Tabbed panels". This is useful
+when you want to maximize your design area, but "Split-pane" can be
+useful if you want to see immediately the connection between code and
+GUI. <br>
+<br>
+Now hit "OK" and close and re-open the Jigloo editor (you need to
+do this to change to tabbed panels). If your java class does not
+immediately re-open in the Jigloo editor, you can ensure that it uses
+Jigloo's Form Editor by right-clicking on the class and choosing "Open
+with-&gt;Form editor".<br>
+<br>
+You should now see something like this:<br>
+<img src="baseline.png" title="" alt=""
+ style="width: 998px; height: 491px;"><br>
+<br>
+You can see that<br>
+</small>
+<ul>
+  <li><small>a properties file has been created with the same name as
+the class, in an associated resources folder. This file exteralizes
+String, Font and Color properties allowing the language and look of an
+application to be changed easily. <br>
+    </small></li>
+  <li><small>You can also see a "Properties file" tab at the bottom of
+the Jigloo editor which will allow you to manually edit the properties
+file.</small></li>
+  <li><small>Four actions (which are part of the framework) appear
+under the "Non-visual components" node. Though more actions are easily
+added, these are basic ones that are ready for use.</small><br>
+  </li>
+</ul>
+<small></small></div>
+<small><span style="font-weight: bold;"><br>
+Set layout to GroupLayout</span><br>
+</small>
+<div style="margin-left: 40px;"><small>You can either select the
+GroupLayout icon in the "layout" palette, or right-click on the JFrame
+and select "Set Layout-&gt;GroupLayout"<br>
+<br>
+<br style="font-weight: bold;">
+</small></div>
+<small><span style="font-weight: bold;">Add toolbar, editor pane and
+buttons</span><br>
+</small>
+<div style="margin-left: 40px;"><small>Add a JToolbar to the top-left
+of the main form and drag it across to the right side - you should
+notice that it is now anchored to both sides of the form (ie it expands
+horizontally).<br>
+Now add four JButtons to the toolbar - you can hold down CTRL+SHIFT
+after adding the first button to quickly add the other three.<br>
+Now add two buttons to the bottom right of the form.<br>
+Then add a JScrollPane under the toolbar and stretch it across the form
+and between the toolbar and bottom buttons.<br>
+Finally, add a JEditorPane to the JScrollPane, and reset the toolbar to
+it's default height.<br>
+<br>
+You should have something like this:<br>
+<img src="elements_added.png" title="" alt=""
+ style="width: 625px; height: 416px;"><br>
+</small><small><br>
+<br>
+</small></div>
+<small><span style="font-weight: bold;">Associate the pre-made actions
+with the toolbar buttons<br>
+<br>
+</span></small><small></small>
+<div style="margin-left: 40px;"><small>Locate the "Copy" action in the
+outline tree view, then drag it and drop it on jButton1<br>
+<img src="drag_copy.png" title="" alt=""
+ style="width: 210px; height: 323px;"><br>
+<br>
+Do the same with the other three actions and the other three buttons.
+You should see the following:<br>
+<br>
+<img src="actions_done.png" title="" alt=""
+ style="width: 683px; height: 198px;"><br>
+<br>
+</small><br>
+<small>In order for the actions to function properly they must not be
+focusable, so select all four buttons and set their "focusable"
+property (probably in the "Expert" property category) to "false".<br>
+<br>
+Now, although the buttons look OK in the editor, we need to stop the
+button text overwriting the action's text.<br>
+So open up the property file editor (tab on the bottom of the Jigloo
+editor) and remove the four lines that set the text properties of the
+four buttons.<br>
+<img src="remove_lines.png" title="" alt=""
+ style="width: 421px; height: 282px;"><br>
+</small><small><br>
+Also, since we are here, edit the "mainFrame.title" property to say
+something like "A test text editor".<br>
+<br>
+Now go back to the "GUI Editor" tab and notice how the form is
+re-parsed and re-generated after editing the properties file, and now
+shows a different title.<br>
+<br>
+If you like, you could run the application now and see how the buttons
+work with the JEditorPane - when it has the focus.<br>
+<img src="run.png" title="" alt="" style="width: 238px; height: 55px;"><br>
+<br>
+<br>
+</small></div>
+</div>
+<div style="margin-left: 40px; font-family: tahoma;"></div>
+<small><font face="Helvetica, Arial, sans-serif"
+ style="font-family: tahoma;"><span style="font-weight: bold;">Creating
+the "About" dialog and linking it to the main frame<br>
+<br>
+</span></font></small>
+<div style="margin-left: 40px; font-family: tahoma;"><small><span
+ style="font-weight: bold;">Add the About JDialog<br>
+<br>
+</span></small>
+<div style="margin-left: 40px;"><small>Create a new JDialog - and just
+for fun lets put it in a separate package. Jigloo will detect that the
+App Framework classes are in the build path and will assume that this
+JDialog should also use the App Framework classes. So, when the JDialog
+is opened in the GUI editor, Jigloo will create a resources folder and
+also a properties file for it.<br>
+<br>
+Then, set the layout to GroupLayout and add a button and label (like in
+the Swing Tutorial). Also, add an okAction with text "OK" and associate
+it with the button.<br>
+<br>
+If you need help with this, please refer to "A Jigloo Swing Tutorial".<br>
+<br>
+Now edit the java code for the okAction as follows:<br>
+</small>
+<pre>&nbsp;&nbsp;&nbsp; @Action</pre>
+<pre>&nbsp;&nbsp;&nbsp; public void okAction() {</pre>
+<pre>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; dispose();</pre>
+<pre>&nbsp;&nbsp;&nbsp; }</pre>
+<small>As with the main frame, we will also need to remove the button's
+text property from the property file, so the action's text comes
+through.<br>
+<br>
+<br>
+<img src="aboutDialog.png" title="" alt=""
+ style="width: 912px; height: 240px;"><br>
+<br>
+<br>
+</small></div>
+<small></small></div>
+<div style="margin-left: 80px; font-family: tahoma;"><small>Now, go
+back to our main application and add an action "aboutAction",
+associated with the bottom-right button. Then delete the button's text
+property from the properties file.<br>
+<br>
+Now we will add code to the
+aboutAction, so double-click on the aboutAction in the Outline view.
+Then add the code:<br>
+</small><span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; @Action<br>
+&nbsp;&nbsp; &nbsp;public void aboutAction() {<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; AboutDialog about = new
+AboutDialog(getMainFrame());<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; about.pack();<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; about.setLocationRelativeTo(null);<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; about.setVisible(true);<br>
+&nbsp;&nbsp; &nbsp;}<br>
+</span><small><br style="font-family: tahoma;">
+<span style="font-family: tahoma;">Do the same thing for the other
+button, but this time add a closeAction (with text "Close") and code:<br>
+<br>
+</span></small><span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;
+@Action<br>
+&nbsp;&nbsp;&nbsp; public void closeAction() {<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; getMainFrame().dispose();<br>
+&nbsp;&nbsp;&nbsp; }<br>
+<br>
+</span></div>
+<small><font face="Helvetica, Arial, sans-serif"
+ style="font-family: tahoma;">
+</font></small><small><span
+ style="font-weight: bold; font-family: tahoma;"><br>
+Running the app<br>
+<br style="font-family: tahoma;">
+</span></small>
+<div style="margin-left: 40px; font-family: tahoma;"><small>Congratulations!
+You are all done! Hit CTRL+S to save the form. A quick way to run the
+main method of the class you
+just created is to click the "Run" button in the Outline view.<br>
+<img src="run.png" title="" alt="" style="width: 238px; height: 55px;"><br>
+<br>
+The main frame should appear in the middle of the screen. <br>
+<br>
+<img src="result.png" title="" alt=""
+ style="width: 416px; height: 332px;"></small><small>&nbsp;<br>
+<br>
+<br>
+</small></div>
+<p style="font-family: tahoma;"><small><br>
+<br>
+</small></p>
+</body>
+</html>

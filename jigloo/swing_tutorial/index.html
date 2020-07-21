@@ -1,0 +1,484 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=windows-1252">
+  <title>Jigloo Swing Tutorial</title>
+  <meta name="GENERATOR" content="OpenOffice.org 2.0  (Win32)">
+  <meta name="AUTHOR" content="cloudgardensoftware.com">
+  <meta name="CREATED" content="20051126;10023565">
+  <meta name="CHANGED" content="16010101;0">
+  <style>
+	<!--
+		TD P { margin-top: 0.1in; margin-bottom: 0.1in; color: #000000; font-family: "Arial", "Helvetica", sans-serif; font-size: 10pt }
+		P { margin-top: 0.1in; margin-bottom: 0.1in; color: #000000; font-family: "Arial", "Helvetica", sans-serif; font-size: 10pt }
+		H3 { font-size: 11pt }
+		A:link { color: #0000ff }
+	-->
+	</style>
+  <meta name="author" content="Jonathan Kinnersley">
+</head>
+<body dir="ltr" style="background-color: rgb(255, 255, 255);"
+ lang="en-US" link="#0000ff">
+<h4 style="font-family: tahoma;"><small>Jigloo Swing Tutorial</small></h4>
+<small><font style="font-family: tahoma;"
+ face="Helvetica, Arial, sans-serif">In this simple tutorial you will
+create a
+small application with an "About" dialog, a menu bar, and the code to
+open and close the dialog. You will use the swing's GroupLayout to
+arrange the elements on both JFrame and JDialog, and swing Actions to
+control the JDialog.<br>
+<br>
+<span style="font-weight: bold;">Topics covered:</span><br>
+</font></small>
+<ul style="font-family: tahoma;">
+  <li><small>Arranging elements using GroupLayout - anchoring and
+expanding by positioning or resizing or by using the drop-down menu<br>
+    </small></li>
+  <li><small>Adding Actions to menu items and buttons - and associating
+accelerators and mnemonics with actions<br>
+    </small></li>
+  <li><small>Navigating between visual elements in the tree outline and
+their code</small></li>
+  <li><small>Adding multiple&nbsp;</small><small>elements </small><small>
+    </small><small>of the same type to a form<br>
+    </small></li>
+  <li><small>Multi-selecting </small><small>elements </small></li>
+  <li><small>"Surround by" action - useful for times when you realise
+you really need your table to be in a scroll pane, etc</small></li>
+  <li><small>Designing multple "root" visual elements in the same form
+- in this case a JFrame and a JDialog</small></li>
+  <li><small>Changing which properties appear under the "Basic" and
+"Expert" headings in the "GUI Properties" editor.</small></li>
+</ul>
+<small><font style="font-family: tahoma;"
+ face="Helvetica, Arial, sans-serif"><br>
+First you will need a Java project and (preferably) a package to hold
+your classes. <br>
+If you don't know how to do this then hitting <span
+ style="font-weight: bold;">Ctrl+N</span> is a quick way to bring up
+the "Create" dialog from which you can perform both these steps.<br>
+<br>
+<span style="font-weight: bold;">Creating the main JFrame<br>
+<br>
+</span></font></small>
+<div style="margin-left: 40px; font-family: tahoma;"><small><span
+ style="font-weight: bold;">Create new JFrame</span><br>
+</small>
+<div style="margin-left: 40px;"><small>...again, Ctrl+N will show the
+"create" dialog, from which you should select "GUI
+forms-&gt;Swing-&gt;JFrame"<br>
+<br>
+<img src="new_frame.png" title="" alt=""
+ style="width: 617px; height: 498px;"><br>
+<br>
+</small></div>
+<small><span style="font-weight: bold;">Choose your editor preferences<br>
+</span></small>
+<div style="margin-left: 40px;"><small>Now we've got a Jigloo editor
+open, let's change how it looks. Click on the "Open Jigloo preferences
+editor" button in the toolbar to the left of the Jigloo editor. The
+Eclipse preferences window appears with Jigloo selected. Choose
+"Appearance and Behaviour" and then "Tabbed panels". This is useful
+when you want to maximize your design area, but "Split-pane" can be
+useful if you want to see immediately the connection between code and
+GUI. <br>
+<img src="prefs.png" title="" alt=""
+ style="width: 715px; height: 572px;"><br>
+<br>
+Now hit "OK" and close and re-open the Jigloo editor (you need to
+do this to change to tabbed panels). If your java class does not
+immediately re-open in the Jigloo editor, you can ensure that it uses
+Jigloo's Form Editor by right-clicking on the class and choosing "Open
+with-&gt;Form editor".<br>
+<br>
+<img src="open_jigloo.png" title="" alt=""
+ style="width: 518px; height: 314px;"><br>
+</small><br>
+</div>
+<small><span style="font-weight: bold;">Maximize Jigloo<br>
+</span></small>
+<div style="margin-left: 40px;"><small>You will probably find it easier
+to design a GUI if you can see as much of it as possible, so
+double-click on the editor tab and the Jigloo editor will</small><small>
+take over most of Eclipse and arrange itself so you can see an outline
+of the elements, the property editor and the form designer.<br>
+<br>
+<img src="maxed.png" title="" alt=""
+ style="width: 787px; height: 615px;"><br>
+</small></div>
+<small><span style="font-weight: bold;"><br>
+Set layout to GroupLayout</span><br>
+</small>
+<div style="margin-left: 40px;"><small>You can either select the
+GroupLayout icon in the "layout" palette, or right-click on the JFrame
+and select "Set Layout-&gt;GroupLayout"<br>
+<br>
+<img src="set_layout.png" title="" alt=""
+ style="width: 456px; height: 460px;"><br>
+If you are using Java 6 then code will be generated for the
+javax.swing.GroupLayout which is part of Java 6. <br>
+If you are not using Java 6, Jigloo will use the
+org.jdesktop.layout.GroupLayout (which is the equivalent of the swing
+GroupLayout) and will let you know that it needs to add the
+swing-layout-1.0.jar file to your project.<br>
+<br>
+<img src="add_lib.png" title="" alt=""
+ style="width: 440px; height: 158px;"><br>
+<br style="font-weight: bold;">
+</small></div>
+<small><span style="font-weight: bold;">Add OK and Cancel buttons</span><br>
+</small>
+<div style="margin-left: 40px;"><small>Select the JButton icon from the
+"Components" palette and move the cursor down to the bottom-right of
+the form until it "clicks" into place. <br>
+<img src="bottom_right_button.png" title="" alt=""
+ style="width: 105px; height: 60px;"><br>
+In the dialog that will open (if you have selected that option in the
+jigloo preferences) you will be able to set the button's name and text
+(and icon if you want). You can also do all this later.</small><small>
+We will make this the "Cancel" button.</small><br>
+<small><img src="cancel_button_dlg.png" title="" alt=""
+ style="width: 457px; height: 389px;"><br>
+Then hold CTRL and SHIFT down and you will be able to add another
+button without returning to the component palette.<br>
+<img src="two_butts.png" title="" alt=""
+ style="width: 159px; height: 54px;"><br>
+<br>
+If you aligned the buttons with the bottom-right of the form
+you should see (as in the image above) a faint red arrow connecting the
+buttons to the right of
+the form and a blue arrow connecting them to the bottom of the form,
+indicating that they are anchored to those sides of the form. <br>
+<br>
+You can
+also change the anchoring by either re-positioning the buttons next to
+edges
+of the form, or by using the drop-down alignment menu which you can
+access from the
+"arrow" button on the top-right of the element. Note all
+the menu options, which allow you to change how the element behaves as
+the form is resized.<br>
+<img src="alignment.png" title="" alt=""
+ style="width: 299px; height: 156px;"><br>
+<br>
+</small><small>
+Label the buttons "OK" and "Cancel" - you can double-click on the
+button to edit the label, or edit the "text" property.<br>
+<img src="edit_txt_1.png" title="" alt=""
+ style="width: 82px; height: 50px;">&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="edit_txt_2.png" title="" alt=""
+ style="width: 82px; height: 50px;"><br>
+<br>
+</small></div>
+<small><span style="font-weight: bold;">Make OK and Cancel buttons same
+width, and same font</span><br>
+</small>
+<div style="margin-left: 40px;"><small>Multi-select the OK and Cancel
+buttons - you can do this using either:<br>
+</small>
+<ul>
+  <li><small>the "rubber band" technique - hold SHIFT down then drag
+the mouse over both buttons, then release the mouse, or<img
+ src="rubber_band.png" title="" alt=""
+ style="width: 152px; height: 61px;" align="top"></small></li>
+  <li><small>holding CTRL down as you click on the buttons</small></li>
+</ul>
+<small>Click on the "Make selected elements the same width" icon in the
+alignment toolbar. <br>
+<img src="link_widths.png" title="" alt=""
+ style="width: 458px; height: 165px;"><br>
+Then select the OK button - notice that now the "same widths" icon has
+changed to "Unlink the selected element's width from all other
+elements". This allows you to "unlink" an individual element after it
+has been linked.<br>
+<br>
+Now multi-select both buttons again and (just for fun) change
+the font to "bold" by clicking on the "font" property in the "GUI
+Properties" view and using the dialog that will appear after you click
+on the small "..." button.<br>
+<img src="edit_font.png" title="" alt=""
+ style="width: 599px; height: 389px;"><br>
+<br>
+</small></div>
+<small><span style="font-weight: bold;">Add JTable</span><br>
+</small>
+<div style="margin-left: 40px;"><small>using the "Components" palette -
+add it to the top-left of the form.<br>
+<br>
+</small></div>
+<small><span style="font-weight: bold;">Surround by JScrollPane and
+stretch it across the form.</span><br>
+</small>
+<div style="margin-left: 40px;"><small>Oops - you just remembered you
+really meant to add a JScrollPane first, for the table to go inside,
+but instead of undoing what you did, you can right-click on the JTabel
+and choose "Surround by-&gt;JScrollPane".<br>
+<br>
+<img src="surround_by.png" title="" alt=""
+ style="width: 529px; height: 168px;"><br>
+<br>
+Now select the JScrollPane (either in the outline or by clicking on
+it's scrollbars, or it's edges - if a scrollpane's child element
+occupies all of the area of a scrollpane and there are no scrollbars,
+clicking near the edge of the scrollpane will select the scrollpane).
+Then drag the side or corner of the JScrollPane so that it stretches
+from the
+left to the right of the form and is a bit taller. Again, red and blue
+arrows should
+indicate that it is connected to both the left and right sides of the
+form. <br>
+<br>
+If you open the drop-down menu you will see that "Expands Horizontally"
+is checked, and as before you can use that menu to change any of the
+listed properties. Note that you will need to uncheck "Expands
+horizontally" in order to be able to anchor it left or right.<br>
+<br>
+</small></div>
+<small><span style="font-weight: bold;">Add two JTextField (using
+quick-repeat) and JButton<br>
+<br>
+</span></small>
+<div style="margin-left: 40px;"><small>Just to get a feel for
+GroupLayout, add two JTextFields and a JButton, then select them all
+and surround by a JPanel and set the JPanel's layout to GroupLayout.
+You can resize the panel and move/resize the elements till they look
+similar to what is shown below.<br>
+<br>
+Then edit the JPanel's "Border" property to create a titled border with
+some text.<br>
+<img src="titled_border.png" title="" alt=""
+ style="width: 706px; height: 439px;"><br>
+<br>
+</small></div>
+<small><span style="font-weight: bold;">Surround JPanel by JTabbedPane
+then copy and paste the JPanel into the JTabbedPane</span><br>
+</small>
+<div style="margin-left: 40px;"><small>This just demonstrates copy and
+paste - or you could try cutting and pasting multiple components too<br>
+<br>
+</small></div>
+<small><span style="font-weight: bold;">Add JMenuBar with File and Help
+menus<br>
+<br>
+</span></small>
+<div style="margin-left: 40px;"><small>Now something a bit more useful
+- add a JMenuBar - using the "Menu" palette. <br>
+<img src="menu_bar.png" title="" alt=""
+ style="width: 466px; height: 412px;"></small><small><br>
+<br>
+Now double-click on the
+"jMenu1" menu and change the text to "File", then add a new "Help"
+JMenu to
+the menu bar.<br>
+<img src="menu2.png" title="" alt="" style="width: 79px; height: 57px;"><br>
+</small><small><br>
+</small></div>
+</div>
+<div style="margin-left: 40px; font-family: tahoma;"><small><span
+ style="font-weight: bold;">Add an "About" action (and menu item) to
+the Help menu</span><br>
+</small>
+<div style="margin-left: 40px;"><small>Select the "AbstractAction" icon
+from the "More components" palette, and then click diretly on the
+"Help" menu. Enter "Action" for the action's text property (and call
+the action "aboutAction").<br>
+<img src="aboutAction1.png" title="" alt=""
+ style="width: 773px; height: 266px;"><br>
+<br>
+If you look at the Outline view you will see that a JMenuItem has been
+added to the Help menu and the aboutAction has been associated with it.
+The JMenuItem's text will also take on the value of the
+AbstractAction's text property.<br>
+<img src="aboutAction2.png" title="" alt=""
+ style="width: 261px; height: 241px;"><br>
+<br>
+</small></div>
+</div>
+<div style="margin-left: 40px; font-family: tahoma;"><small><span
+ style="font-weight: bold;">Test out the form using the "Preview" button</span><br>
+</small>
+<div style="margin-left: 40px;"><small>Hit the "Preview" button in the
+Outline view and click on the "Help" menu - the "About" item should
+show itself.<br>
+You can also resize the form and check out how it behaves.<br>
+If an element expands horizontally or vertically but you would rather
+it not, then make sure the appropriate "Expands" option is not
+selected, and then also try the "Reset to default width/height"
+options, which should ensure that an element keeps it's default width
+or height.<br>
+<img src="preview.png" title="" alt=""
+ style="width: 501px; height: 406px;"><br>
+<br>
+</small></div>
+</div>
+<small><font style="font-family: tahoma;"
+ face="Helvetica, Arial, sans-serif"><span style="font-weight: bold;">Creating
+the "About" dialog and linking it to the main frame<br>
+<br>
+</span></font></small>
+<div style="margin-left: 40px; font-family: tahoma;"><small><span
+ style="font-weight: bold;">Add JDialog</span><br>
+</small>
+<div style="margin-left: 40px;"><small>Either right-click on a region
+outside of the main JFrame and choose "Add container-&gt;JDialog" or
+choose the JDialog icon from the "Containers" menu and click somewhere
+outside of the main JFrame.<br>
+This will add a totally separate JDialog to the class. <br>
+<img src="add_dialog.png" title="" alt=""
+ style="width: 232px; height: 91px;"><br>
+<br>
+Note the JDialog node on the Outline view. The red border indicates
+that this element is the "active" root element, and is being shown in
+the form editor.<br>
+<img src="outline_dlg.png" title="" alt=""
+ style="width: 182px; height: 120px;"><br>
+<br>
+Try clicking on the "this"
+node - the main form will appear. Then click on the "jDialog1" node and
+get back to the JDialog.<br>
+This is how you can use Jigloo to design multiple "root" elements in
+the same Java class.<br>
+<br>
+</small></div>
+<small><span style="font-weight: bold;">Set GroupLayout and add label
+and OK button</span><br>
+</small>
+<div style="margin-left: 40px;"><small>...using the techniques used
+above.<br>
+<img src="aboutDialog.png" title="" alt=""
+ style="width: 252px; height: 133px;"><br>
+<br>
+<br style="font-weight: bold;">
+</small></div>
+<small><span style="font-weight: bold;">Set horizontalAlignment to
+CENTER (and make horizontalAlignment a Basic property)<br>
+<br>
+</span></small>
+<div style="margin-left: 40px;"><small>Select the label, and in the
+"GUI Properties" editor,
+open the "Expert" node and scroll to "horizontalAlignment". Change this
+to "CENTER".<br>
+Now, if you think you will be using this property failry often then
+right-click on it and choose "Set property category for
+horizontalAlignment-&gt;Basic".<br>
+<img src="prop_category.png" title="" alt=""
+ style="width: 458px; height: 236px;"><br>
+<br>
+The horizontalAlignment property (for all elements that have it) will
+now appear under the "Basic"
+property node.<br>
+<br>
+</small></div>
+<small><span style="font-weight: bold;">Add action to dialog's OK
+button with code to dispose dialog<br>
+<br>
+</span></small>
+<div style="margin-left: 40px;"><small>Now, add a "Close" action to the
+form - again, choose "AbstractAction" from the "More Components"
+palette but this time (for a change) click anywhere on the editor
+outside of the JDialog. Set
+the text to "OK" and the name to closeAboutAction. Then go to
+the Outline view and drag the newly-added action (under the "Extra
+components" node) to the dialog's "OK" button. <br>
+<img src="drag_action.png" title="" alt=""
+ style="width: 300px; height: 209px;"><br>
+<br>
+The action should now
+appear twice - once under the "Extra components" node and once under
+the dialog's "OK" button. If you wish to disassociate the action with
+the OK button, just select the action under the button and hit the
+"delete" key. A prompt dialog will ask you if you really want to delete
+the action but it will really just remove the action from the button.
+If you really want to delete the action, select it first under the
+"Extra components" node.<br>
+<br>
+Now, find the close action under the OK button in the Outline view and
+double-click on it. The source code will appear and the close action's
+code will be highlighted.<br>
+<br>
+<img src="action_code1.png" title="" alt=""
+ style="width: 690px; height: 225px;"><br>
+Edit the code to add <br>
+</small>
+<pre>getJDialog1().dispose()</pre>
+<small>as shown, so that the dialog will close when the OK button is
+hit.<br>
+<br style="font-weight: bold;">
+</small></div>
+</div>
+<div style="margin-left: 40px; font-family: tahoma;"><small><span
+ style="font-weight: bold;">Add code to open dialog from the aboutAction</span><br>
+</small></div>
+<div style="margin-left: 80px; font-family: tahoma;"><small>But how
+will the dialog appear in the first place? We will add code to the
+aboutAction, so double-click on the aboutAction in the Outline view.
+Then add the code:<br>
+</small>
+<pre>getJDialog1().pack();</pre>
+<pre>getJDialog1().setLocationRelativeTo(null);</pre>
+<pre><small><big>getJDialog1().setVisible(true);</big><br></small></pre>
+</div>
+<small><font style="font-family: tahoma;"
+ face="Helvetica, Arial, sans-serif">
+</font></small>
+<div style="margin-left: 40px; font-family: tahoma;"><small><span
+ style="font-weight: bold;">Add an accelerator for the "About" action</span><br>
+</small>
+<div style="margin-left: 40px;"><small>We want people to be able to
+easily see what this application is about, right? Well, maybe not, but
+for the purposes of this demo we will associate an "accelerator" with
+the about action.<br>
+Select the about action, and in the GUI Properties editor, select the
+"accelerator" property - it will be under the "Expert" node, but you
+might want to move it to the "Basic" node, as above with the
+horizontalAlignment property. Then hold CTRL+SHIFT+A down and you
+should should see "ctrl shift A"
+appear in the "accelerator" value. <br>
+<img src="accelerator.png" title="" alt=""
+ style="width: 249px; height: 232px;"></small><small><br>
+Then release the keys and hit "return" and the code will be
+updated.</small><br>
+<small>You can also associate a mnemonic with the action in a similar
+way - a
+mnemonic allows a user to select a menu item by hitting a key (say, A
+in this case), but only when the parent menu is visible.<br>
+</small></div>
+</div>
+<small><span style="font-weight: bold; font-family: tahoma;"><br>
+Running the app<br>
+<br style="font-family: tahoma;">
+</span></small>
+<div style="margin-left: 40px; font-family: tahoma;"><small>Congratulations!
+You are all done! Hit CTRL+S to save the form. A quick way to run the
+main method of the class you
+just created is to click the "Run" button in the Outline view.<br>
+<img src="run.png" title="" alt="" style="width: 238px; height: 55px;"><br>
+<br>
+The main frame should appear in the middle of the screen. <br>
+<br>
+Note: If elements do not appear to be a "comfortable" size when the app
+is run, try selecting them in the Jigloo editor and choosing "Reset to
+default width/height" from the alignment menu.<br>
+<br>
+</small><small>Try hitting CTRL+SHIFT+A - the about menu should appear
+- woo hoo! <br>
+And
+when your curiosity has been thoroughly satisfied you can click the
+"OK" button,
+causing the dialog to disappear.<br>
+</small><br>
+<small>Note: if you get an "java.lang.UnsupportedClassVersionError: Bad
+version number in .class file" message, make sure your compiler
+compliance level (set using the properties dialog for your project) is
+the same as the version of Java you are running your class with.<br>
+<img src="compliance.png" title="" alt=""
+ style="width: 637px; height: 221px;">&nbsp;<br>
+<br>
+<br>
+</small></div>
+<p style="font-family: tahoma;"><small><br>
+<br>
+</small></p>
+</body>
+</html>
