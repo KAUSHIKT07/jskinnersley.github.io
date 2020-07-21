@@ -1,0 +1,62 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta http-equiv="Expires" content="0">
+   <meta name="description" content="Java Speech, JSAPI, SAPI5, SAPI4, Java, Speech, recognition, synthesis, implementation">
+   <meta name="keywords" content="Java Speech, JSAPI, SAPI5, SAPI4, Java, Speech, recognition, synthesis, implementation">
+   <meta name="Author" content="J Kinnersley">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>Java Speech API for Windows (using MS SAPI5 and SAPI4)</title>
+<link REL=STYLESHEET TYPE="text/css" HREF="jsapi.css">
+</head>
+<body>
+
+<h3>
+<b><u><font face="arial"><font color="#3333FF"><font size=+1>Requirements</font></font></font></u></b></h3>
+<b><u><font face="arial"><font color="#3333FF"><font size=+1>Software</font></font></font></u></b>
+<ul>
+<li>
+<font face="arial"><font size=-1><a href="http://java.sun.com/j2se/1.3/">Sun's
+JDK/JRE 1.4, 1.3, 1.2 or 1.1</a> -&nbsp; NOTE: Although the Synthesizers
+work well with all versions, <font color="#000000">some problems have been
+observed using Recognizers with JDK 1.2.2 (but not JDK 1.3 or 1.4) which
+seem to be Swing-related, so it is recommended that Java 1.3 or better
+be used for applications using Recognizers.</font></font></font></li>
+
+<li>
+<font face="arial"><font size=-1><a href="http://java.sun.com/jmf">Sun's
+Java Media Framework 2.1.1</a> - In order to use all the IO features of
+the com.cloudgarden.audio package, Sun's JMF 2.1.1 or better must be installed.
+However, if the getDataSink and getDataSource methods of CGAudioManager
+are not used, then only the javax.sound package is required, and this is
+an integral part of the Java 1.3 implementation - if Java 1.1 or 1.2 is
+used you should install the full JMF 2.1.1</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>One or more SAPI 5.1, 5.0 or 4.0 compliant
+speech engine(s). <a href="engines.html">Several are described here</a>
+- many are free for download.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>Microsoft Windows 98, Me , NT4, 2000
+or XP operating system.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><a href="http://java.sun.com/products/java-media/speech/">Sun's
+JSAPI specification</a> for documentation of classes and methods, as well
+as JSGF and JSML specifications.</font></font></li>
+
+<br><font face="arial"><font size=-1></font></font>&nbsp;</ul>
+<b><u><font face="arial"><font color="#3333FF"><font size=+1>Hardware</font></font></font></u></b><b><u><font face="arial"><font color="#3333FF"><font size=+1></font></font></font></u></b>
+<p><font face="arial"><font size=-1>On a 400MHz PentiumII system with
+256MB RAM, performance is good.</font></font>
+<br><font face="arial"><font size=-1>On a 133MHz PentiumII with 64MB
+performance is still satisfactory for command grammars, but rather slow
+for dictation.</font></font><font face="arial"><font size=-1></font></font>
+<p><font face="arial"><font size=-1>No special sound card is required
+- most should work.</font></font>
+<br><font face="arial"></font>&nbsp;
+<br><font face="arial"><font size=-1></font></font>&nbsp;
+</body>
+</html>

@@ -1,0 +1,11 @@
+com.cloudgarden.audio
+com.cloudgarden.speech
+com.cloudgarden.speech.userinterface
+examples
+examples.audio
+examples.recognition
+examples.remote
+examples.rtp
+examples.synthesis
+examples.userinterface
+examples.vocab

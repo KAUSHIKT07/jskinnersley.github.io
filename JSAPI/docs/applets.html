@@ -1,0 +1,87 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta http-equiv="Expires" content="0">
+   <meta name="description" content="Java Speech, JSAPI, SAPI5, SAPI4, Java, Speech, recognition, synthesis, implementation">
+   <meta name="keywords" content="Java Speech, JSAPI, SAPI5, SAPI4, Java, Speech, recognition, synthesis, implementation">
+   <meta name="Author" content="J Kinnersley">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>Java Speech API for Windows (using MS SAPI5 and SAPI4)</title>
+</head>
+<body>
+
+<h3>
+<b><u><font face="arial"><font color="#3333FF"><font size=+1>Using the
+JSAPI in Applets and with the Java Plugin</font></font></font></u></b></h3>
+<font face="arial"><font size=-1>Since this implementation of the JSAPI
+will run under a Java1.1 VM, it is possible to use it from an ordinary
+Applet in a suitable browser (eg Netscape 4.7 or above or IE 5.0 or above
+with Java VM version 5 - install SP 2 for IE 5.5), provided:</font></font>
+<ul>
+<li>
+<font face="arial"><font size=-1>EITHER: Execute <b>Setup.exe</b>, which
+will start up a Java GUI which will let you install the JSAPI libraries
+in the correct locations to be used by the native VMs in Netscape and Internet
+Explorer.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>OR manually install the cgjsapiNNN.dll
+(eg, cgjsapi160.dll) and cgjsapi.jar files as follows:</font></font></li>
+
+<ol>
+<li>
+<font face="arial"><font size=-1>For Internet Explorer</font></font></li>
+
+<ul>
+<li>
+<font face="arial"><font size=-1>Copy cgjsapiNNN.dll to the "WINDOWS"
+folder, eg C:\WINDOWS</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>EITHER</font></font></li>
+
+<ul>
+<li>
+<font face="arial"><font size=-1>Store the cgjsapi.jar somewhere, and
+modify the "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Java VM\Classpath" value
+in the registry to include the path to that cgjsapi.jar file.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>OR, Copy cgjsapi.jar to the C:\WINDOWS\Java\Classes
+folder and move to that folder, then execute the command "jar xf cgjsapi.jar".
+Note that if you use this option you may run into some security restrictions
+with the Microsoft VM.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>OR, Copy the cgjsapi.jar file to the
+C:\WINDOWS\Java\TRUSTLIB folder (for Win2k platforms)</font></font></li>
+</ul>
+</ul>
+
+<li>
+<font face="arial"><font size=-1>For Netscape</font></font></li>
+
+<ul>
+<li>
+<font face="arial"><font size=-1>Copy cgjsapiNNN.dll to C:\Program Files\Netscape\Communicator\Program\java\bin</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>Copy cgjsapi.jar to C:\Program Files\Netscape\Communicator\Program\java\classes</font></font></li>
+</ul>
+</ol>
+
+<li>
+<font face="arial"><font size=-1>If redirecting audio to or from a speech
+engine (ie, to/from a file or across the network), Sun's JMF 2.1.1 implementation
+will need to be installed for use by Applets.</font></font></li>
+</ul>
+<font face="arial"><font size=-1>An example of a JSAPI-enabled Applet
+is shown <a href="../examples/applet/browser.html">here</a>. The code is
+<a href="../examples/applet/BrowserApplet.java">here</a>. You may setup
+your browser to either use Sun's Java Plugin or the native Java VM supplied
+with the browser. If you use Sun's plugin, you will need to create or modify
+your policy file as described in the <a href="security.html">Security section</a>.</font></font>
+<br><font face="arial"><font size=-1></font></font>&nbsp;
+</body>
+</html>

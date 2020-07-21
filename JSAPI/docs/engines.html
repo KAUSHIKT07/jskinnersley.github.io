@@ -1,0 +1,98 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta http-equiv="Expires" content="0">
+   <meta name="description" content="Java Speech, JSAPI, SAPI5, SAPI4, Java, Speech, recognition, synthesis, implementation">
+   <meta name="keywords" content="Java Speech, JSAPI, SAPI5, SAPI4, Java, Speech, recognition, synthesis, implementation">
+   <meta name="Author" content="J Kinnersley">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>Java Speech API for Windows (using MS SAPI5 and SAPI4)</title>
+<link REL=STYLESHEET TYPE="text/css" HREF="jsapi.css">
+</head>
+<body>
+<b><u><font face="arial"><font color="#3333FF"><font size=+1>SAPI4
+&amp; SAPI5&nbsp; Speech Engines</font></font></font></u></b>
+<ul>
+<li>
+<font face="arial"><font size=-1><a href="http://www.microsoft.com/speech" target="_blank">Microsoft's
+Speech page</a> - has links to download <a href="http://www.microsoft.com/speech/download/sdk51/" target="_blank">SAPI
+5.1</a> and <a href="http://www.microsoft.com/speech/download/old/" target="_blank">SAPI
+4.0a</a> SDKs (which include both SR and TTS engines from Microsoft). The
+SAPI 5.0 SDK also works but it appears to be no longer available.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><a href="http://www.microsoft.com/msagent/downloads.htm#tts" target="_blank">L&amp;H
+TTS engines from the Microsoft Agent Download Page</a> - download the Lernout
+&amp; Hauspie TruVoice American English TTS engine (1MB) and ten Lernout
+&amp; Hauspie TTS3000 TTS engines, each one over 2MB (UK English, French,
+German, Spanish, Dutch, Italian, Russian, Korean, Japanese, Portuguese).
+This page also has links to other SAPI4-compliant speech engines.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>IBM's ViaVoice runtimes - either from
+an installation of ViaVoice (<a href="http://www-3.ibm.com/software/speech/desktop/w9.html" target="_blank">Version
+9</a> has been tested with this implementation) or with the <a href="http://www-3.ibm.com/software/speech/dev/sdk_windows.html" target="_blank">ViaVoice
+SDK</a>. SR and TTS engines.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><a href="http://www.scansoft.com/naturallyspeaking/" target="_blank">Dragon
+NaturallySpeaking (SR)</a> - large range of languages available. <a href="http://www.scansoft.com/naturallyspeaking/essentials" target="_blank">NaturallySpeaking
+Essentials</a> is the cheapest option for getting the Dragon SR engine
+(the more expensive versions seem to offer more features on top of the
+common SR engine). Note that you will need to ensure that the Dragon NaturallySpeaking
+application is NOT running in order to be able to use the SR engine with
+the JSAPI.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><a href="http://www.infovox.se/tdemo.htm" target="_blank">Infovox
+330 TTS engine</a> - a good quality TTS engine but with some bugs in the
+SAPI4 interface that cause phrases to be ended prematurely and word events
+to be reported incorrectly. The word-event bug can be got around for now
+by calling CGEngineProperties.useFixForInfovox330(true).</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>AT&amp;T NaturalVoices TTS engines -
+very good quality but hard to purchase directly. <a href="http://www.nextup.com/" target="_blank">Nextup.com</a>
+will sell the two default voices for $25 as an upgrade to one of their
+products, or separately for $35 <a href="https://www.regsoft.net/regsoft/vieworderpage.php3?productid=56116" target="_blank">here</a>.
+These engines have not been tested by Cloudgarden, but users have reported
+that they work well.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><a href="http://www.loquendo.com" target="_blank">Loquendo
+TTS engines</a> - if you contact Loquendo they can send you an evaluation
+copy of their SAPI5 TTS engines, and you can later purchase licenses from
+them for their engines. The "Susan" voice has been tested with the JSAPI
+- it sounds lifelike and works fairly well.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><a href="http://www.speech.philips.com/pc/pages/pc_frameset.htm?pc_15.htm" target="_blank">Philips
+Speech SDK 2.0 (SR)</a> - 90 day trial. (Note: Philips Speech SDK<b> version
+3.0</b> is <b>not</b> SAPI4 or SAPI5 compatible, so will <b>not</b> work
+with Cloudgarden's JSAPI). The Philips engine and the ViaVoice both use
+a srobj.dll file, so if both are installed at the same time one of the
+Philips or IBM engines will not appear in the list (and you will also get
+some errors). So install one or the other, but not both (you can also disable
+the ViaVoice engines by renaming the "Program Files/ViaVoice" folder temporarily,
+which is quicker than uninstalling it if you want to try the Philips engine).
+Also,</font></font></li>
+
+<ul><font face="arial"><font size=-1>1) <i>Installing languages using
+<b>PSPAPI/Administration.exe</b>
+might <b>not</b> make</i></font></font>
+<br><i><font face="arial"><font size=-1>them accessible to JSAPI.</font></font></i>
+<br><font face="arial"><font size=-1>2) You can use the <b>SAPI/DialogTest.exe</b>
+program to first <b>uninstall any</b></font></font>
+<br><font face="arial"><font size=-1><b>existing languages</b> installed
+using PSPAPI/Administration.exe</font></font>
+<br><font face="arial"><font size=-1>3) Then use SAPI/DialogTest.exe
+to install a language and then a dictation</font></font>
+<br><font face="arial"><font size=-1>context (using the ISRInstall->GeneralDlg
+menu option)</font></font>
+<br><font face="arial"><font size=-1>4) You can create a new speaker
+using SAPI/DialogTest.exe or JSAPI.</font></font></ul>
+</ul>
+
+</body>
+</html>

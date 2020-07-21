@@ -1,0 +1,41 @@
+<script src="/cna/cna.js"></script>
+<body bgcolor=white>
+
+<h3>Register return-email for purchase and/or get updates to the JSAPI</h3>
+<P>
+If you or your company sends a check to purchase the JSAPI, you
+may register the email to which you wish the login information to be sent
+here, providing information to identify the check in the 
+"Comments" box and selecting either
+the "Purchase" or "All of the above" options in the "Your Interest" drop-down.
+<P>
+Also, you may just sign up for email notification as updates to the 
+JSAPI implementation become available.<P>
+<B>Privacy notice:</B> None of the information you give here will be sold
+or distributed in any way to anyone.
+<P>
+<form action="/cgi-bin/cloudgarden/DBObjectEditor.pl" method=post>
+<table>
+<tr><td><B>Your Name: (optional)</B></td><td> <input size=50 type=text name="NAME" value=""></td></tr>
+<tr><td><B>Your Email:</B></td><td> <input size=50 type=text name="EMAIL" value=""></td></tr>
+<tr><td><B>Your Interest:</B></td><td>
+<select name="INTEREST">
+<option value="NA">Select one
+<option value="SYNTH">Speech Synthesis
+<option value="REC">Speech Recognition
+<option value="BOTH">Both synthesis & recognition
+<option value="PURCH">Purchase (and email me with updates)
+<option value="PURCH_ONLY">Purchase only (don't email me with updates)
+</select>
+</td></tr>
+<tr><td><B>Comments,<BR>and other<BR>information:</B></td><td><textarea wrap=HARD cols=50 rows=4 name="TEXT"></textarea></td></tr>
+<input type=hidden name=mode value="nbsave">
+<input type=hidden name=class value="JSAPISignUp">
+<tr><td colspan=2 align=center><input type=submit value="Sign Up">&nbsp;&nbsp;&nbsp;
+<input type=button value="Cancel" onClick="javascript:window.location='/JSAPI/main.html'">
+</td>
+</tr>
+
+</table>
+
+</form>

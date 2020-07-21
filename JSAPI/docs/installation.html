@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta http-equiv="Expires" content="0">
+   <meta name="description" content="Java Speech, JSAPI, SAPI5, SAPI4, Java, Speech, recognition, synthesis, implementation">
+   <meta name="keywords" content="Java Speech, JSAPI, SAPI5, SAPI4, Java, Speech, recognition, synthesis, implementation">
+   <meta name="Author" content="J Kinnersley">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]"><title>Java Speech API for Windows (using MS SAPI5 and SAPI4)</title></head>
+
+<body>
+<b><u><font face="arial"><font color="#3333ff"><font size="+1">Installation
+Notes</font></font></font></u></b>
+<ul>
+<li>
+<font face="arial"><font color="#000000"><font size="-1"><a href="#extraction">Installing,
+uninstalling and testing</a></font></font></font></li>
+
+<li>
+<font face="arial"><font color="#000000"><font size="-1"><a href="#jmf">JMF
+and JavaSound</a></font></font></font></li>
+
+<li>
+<font face="arial"><font color="#000000"><font size="-1"><a href="#manually">Installing
+Manually</a></font></font></font></li>
+
+<li>
+<font face="arial"><font color="#000000"><font size="-1"><a href="#classpath">CLASSPATH
+and PATH notes</a></font></font></font></li>
+
+<li>
+<font face="arial"><font color="#000000"><font size="-1"><a href="#forte">Forte/Netbeans
+Notes</a></font></font></font></li>
+
+<li>
+<font face="arial"><font color="#000000"><font size="-1"><a href="#jbuilder">JBuilder
+Notes</a></font></font></font></li>
+</ul>
+<small><font face="Helvetica, Arial, sans-serif">If&nbsp; Java 5.0 is installed on your machine, please read <a href="java5.html">these notes</a>.<br>
+</font></small><br>
+<a name="extraction"></a><b><u><font face="arial"><font color="#3333ff">Installing,
+uninstalling and testing</font></font></u></b>
+<ul>
+<li>
+<font face="arial"><font size="-1">First, make sure you have satisfied the
+<a href="requirements.html">requirements</a>.</font></font></li>
+
+<li>
+<b><font face="arial"><font size="-1">Note that the installer requires Java
+version 1.2 or better to be installed already.</font></font></b></li>
+
+<li>
+<font face="arial"><font size="-1">To start installation either:</font></font></li>
+
+<ul>
+<li>
+<b><font face="arial"><font size="-1">double-click on TalkingJavaSDK-1xx.jar</font></font></b><font face="arial"><font size="-1">,
+(or type "java -jar TalkingJavaSDK-1xx.jar") OR</font></font></li>
+
+<li>
+<font face="arial"><font size="-1">unpack <b>TalkingJavaSDK-1xx.zip</b>
+or <b>TalkingJavaSDK-1xx.jar </b>into a new folder, and double-click on
+<b>Setup.exe</b>.</font></font></li>
+</ul>
+
+<li>
+<font face="arial"><font size="-1">The installer lets you choose where to
+install the SDK, and also lets you test the JSAPI before installing the
+JSAPI files into some or all of the JREs installed on your machine, as
+well as installing them in locations where they can be used by Applets
+running in the Java VMs of Netscape and IE browsers.</font></font></li>
+
+<li>
+<font face="arial"><font size="-1">The examples can also be run by double-clicking
+on any of the files in the "tests" folder of the SDK.</font></font></li>
+
+<li>
+<font face="arial"><font color="#000000"><font size="-1">You will know everything
+is installed correctly if the version number printed out on the console
+window when you run one of the examples is correct. If it isn't, make sure
+there are no older versions of the implementation class or jar files pointed
+to in the CLASSPATH list (see next section).</font></font></font></li>
+
+<li>
+<font face="arial"><font size="-1">To uninstall the full SDK and/or install/uninstall
+the JSAPI files from selected JREs and browser VMs, either run the Setup.exe
+program again, or use the entry in the "Add/Remove Programs" Control Panel
+option.</font></font></li>
+</ul>
+<font face="arial"><font size="-1"><b>Important note when upgrading</b>:</font></font>
+<blockquote><font face="arial"><font size="-1">If you have installed a previous
+version of the cgjsapi.jar and cgjsapi1xx.dll files, you will need to remove
+them, or overwrite them with the new ones - otherwise the old files might
+be located first by the Java class loader (if they are pointed to by the
+CLASSPATH variable) and used instead of the new ones.</font></font>
+<p><font face="arial"><font size="-1">Similarly, if you ran the "<b>installAppletJars.bat</b>"
+file from a previous version, then you will need to remove the "com/cloudgarden"
+and "javax/speech" folders and cgjsapi.jar file in the C:/Windows/Java/Classes
+directory, and the cgjsapi.dll file in the C:/Windows/System32 directory,
+since some of these locations might be included in your CLASSPATH variable
+and so any old class files in that folder might be found before any new
+ones.</font></font>
+</p><p><font face="arial"><font size="-1">It may be simplest just to search
+your system for any cgjsapi.jar and cgjsapi1xx.dll files, and remove them.</font></font>
+</p><p><font face="arial"><font size="-1"><b><u>Also</u></b>, make sure any
+other JSAPI installation (such as IBM's "ibmjs.jar" file) is uninstalled
+first (or at least removed from the CLASSPATH).</font></font>
+</p><p><font face="arial"><font size="-1">If, after installing using one of
+the methods below, your installation still doesn't seem to work, read the
+"<a href="support.html#tips">What to try if it doesn't work</a>" section.</font></font></p></blockquote>
+
+<p><br><a name="jmf"></a><b><u><font face="arial"><font color="#3333ff">JMF
+and the JavaSound standard extension</font></font></u></b>
+</p><p><font face="arial"><font size="-1">In order to use the com.cloudgarden.audio
+package, the Java Sound extension (in particular the javax.sound.sampled
+package) must be installed on your system. This comes as part of the JRE
+1.3, but if you are not using Java 1.3, or wish to use JSAPI from an Applet
+in Internet Explorer or Netscape you will need to get the Java Media Framework
+2.1.1, which contains the Java Sound implementation in the sound.jar and
+jsound.dll files. When you install the JMF check the "Use from Applets"
+option if you want to use it from applets. This installs (among other things)
+the sound.jar and jsound.dll in locations where Netscape and IE can read
+them. The <a href="applets.html">Applets</a> section describes the steps
+needed to allow the cgjsapi.jar and cgjsapi.dll files to be run from an
+applet - the same steps are carried out by the JMF installer.</font></font>
+</p><p><font face="arial"><font size="-1">In order to use the getDataSource
+and getDataSink methods of CGAudioManager the full JMF needs to be installed
+(since these methods integrate the JSAPI with the JMF).</font></font>
+</p><p><a name="manually"></a><b><u><font face="arial"><font color="#3333ff">Installing
+Manually</font></font></u></b>
+<br><font face="arial"><font size="-1">To install manually, extract the
+files in the TalkingJavaSDK-1xx.jar or zip files to get two files: packet.jar
+and Setup.exe. Then unjar the packet.jar file to get the SDK files:</font></font>
+</p><ul>
+<li>
+<font face="arial"><font size="-1">cgjsapi.jar</font></font></li>
+
+<li>
+<font face="arial"><font size="-1">cgjsapi1xx.dll</font></font></li>
+
+<li>
+<font face="arial"><font size="-1">a "examples" folder containing the test
+grammars, a test JSML file and some Java examples.</font></font></li>
+
+<li>
+<font face="arial"><font size="-1">a "tests" folder containing batch files
+of the form TestXXX.bat to simplify running of the above examples</font></font></li>
+
+<li>
+<font face="arial"><font size="-1">a "docs" folder containing these html
+pages.</font></font></li>
+</ul>
+<font face="arial"><font size="-1">You should copy the cgjsapi.jar and cgjsapi1xx.dll
+files to the
+<b>lib\ext</b> and <b>bin</b> directories of a JRE respectively.</font></font>
+<br><font face="arial"><font size="-1">The <a href="applets.html">applets</a>
+section describes the steps needed to allow the cgjsapi.jar and cgjsapi.dll
+files to be run from an applet using the native VM of Netscape or IE.</font></font>
+<p><a name="classpath"></a><b><u><font face="arial"><font color="#3333ff">CLASSPATH
+and PATH notes</font></font></u></b>
+</p><p><font face="arial"><font size="-1">Alternatively<b> </b>you can edit
+the CLASSPATH line in the AUTOEXEC.BAT file to include the path to the
+cgjsapi.jar file (doesn't matter where you put it) and the PATH line to
+include the directory where the cgjsapi1xx.dll file is.</font></font>
+</p><p><font face="arial"><font size="-1">Typing:</font></font>
+</p><pre><font face="Courier New,Courier">java examples.synthesis.SynthesizerTest</font></pre>
+<font face="arial"><font size="-1">should get your machine speaking in English
+to you (though it might come out with a foreign accent!) - it should also
+print events to the console. If the initial tests (executing the batch
+files in the "tests" directory) worked but this one doesn't then make sure
+that the "java" command is starting the JVM corresponding to the java installation
+where you placed the JSAPI files.</font></font>
+<p><a name="forte"></a><b><u><font face="arial"><font color="#3333ff">Forte/Netbeans
+Notes</font></font></u></b>
+</p><p><font face="arial"><font size="-1">To run the jsapi inside Forte or Netbeans:</font></font>
+<br><font face="arial"><font size="-1">1) Mount the cgjsapi.jar file.</font></font>
+<br><font face="arial"><font size="-1">2) Follow this path (starting at
+the top-level menu option): Tools-&gt;Options-&gt;Debugging &amp; Executing-&gt;Execution
+Types-&gt;External Execution (if you use some other execution type, choose
+that instead of "External Execution")</font></font>
+<br><font face="arial"><font size="-1">3) Click on the "Expert" tab and
+edit the "Working Directory" entry to point to the directory where cgjsapi1xx.dll
+lives.</font></font>
+<br><font face="arial"><font size="-1">4) This will execute everything inside
+Forte/Netbeans starting at that directory - if you do not wish to do this,
+you could create a new execution type whose "Working Directory" is the
+directory where cgjsapi1xx.dll lives, and use that execution type just
+for your jsapi classes.</font></font>
+</p><p><a name="jbuilder"></a><b><u><font face="arial"><font color="#3333ff">JBuilder
+Notes:</font></font></u></b>
+</p><p><font face="arial"><font size="-1">1) Under the "Tools-&gt;Configure JDKs"
+option it shows you where the JDK it is using lives - for example, it may
+be at "C:/JBuilder5/jdk1.3"</font></font>
+<br><font face="arial"><font size="-1">2) Copy the cgjsapi.jar file to "C:/JBuilder5/jdk1.3/jre/lib"
+and the cgjsapi1xx.dll file to "C:/JBuilder5/jdk1.3/jre/bin"</font></font>
+<br><font face="arial"><font size="-1">3) Then under the "Tools-&gt;Configure
+JDKs" option under the "Class" tab hit the "Add" button and select the
+"C:/JBuilder5/jdk1.3/jre/lib/cgjsapi.jar" file.</font></font>
+</p><p><font face="arial"><font size="-1">...ALTERNATIVELY...</font></font>
+</p><p><font face="arial"><font size="-1">1) Under "Tools-&gt;Configure Libraries"
+hit the "New" button, and then in the new dialog, type "CGJSAPI" for "Name",
+hit the "Add" button and find the cgjsapi.jar file.</font></font>
+<br><font face="arial"><font size="-1">2) Then under "Project-&gt;Project Properties"
+hit the "Required Libraries" tab and "Add" the "CGJSAPI" library.</font></font>
+<br><font face="arial"><font size="-1">3) This lets JBuilder find the cgjsapi.jar
+file, but you still need to add the directory where the cgjsapi1xx.dll
+file lives to your system PATH variable.</font></font>
+<br>&nbsp;
+</p></body></html>

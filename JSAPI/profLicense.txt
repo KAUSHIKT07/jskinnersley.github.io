@@ -1,0 +1,22 @@
+Professional License terms for Version 1.x of Cloudgarden's "Speaking Java" SDK 
+===============================================================================
+
+This license permits: 
+
+1) installation for the purposes of development - one license must be purchased for each   developer working with the implementation. 
+
+2) redistribution of up to 1000 copies of the runtime libraries bundled with any product.
+
+3) installation on up to 50 servers (eg. web-servers or machines handling network requests) when used solely to recognize or synthesize speech as part as a server-side application. 
+
+4) If the implementation is to be redistributed "silently" as part of an applet product (and will never be used except as part of that applet in a web browser) then purchase of two professional licences allows unlimited distribution of the applet via a web server. 
+
+o This implementation may NOT be disassembled or reverse-engineered. 
+
+o This implementation may NOT be resold as a library - it can only be resold as part of a speech-enabled application with significant added functionality. 
+
+o Purchase of a license for Version 1.x of this implementation allows the license holder to download any future upgrades to the Version 1.x implementation (where 'x' stands for any minor version number) 
+
+o THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, AND IN NO EVENT SHALL HE BE LIABLE FOR ANY DAMAGES WHATSOEVER ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. 
+
+o This implementation of the JSAPI 1.0 (as provided here in the runtime libraries cgjsapi.jar and cgjsapi.dll) is the property of it's author, Jonathan S. Kinnersley, Copyright (c) 2001-2002, all rights reserved. 

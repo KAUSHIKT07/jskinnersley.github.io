@@ -1,0 +1,109 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>Features of the implementation</title>
+</head>
+<body>
+
+<h3>
+<b><u><font face="arial"><font color="#3366FF">Features</font></font></u></b></h3>
+<font face="arial"><b><u><font color="#3366FF">Version 1.6</font></u></b><font color="#000000"><font size=-1>
+-&nbsp; for version history, <a href="history.html">read this</a>.</font></font></font>
+<p><font face="arial"><font color="#000000"><font size=-1>For the latest
+version and support, please check the <a href="http://www.cloudgardensoftware.com" target="_top">Cloudgarden</a>
+site regularly.</font></font></font>
+<ul>
+<li>
+<b><font face="arial"><font size=-1>Support for large range of speech
+engines</font></font></b></li>
+
+<ul><font face="arial"><font size=-1>All fully-compliant SAPI4 and SAPI5
+recognizers and synthesizers should work with this implementation. This
+opens up a large number of speech engines to the Java developer. In virtually
+all situations, the engine type is transparent to the implementation, but
+when needed the engine type (ie SAPI4 or 5) can be discovered and the situation
+handled accordingly. More details <a href="differences.html#sapi4and5">here</a>.</font></font></ul>
+
+<li>
+<b><font face="arial"><font size=-1>Full implementation of Sun's JSAPI
+1.0 specification</font></font></b></li>
+
+<ul><font face="arial"><font size=-1>The implementation of Sun's specification
+provided here is as complete as possible, allowing recognition grammars
+to be specified in Sun's Java Speech Grammar Format, and speech synthesis
+to be controlled in-line using Sun's Java Speech Markup Language tags.
+<font color="#000000">The
+few differences and the several additions (outside of the core JSAPI specification)
+are described in detail <a href="differences.html">here</a> , and outlined
+below.</font></font></font></ul>
+
+<li>
+<b><font face="arial"><font size=-1>Graphical User Interface additions</font></font></b></li>
+
+<ul><font face="arial"><font size=-1>Classes in the <font color="#000000"><b>com.cloudgarden.speech</b>
+and <b>com.cloudgarden.speech.userinterface</b> packages allow customizable
+Dialogs to be displayed which list all available engines, profiles and
+voices and allow the user to test and select them. Lip-sync events are
+also captured from synthesizers and can be displayed using a "Mouth" which
+extends the java.awt.Component class so can be superimposed on other Components.
+More details <a href="differences.html#userinterface">here</a>.</font></font></font></ul>
+
+<li>
+<b><font face="arial"><font size=-1>Audio data redirection additions</font></font></b></li>
+
+<ul><font face="arial"><font size=-1>An interface with Sun's <b>Java
+Media Framework</b>, and with the <b>javax.sound.sampled</b> package, is
+provided which allows the speech engines to send and receive audio data
+in compressed formats (such as MP3) to and from files and over networks.
+<font color="#000000">More
+details <a href="differences.html#sound">here</a>.</font></font></font></ul>
+
+<li>
+<b><font face="arial"><font size=-1>Feedback on recognition confidence</font></font></b></li>
+
+<ul><font face="arial"><font size=-1>Recognition results are given with
+values representing the confidence with which they have been recognized
+by the speech engine, allowing a certain degree of feedback to provided
+in language-training applications. <font color="#000000">More details <a href="differences.html#confidence">here</a>.</font></font></font></ul>
+
+<li>
+<b><font face="arial"><font size=-1>Recognized utterances can be saved
+to WAVE files</font></font></b></li>
+
+<ul><font face="arial"><font size=-1>The AudioClip returned from the
+FinalResult.getAudio method can be cast into a com.cloudgarden.speech.CGResultAudioClip,
+whose saveToFile(String fileName) method can be called to save the audio
+data to a WAVE file.</font></font></ul>
+
+<li>
+<b><font face="arial"><font color="#000000"><font size=-1>Guessing of
+current speaker</font></font></font></b></li>
+
+<ul><font face="arial"><font color="#000000"><font size=-1>Only applies
+to SAPI4 engines<b> - </b>the CGEngineProperties.allowGuessingOfSpeaker
+can be used to allow the Recognizer to change the current SpeakerProfile
+based on who it thinks is speaking. More details <a href="differences.html#speakerGuessing">here</a>.</font></font></font></ul>
+
+<li>
+<b><font face="arial"><font color="#000000"><font size=-1>Lip-Sync events
+for speech synthesis</font></font></font></b></li>
+
+<ul><font face="arial"><font color="#000000"><font size=-1>Lip-sync events
+are now detected from Synthesizers and CGSpeakableEvents broadcast to CGSpeakableListeners,
+which can then display the current shape of a mouth using the com.cloudgarden.speech.userinterface.Mouth
+Component. More details <a href="differences.html#lipSync">here</a>.</font></font></font></ul>
+
+<li>
+<b><font face="arial"><font size=-1>Can be used in Applets and Plugins
+(in suitable browsers)</font></font></b></li>
+
+<ul><font face="arial"><font size=-1>Since the implementation works with
+the Java 1.1 specification, it can run inside the native JVMs of suitable
+browsers after proper installation and without the need to install Sun's
+JRE. <font color="#000000">More details <a href="applets.html">here</a>.</font></font></font></ul>
+</ul>
+
+</body>
+</html>

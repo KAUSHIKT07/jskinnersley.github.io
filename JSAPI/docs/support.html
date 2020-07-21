@@ -1,0 +1,211 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta http-equiv="Expires" content="0">
+   <meta name="description" content="Java Speech, JSAPI, SAPI5, SAPI4, Java, Speech, recognition, synthesis, implementation">
+   <meta name="keywords" content="Java Speech, JSAPI, SAPI5, SAPI4, Java, Speech, recognition, synthesis, implementation">
+   <meta name="Author" content="J Kinnersley">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>Java Speech API for Windows (using MS SAPI5 and SAPI4)</title>
+</head>
+<body>
+
+<h3>
+<a NAME="tips"></a><b><u><font face="arial"><font color="#3333FF"><font size=+1>Coding
+Tips</font></font></font></u></b></h3>
+
+<ul>
+<li>
+<font face="arial"><font size=-1>Check the <a href="http://www.cloudgardensoftware.com/servlets/cloudgarden.EntryServlet?mode=drawList&class=Notice" target="_blank">forums</a>
+on the CloudGarden website for the latest information.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>Before using a Synthesizer or Recognizer,
+allocate() it, then wait for it to be allocated using the waitEngineState(Engine.ALLOCATED)
+method.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>After calling Recognizer commitChanges,
+wait for the changes to be committed by a call to the Recognizer's waitEngineState(Recognizer.LISTENING)
+method.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>Before calling getWords, call the setVoice
+method since several different TTS engines may all be grouped under a single
+SynthesizerModeDesc (which groups engines by Locale) but when you select
+the Voice then you are specifying a specific TTS engine.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>Before calling listSpeakers, getProperties,
+etc, allocate the Recognizer and wait till it is allocated.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>Use as few Synthesizers and Recognizers
+as possible, and allocate and deallocate them as few times as possible
+- ideally, allocate on initialization and deallocate on exit.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><b><u>Using event-handling Threads:</u></b>
+When calling methods on a Recognizer from a method of a ResultListener
+or EngineListener attached to that Recognizer, put all the calls in a Runnable
+class and run it from a new Thread - eg, if a "resultAccepted" method wants
+to call the getSpeakerProfile method of a Recognizer's SpeakerManager then
+it should spawn a new Thread and do it from there - <u><font color="#000000">see
+the examples.recognition.TestResultListener class for a concrete example</font></u>.
+The reason for this is that the "resultAccepted" method is <b><font color="#000000">synchronized
+with the AWTEventQueue</font></b> and so halts the SAPI4 recognizer's message-handling
+loop - which means it is unable to respond to requests such as getting/setting
+speakers.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><b><u>For responsive Swing interaction:</u></b>
+When using SpeechEvents to interact with Swing components, it is often
+best to use the SwingUtilities.invokeLater method to perform the work,
+for example:</font></font></li>
+
+<pre><tt>ResultAdapter resAd = new ResultAdapter() {
+&nbsp;&nbsp; public void resultUpdated(final ResultEvent e) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Runnable r = new Runnable() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void run() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resultJTextPane.setText(e.getSource().toString());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SwingUtilities.invokeLater(r);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //(new Thread(r)).start(); //...or use this method if the above is unsatisfactory
+&nbsp;&nbsp; }
+};</tt></pre>
+</ul>
+
+<h3>
+<b><u><font face="arial"><font color="#3333FF"><font size=+1>What to try
+if it doesn't work</font></font></font></u></b></h3>
+<font face="arial"><font size=-1><b>Important Note:</b> If you have installed
+a previous version of the cgjsapi.jar and cgjsapi.dll files, you will need
+to remove them, or overwrite them with the new ones, before the example
+batch files will work!</font></font>
+<ul>
+<li>
+<font face="arial"><font size=-1><b><u>SAPI5 Grammars with lots of rules.</u></b>
+If a SAPI5 grammar has too many rules (more than about 500) then the grammar
+may just fail to work. The solution is to limit the number of rules per
+grammar and split the rules between several grammars.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><b><u>Deadlock:</u></b> Freezing of a
+GUI application can often occur when AWT synchronization is active. If
+this occurs, the simplest fix is just to turn AWT synchronization off with
+a call (in the initialization part of your application) to</font></font></li>
+
+<pre><tt>CGEngineCentral.setAWTSynchronization(false).</tt></pre>
+
+<li>
+<font face="arial"><font size=-1><b><u>Non-responsive Swing interaction:</u></b>
+When using SpeechEvents to interact with Swing components, it is often
+best to use the SwingUtilities.invokeLater method to perform the work -
+see the "For responsive Swing interaction" note under "Coding Tips" above.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>Strange things can happen if you have
+<font color="#000000">another
+JSAPI implementation</font> (eg IBM's JavaSpeech) on your system. (This
+should not be a problem with version 1.2.1 since the implementation is
+in files named cgjaspi.jar and cgjsapi.dll). Check that any <font color="#000000">other
+implementations of the JSAPI
+</font>are removed from your JDK or JRE's
+classpath. <b><font color="#000000">If you have this implementation set
+up correctly the words "Initializing Cloudgarden's JSAPI 1.0 evaluation
+(or commercial) version 1.3.2" should appear on a console window when you
+load CloudGarden's JSAPI library.</font></b></font></font></li>
+
+<li>
+<font face="arial"><font size=-1><b><u>Console error messages such as
+"ERROR postAndWait failed for msg=1503"</u></b> - see the "Using event-handling
+Threads" part of the "Coding Tips" section above.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><b><u>"Class not found" or "library not
+found" errors.</u></b> One of the most common problem seems to be caused
+by java not being able to find either cgjsapi.jar, or cgjsapi.dll, or both.You
+can make sure java can find these files by executing one of the demo batch
+files (eg TestSynthesizer.bat) from the directory you did the initial jar-file
+expansion in. If this works, and you start java by using the command "java"
+- i.e. without any path specified - then you'll need to install the jsapi
+files in your JRE directory, which is usually at <b>"C:\Program Files\JavaSoft\JRE\1.x\".
+</b>Put
+the cgjsapi.jar file in the lib\ext subdirectory and the cgjsapi.dll in
+the bin subdirectory. If you have multiple JRE installations and don't
+know which one is the default, install the jsapi files in them all! Alternatively,
+just make sure cgjsapi.jar is in your classpath, and that cgjsapi132.dll
+is in a directory included in the PATH environment variable, or is in the
+directory from which you execute your java classes. See "<a href="installation.html">
+Installation</a> " for more details.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>Check that the <b><font color="#FF0000">JavaSound</font></b>
+package is installed in the JRE running your code if you are using the
+com.cloudgarden.audio package.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>Check that the JMF 2.1.1 is installed
+properly if you are using the getDataSink or getDataSource methods of CGAudioManager.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><b><font color="#FF0000">java.security&nbsp;
+Exceptions</font></b> - read the "<a href="#permissions">Note on Security
+Permissions</a> " section above. This might happen when running JSAPI under
+some web servers (such as JWS) and also with the Java plugin or appletviewer.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>If problems occur when using <b><font color="#FF0000">RMI</font></b>,
+try using the classic JVM instead of the HotSpot JVM.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><b>Trouble using speech engines for different
+languages? -</b> see the <a href="examples/ListEnginesTest.java">examples.ListEnginesTest</a>
+code.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>Problems with the &lt;SAYAS> tag or VocabManager.addWord
+method? - see <a href="#pronunciations">this section</a> .</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>Recognition examples crashing with a
+native-code exception - this problem should have gone away with Version
+1.1.1, but if it persists, try this. These examples sometimes crash when
+only the default profile exists. Adding a new profile (you can create/destroy
+profiles using the speech control panel, accessible through the Windows
+Control Panel) stops the crashes - the new profile may subsequently be
+removed and the crashes should not re-occur.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><b><u>Stalling and other strange stuff.</u></b>&nbsp;
+As of version 1.2.1, the values of fields such as Engine.ALLOCATED etc.
+have been changed to be identical to those used in IBM's jsapi implimentation.
+This will allow code compiled using IBM's jsapi to run without recompilation
+using CloudGarden's jsapi. However, if code compiled using versions of
+CloudGarden's jsapi prior to 1.2.1 are run without re-compilation under
+version 1.2.1, many weird results, such as stalling during a waitEngineState
+call, will be obtained. The solution is simply to recompile the code using
+version 1.2.1 or better.</font></font></li>
+</ul>
+
+<h3>
+<b><u><font face="arial"><font color="#3333FF"><font size=+1>Known Issues</font></font></font></u></b></h3>
+
+<ul>
+<li>
+<font face="arial"><font size=-1>Import of individual rules does not always
+work. The workaround is just to import the whole grammar instead of a single
+rule.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>For SAPI5 engines, and some SAPI4 engines,
+the RecognizerProperties methods setSensitivity, setSpeedVsAccuracy etc
+do not necessarily work - the speech control panel should be used to set
+these values at present.</font></font></li>
+
+<br>&nbsp;</ul>
+
+</body>
+</html>

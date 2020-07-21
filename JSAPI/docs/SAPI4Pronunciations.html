@@ -1,0 +1,462 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <title>Unicode Values for IPA Characters</title>
+<style>@import url(basicIE4.css);</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<a href="http://research.microsoft.com/research/srg/" target="_blank"><img src="art/homenrm.gif" width=51 height=38 border=0 alt="MSR Speech Technology Home Page" align="right"></a>
+<font size="+1">Microsoft Speech API 4.0</font><br>
+<hr align="left" size="1" width="100%" color="#ff0000" noshade>
+
+<h1>Unicode Values for IPA Characters</h1>
+
+<p>The following table lists groups of IPA characters and the Unicode blocks in which they can be found. The U+ prefix is a convention that identifies Unicode; they are 16-bit hexadecimal values.</p>
+
+
+  <table width="87%">
+    <tr>
+      <th align="LEFT" valign="TOP">IPA Characters	</th>
+      <th align="LEFT" valign="TOP">Unicode block</th>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>Standard Latin	</i></td>
+      <td align="LEFT" valign="TOP">U+0041 -- U+00FF</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>European and Extended Latin	</i></td>
+      <td align="LEFT" valign="TOP">U+0010 -- U+01F0</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>Standard phonetic characters	</i></td>
+      <td align="LEFT" valign="TOP">U+0250 -- U+02AF</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>Modifier letters (spacing)	</i></td>
+      <td align="LEFT" valign="TOP">U+02B0 -- U+02FF</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>Diacritical marks (nonspacing)	</i></td>
+      <td align="LEFT" valign="TOP">U+0300 -- U+036F</td>
+    </tr>
+  </table>
+<p>The symbols used for American English phonemes are listed below. Each phoneme symbol is accompanied by an example, as well as the IPA description, the Unicode name for the glyph shape used in the IPA standard phonetic charts, and the Unicode value. Some phonemic labels are described as diphthongs or affricate clusters. For these, it may be preferable to rely on the MS labels, rather than the Unicode clusters of their component phonemes, since some TTS engines will provide single combined data points for these phonemes, rather than synthesize them as combinations of separately modeled phonemes. In the Unicode names, 'LATIN' means 'LATIN SMALL LETTER' and 'GREEK' means 'GREEK SMALL LETTER'.</p>
+
+  <table width="87%">
+    <tr>
+      <th align="LEFT" valign="TOP">MS 	</th>
+      <th align="LEFT" valign="TOP">Example	</th>
+      <th align="LEFT" valign="TOP">IPA Description	</th>
+      <th align="LEFT" valign="TOP">Unicode name	</th>
+      <th align="LEFT" valign="TOP">Unicode</th>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>iy	</i></td>
+      <td align="LEFT" valign="TOP">feel, eve, me</td>
+      <td align="LEFT" valign="TOP">front close unrounded</td>
+      <td align="LEFT" valign="TOP">LATIN  I</td>
+      <td align="LEFT" valign="TOP">U+0069</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>ih	</i></td>
+      <td align="LEFT" valign="TOP">fill, hit, lid</td>
+      <td align="LEFT" valign="TOP">front close unrounded (lax)</td>
+      <td align="LEFT" valign="TOP">LATIN  CAPITAL I</td>
+      <td align="LEFT" valign="TOP">U+026A</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>ae	</i></td>
+      <td align="LEFT" valign="TOP">at, carry, gas</td>
+      <td align="LEFT" valign="TOP">front open  unrounded (tense)</td>
+      <td align="LEFT" valign="TOP">LATIN  AE</td>
+      <td align="LEFT" valign="TOP">U+00E6</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>aa	</i></td>
+      <td align="LEFT" valign="TOP">father, ah, car</td>
+      <td align="LEFT" valign="TOP">back open unrounded</td>
+      <td align="LEFT" valign="TOP">LATIN  ALPHA</td>
+      <td align="LEFT" valign="TOP">U+0251</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>ah	</i></td>
+      <td align="LEFT" valign="TOP">cut, bud, up</td>
+      <td align="LEFT" valign="TOP">open-mid back unrounded</td>
+      <td align="LEFT" valign="TOP">LATIN  TURNED V</td>
+      <td align="LEFT" valign="TOP">U+028C</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>ao	</i></td>
+      <td align="LEFT" valign="TOP">dog, lawn, caught</td>
+      <td align="LEFT" valign="TOP">open-mid back round</td>
+      <td align="LEFT" valign="TOP">LATIN  OPEN O</td>
+      <td align="LEFT" valign="TOP">U+0254</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>ay	</i></td>
+      <td align="LEFT" valign="TOP">tie, ice, bite</td>
+      <td align="LEFT" valign="TOP">diphthong with quality: aa + ih</td>
+      <td align="LEFT" valign="TOP"></td>
+      <td align="LEFT" valign="TOP"></td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>ax	</i></td>
+      <td align="LEFT" valign="TOP">ago, comply</td>
+      <td align="LEFT" valign="TOP">central close mid (schwa)</td>
+      <td align="LEFT" valign="TOP">LATIN  SCHWA</td>
+      <td align="LEFT" valign="TOP">U+0259</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>ey	</i></td>
+      <td align="LEFT" valign="TOP">ate, day, tape</td>
+      <td align="LEFT" valign="TOP">front close-mid unrounded (tense)</td>
+      <td align="LEFT" valign="TOP">LATIN  E</td>
+      <td align="LEFT" valign="TOP">U+0065</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>eh	</i></td>
+      <td align="LEFT" valign="TOP">pet, berry, ten</td>
+      <td align="LEFT" valign="TOP">front open-mid  unrounded</td>
+      <td align="LEFT" valign="TOP">LATIN  OPEN E</td>
+      <td align="LEFT" valign="TOP">U+025B</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>er	</i></td>
+      <td align="LEFT" valign="TOP">turn, fur, meter</td>
+      <td align="LEFT" valign="TOP">central open-mid unrounded rhoticized</td>
+      <td align="LEFT" valign="TOP">LATIN  SCHWA W/HOOK</td>
+      <td align="LEFT" valign="TOP">U+025A</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>ow	</i></td>
+      <td align="LEFT" valign="TOP">go, own, tone</td>
+      <td align="LEFT" valign="TOP">back close-mid rounded</td>
+      <td align="LEFT" valign="TOP">LATIN  O</td>
+      <td align="LEFT" valign="TOP">U+006F</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>aw	</i></td>
+      <td align="LEFT" valign="TOP">foul, how, our</td>
+      <td align="LEFT" valign="TOP">diphthong with quality: aa + uh</td>
+      <td align="LEFT" valign="TOP"></td>
+      <td align="LEFT" valign="TOP"></td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>oy	</i></td>
+      <td align="LEFT" valign="TOP">toy, coin, oil</td>
+      <td align="LEFT" valign="TOP">diphthong with quality: ao + ih</td>
+      <td align="LEFT" valign="TOP"></td>
+      <td align="LEFT" valign="TOP"></td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>uh	</i></td>
+      <td align="LEFT" valign="TOP">book, pull, good</td>
+      <td align="LEFT" valign="TOP">back close-mid unrounded (lax)</td>
+      <td align="LEFT" valign="TOP">LATIN  UPSILON</td>
+      <td align="LEFT" valign="TOP">U+028A</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>uw	</i></td>
+      <td align="LEFT" valign="TOP">tool, crew, moo</td>
+      <td align="LEFT" valign="TOP">back close round</td>
+      <td align="LEFT" valign="TOP">LATIN  U</td>
+      <td align="LEFT" valign="TOP">U+0075</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>b	</i></td>
+      <td align="LEFT" valign="TOP">big, able, tab</td>
+      <td align="LEFT" valign="TOP">voiced bilabial plosive</td>
+      <td align="LEFT" valign="TOP">LATIN  B</td>
+      <td align="LEFT" valign="TOP">U+0062</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>p	</i></td>
+      <td align="LEFT" valign="TOP">put, open, tap</td>
+      <td align="LEFT" valign="TOP">voiceless bilabial plosive</td>
+      <td align="LEFT" valign="TOP">LATIN  P</td>
+      <td align="LEFT" valign="TOP">U+0070</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>d	</i></td>
+      <td align="LEFT" valign="TOP">dig, idea, wad</td>
+      <td align="LEFT" valign="TOP">voiced alveolar plosive</td>
+      <td align="LEFT" valign="TOP">LATIN  D</td>
+      <td align="LEFT" valign="TOP">U+0064</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>t	</i></td>
+      <td align="LEFT" valign="TOP">talk, sat</td>
+      <td align="LEFT" valign="TOP">voiceless alveolar plosive &</td>
+      <td align="LEFT" valign="TOP">LATIN  T</td>
+      <td align="LEFT" valign="TOP">U+0074</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>	</i></td>
+      <td align="LEFT" valign="TOP">meter</td>
+      <td align="LEFT" valign="TOP">alveolar flap</td>
+      <td align="LEFT" valign="TOP">LATIN  R W/FISHHOOK</td>
+      <td align="LEFT" valign="TOP">U+027E</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>g	</i></td>
+      <td align="LEFT" valign="TOP">gut, angle, tag</td>
+      <td align="LEFT" valign="TOP">voiced velar plosive</td>
+      <td align="LEFT" valign="TOP">LATIN  SCRIPT G</td>
+      <td align="LEFT" valign="TOP">U+0067</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>k	</i></td>
+      <td align="LEFT" valign="TOP">cut, oaken, take</td>
+      <td align="LEFT" valign="TOP">voiceless velar plosive</td>
+      <td align="LEFT" valign="TOP">LATIN  K</td>
+      <td align="LEFT" valign="TOP">U+006B</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>f	</i></td>
+      <td align="LEFT" valign="TOP">fork, after, if</td>
+      <td align="LEFT" valign="TOP">voiceless labiodental fricative</td>
+      <td align="LEFT" valign="TOP">LATIN  F</td>
+      <td align="LEFT" valign="TOP">U+0066</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>v	</i></td>
+      <td align="LEFT" valign="TOP">vat, over, have</td>
+      <td align="LEFT" valign="TOP">voiced labiodental fricative</td>
+      <td align="LEFT" valign="TOP">LATIN  V</td>
+      <td align="LEFT" valign="TOP">U+0076</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>s	</i></td>
+      <td align="LEFT" valign="TOP">sit, cast, toss</td>
+      <td align="LEFT" valign="TOP">voiceless alveolar fricative</td>
+      <td align="LEFT" valign="TOP">LATIN  S</td>
+      <td align="LEFT" valign="TOP">U+0073</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>z	</i></td>
+      <td align="LEFT" valign="TOP">zap, lazy, haze</td>
+      <td align="LEFT" valign="TOP">voiced alveolar fricative</td>
+      <td align="LEFT" valign="TOP">LATIN  Z</td>
+      <td align="LEFT" valign="TOP">U+007A</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>th	</i></td>
+      <td align="LEFT" valign="TOP">thin, nothing, truth</td>
+      <td align="LEFT" valign="TOP">voiceless dental fricative</td>
+      <td align="LEFT" valign="TOP">GREEK THETA</td>
+      <td align="LEFT" valign="TOP">U+03B8</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>dh	</i></td>
+      <td align="LEFT" valign="TOP">then, father, scythe</td>
+      <td align="LEFT" valign="TOP">voiced dental fricative</td>
+      <td align="LEFT" valign="TOP">LATIN  ETH</td>
+      <td align="LEFT" valign="TOP">U+00F0</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>sh	</i></td>
+      <td align="LEFT" valign="TOP">she, cushion, wash</td>
+      <td align="LEFT" valign="TOP">voiceless postalveolar fricative</td>
+      <td align="LEFT" valign="TOP">LATIN  ESH</td>
+      <td align="LEFT" valign="TOP">U+0283</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>zh	</i></td>
+      <td align="LEFT" valign="TOP">genre, azure</td>
+      <td align="LEFT" valign="TOP">voiced postalveolar fricative</td>
+      <td align="LEFT" valign="TOP">LATIN  EZH</td>
+      <td align="LEFT" valign="TOP">U+0292</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>l	</i></td>
+      <td align="LEFT" valign="TOP">lid</td>
+      <td align="LEFT" valign="TOP">alveolar lateral approximant</td>
+      <td align="LEFT" valign="TOP">LATIN  L</td>
+      <td align="LEFT" valign="TOP">U+006C</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>	</i></td>
+      <td align="LEFT" valign="TOP">elbow, sail</td>
+      <td align="LEFT" valign="TOP">velar lateral approximant</td>
+      <td align="LEFT" valign="TOP">LATIN  L W/MIDDLE TILDE</td>
+      <td align="LEFT" valign="TOP">U+026B</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>r	</i></td>
+      <td align="LEFT" valign="TOP">red, part, far</td>
+      <td align="LEFT" valign="TOP">retroflex  approximant</td>
+      <td align="LEFT" valign="TOP">LATIN  R</td>
+      <td align="LEFT" valign="TOP">U+0279</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>y	</i></td>
+      <td align="LEFT" valign="TOP">yacht, onion, yard</td>
+      <td align="LEFT" valign="TOP">palatal sonorant glide</td>
+      <td align="LEFT" valign="TOP">LATIN  J</td>
+      <td align="LEFT" valign="TOP">U+006A</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>w	</i></td>
+      <td align="LEFT" valign="TOP">with, away</td>
+      <td align="LEFT" valign="TOP">labiovelar sonorant glide</td>
+      <td align="LEFT" valign="TOP">LATIN  W</td>
+      <td align="LEFT" valign="TOP">U+0077</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>hh	</i></td>
+      <td align="LEFT" valign="TOP">help, ahead, hotel</td>
+      <td align="LEFT" valign="TOP">voiceless glottal fricative</td>
+      <td align="LEFT" valign="TOP">LATIN  H</td>
+      <td align="LEFT" valign="TOP">U+0068</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>m	</i></td>
+      <td align="LEFT" valign="TOP">mat, amid, aim</td>
+      <td align="LEFT" valign="TOP">bilabial nasal</td>
+      <td align="LEFT" valign="TOP">LATIN  M</td>
+      <td align="LEFT" valign="TOP">U+006D</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>n	</i></td>
+      <td align="LEFT" valign="TOP">no, end, pan</td>
+      <td align="LEFT" valign="TOP">alveolar nasal</td>
+      <td align="LEFT" valign="TOP">LATIN  N</td>
+      <td align="LEFT" valign="TOP">U+006E</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>nx	</i></td>
+      <td align="LEFT" valign="TOP">sing, anger, drink</td>
+      <td align="LEFT" valign="TOP">velar nasal</td>
+      <td align="LEFT" valign="TOP">LATIN  ENG</td>
+      <td align="LEFT" valign="TOP">U+014B</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>ch	</i></td>
+      <td align="LEFT" valign="TOP">chin, archer, march</td>
+      <td align="LEFT" valign="TOP">voiceless alveolar affricate: t + sh</td>
+      <td align="LEFT" valign="TOP"></td>
+      <td align="LEFT" valign="TOP">U+02A7</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>jh	</i></td>
+      <td align="LEFT" valign="TOP">joy, agile, edge</td>
+      <td align="LEFT" valign="TOP">voiced alveolar affricate: d + zh</td>
+      <td align="LEFT" valign="TOP"></td>
+      <td align="LEFT" valign="TOP">U+02a4</td>
+    </tr>
+  </table>
+
+<p>The following symbols can be used to construct phoneme strings and phonetic input to a TTS engine.</p>
+<p>The precise effects may vary in different TTS engines.</p>
+
+
+  <table width="87%">
+    <tr>
+      <th align="LEFT" valign="TOP">MS	</th>
+      <th align="LEFT" valign="TOP">Description	</th>
+      <th align="LEFT" valign="TOP">Unicode name	</th>
+      <th align="LEFT" valign="TOP">Unicode	</th>
+      <th align="LEFT" valign="TOP">Usage/Effect</th>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>-	</i></td>
+      <td align="LEFT" valign="TOP">syllable boundary</td>
+      <td align="LEFT" valign="TOP">HYPHEN-MINUS</td>
+      <td align="LEFT" valign="TOP">U+002D</td>
+      <td align="LEFT" valign="TOP">separates syllables</td>
+    </tr>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>#	</i></td>
+      <td align="LEFT" valign="TOP">word boundary</td>
+      <td align="LEFT" valign="TOP">NUMBER SIGN</td>
+      <td align="LEFT" valign="TOP">U+0023</td>
+      <td align="LEFT" valign="TOP">separates words</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>(space)	</i></td>
+      <td align="LEFT" valign="TOP">word boundary</td>
+      <td align="LEFT" valign="TOP">SPACE</td>
+      <td align="LEFT" valign="TOP">U+0020</td>
+      <td align="LEFT" valign="TOP">separates words</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>_	</i></td>
+      <td align="LEFT" valign="TOP">silence</td>
+      <td align="LEFT" valign="TOP">UNDERLINE</td>
+      <td align="LEFT" valign="TOP">U+005f</td>
+      <td align="LEFT" valign="TOP">indicates silent period</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>1	</i></td>
+      <td align="LEFT" valign="TOP">primary stress</td>
+      <td align="LEFT" valign="TOP">MODIFIER LETTER VERTICAL LINE</td>
+      <td align="LEFT" valign="TOP">U+02C8</td>
+      <td align="LEFT" valign="TOP">precedes affected vowel</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>2	</i></td>
+      <td align="LEFT" valign="TOP">secondary stress</td>
+      <td align="LEFT" valign="TOP">MODIFIER LETTER LOW VERTICAL LINE</td>
+      <td align="LEFT" valign="TOP">U+02CC</td>
+      <td align="LEFT" valign="TOP">precedes affected vowel</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>(blank)	</i></td>
+      <td align="LEFT" valign="TOP">word boundary</td>
+      <td align="LEFT" valign="TOP">SPACE</td>
+      <td align="LEFT" valign="TOP">U+0020</td>
+      <td align="LEFT" valign="TOP">separates words</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>.	</i></td>
+      <td align="LEFT" valign="TOP">period</td>
+      <td align="LEFT" valign="TOP">FULL STOP</td>
+      <td align="LEFT" valign="TOP">U+002E</td>
+      <td align="LEFT" valign="TOP">pitch fall, pause</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>?	</i></td>
+      <td align="LEFT" valign="TOP">question mark</td>
+      <td align="LEFT" valign="TOP">QUESTION MARK</td>
+      <td align="LEFT" valign="TOP">U+003F</td>
+      <td align="LEFT" valign="TOP">pitch rise, pause</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>!	</i></td>
+      <td align="LEFT" valign="TOP">exclamation</td>
+      <td align="LEFT" valign="TOP">EXCLAMATION MARK</td>
+      <td align="LEFT" valign="TOP">U+0021</td>
+      <td align="LEFT" valign="TOP">raised pitch range, pause</td>
+    </tr>
+    <tr>
+      <td align="LEFT" valign="TOP"><i>,	</i></td>
+      <td align="LEFT" valign="TOP">comma</td>
+      <td align="LEFT" valign="TOP">COMMA</td>
+      <td align="LEFT" valign="TOP">U+002C</td>
+      <td align="LEFT" valign="TOP">continuation rise, pause</td>
+    </tr>
+  </table>
+
+<p>Use the Prn control tag to indicate how to pronounce text by passing the phonetic equivalent to the engine. For information about Prn, see "Text-to-Speech Control Tags." </p>
+<p>Note these rules:</p>
+<ul>
+<li>Stress marks must <i>precede</i> the affected vowel.
+<li>Any phoneme lacking a preceding stress mark is interpreted as unstressed.
+<li>Blank should be used as a word-separator only.
+</ul>
+<blockquote><p><b>For more information</b>&nbsp;&nbsp;&nbsp;about IPA characters and Unicode, see the following publications:</p></blockquote>
+<ul>
+<li><i>The Unicode Standard</i>, Volumes 1 and 2 (Addison-Wesley).
+<li><i>The Unicode Standard</i>, Version 1.1 (The Unicode Consortium). This document can be found in the Microsoft Development Library.
+<li><i>Phonetic Symbol Guide</i> (Pullum, Geoffrey K. and Ladusaw, William A., 1986, University of Chicago Press).
+</ul>
+
+<p align="RIGHT"><a href="copyright.html"><font size="-2">&copy; 1995-1998 Microsoft Corporation. All rights reserved.</font></a></p>
+
+</body>
+</html>

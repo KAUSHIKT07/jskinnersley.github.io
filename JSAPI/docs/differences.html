@@ -1,0 +1,298 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta http-equiv="Expires" content="0">
+   <meta name="description" content="Java Speech, JSAPI, SAPI5, SAPI4, Java, Speech, recognition, synthesis, implementation">
+   <meta name="keywords" content="Java Speech, JSAPI, SAPI5, SAPI4, Java, Speech, recognition, synthesis, implementation">
+   <meta name="Author" content="J Kinnersley">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>Java Speech API for Windows (using MS SAPI5 and SAPI4)</title>
+<link REL=STYLESHEET TYPE="text/css" HREF="jsapi.css">
+<script>
+function javadoc() {
+  location = "javadoc/index.html"
+}
+</script>
+</head>
+<body>
+
+<h3>
+<u><font face="arial"><font color="#3333FF"><font size=+1>Details of
+Additions/Differences from Sun's JSAPI Specification</font></font></font></u></h3>
+<font face="arial"><font size=-1>All of Sun's 1.0 specification has been
+implemented.</font></font>
+<p><font face="arial"><font size=-1>There are also several additions
+provided mainly by classes external to the JSAPI specification.</font></font>
+<p><a NAME="additions"></a>
+<br><b><u><font face="arial"><font color="#3333FF">Additions:</font></font></u></b>
+<p><b><u><font face="arial"><font color="#3366FF"><font size=-1>Inside
+javax.speech:</font></font></font></u></b>
+<p><font face="arial"><font size=-1>Some javax.speech classes have been
+slightly modified from their original specification. Strictly, this should
+not be done, but the modifications were minor and not easily made outside
+of the javax.speech package. These classes/methods are:</font></font>
+<table BORDER WIDTH="100%" >
+<tr>
+<td><b><font face="arial"><font size=-1>RecognizerAdapter.</font></font></b>
+<br><b><font face="arial"><font size=-1>recognizerListening added</font></font></b>
+<br><font face="arial"><font size=-1>(for an example, see&nbsp;</font></font>
+<br><font face="arial"><font size=-1><a href="../examples/recognition/TestResultListener.java">examples.recognition.TestResultListener)</a></font></font></td>
+
+<td><font face="arial"><font size=-1>A "recognizerListening" method has
+been added to the RecognizerAdapter class since it seemed to be missing,
+and a RECOGNIZER_LISTENING field to the ResultEvent class. A RECOGNIZER_LISTENING
+event is fired after a result has been processed, so over the course of
+several speech commands the recognizer will cycle through the RECOGNIZER_LISTENING
+and RECOGNIZER_PROCESSING states, firing events as it goes. My apologies
+to Sun if I have missed (what may be a very good) reason why they omitted
+the RECOGNIZER_LISTENING event. It's use is demonstrated in the examples.TestEngineListener
+class, which is used in all the recognition examples.</font></font></td>
+</tr>
+
+<tr>
+<td><b><font face="arial"><font size=-1>Word Constructor added</font></font></b>
+<br><font face="arial"><font size=-1>(for an example, see&nbsp;</font></font>
+<br><font face="arial"><font size=-1><a href="../examples/vocab/Pronunciations.java">examples.vocab.Pronunciations)</a></font></font></td>
+
+<td><font face="arial"><font size=-1>The constructor <b>Word(String writtenForm,
+String spokenForm, String[] pronunciations, long categories) </b>has been
+added. This is a non-JSAPI-spec method so that new words or new pronunciations
+can be added to the VocabManager. (It was not clear otherwise how to add
+new words without such a constructor). For details on how to construct
+a pronunciation from phonetic symbols, see the documentation bundled with
+Microsoft's Speech API.</font></font></td>
+</tr>
+</table>
+
+<p><b><u><font face="arial"><font color="#3366FF"><font size=-1>In com.cloudgarden
+packages:</font></font></font></u></b>
+<p><font face="arial"><font size=-1>The <a href="javascript:javadoc()">com.cloudgarden.audio</a>
+package has been added to provide extra IO capabilities, including integration
+with the JMF via the getDataSource and getDataSink methods of the CGAudioManager
+class. Also, the <a href="javascript:javadoc()">com.cloudgarden.speech</a>
+package exposes some public classes which are the implementations of some
+of the javax.speech classes, and provide additional methods, and the <a href="javascript:javadoc()">com.cloudgarden.speech.userinterface</a>
+package provides a few additional user-interface components.</font></font>
+<br>&nbsp;
+<table BORDER WIDTH="100%" >
+<tr VALIGN=TOP>
+<td><b><font face="arial"><font size=-1>Control Components</font></font></b></td>
+
+<td><font face="arial"><font size=-1>The method getControlComponent(int
+type) has been added to <a href="javadoc/com/cloudgarden/speech/CGEngineProperties.html">CGEngineProperties</a>
+to allow all of the Microsoft user-interface windows to be displayed.</font></font></td>
+</tr>
+
+<tr>
+<td><a NAME="sapi4and5"></a><b><font face="arial"><font size=-1>Detection
+of SAPI4/SAPI5 engine</font></font></b></td>
+
+<td><font face="arial"><font size=-1>In virtually all situations, the
+engine type (ie SAPI4 or 5) is transparent to the implementation, but when
+needed the engine type can be discovered and the situation handled accordingly
+by calling the <a href="javadoc/com/cloudgarden/speech/CGEngineProperties.html">CGEngineProperties</a>.getSapiVersion
+method. Differences between SAPI4 and SAPI5 engines are detailed <a href="#sapiDifferences">below</a>.</font></font></td>
+</tr>
+
+<tr VALIGN=TOP>
+<td><a NAME="sound"></a><b><font face="arial"><font size=-1>Flexible
+Audio Input/Output classes and methods</font></font></b></td>
+
+<td><font face="arial"><font size=-1>The <a href="javascript:javadoc()">com.cloudgarden.audio</a>
+package provides numerous classes to enable audio speech data IO with Files,
+Lines and remote clients. The package allows data to be read from and written
+to standard file types (WAV, MP3, AIFF, QT, GSM etc) and transmitted across
+a network in uncompressed and compressed (GSM) formats.</font></font>
+<p><font face="arial"><font size=-1>In addition, the <a href="javadoc/com/cloudgarden/speech/CGAudioManager.html#getDataSource()">getDataSource</a>
+and <a href="javadoc/com/cloudgarden/speech/CGAudioManager.html#getDataSink()">getDataSink</a>
+methods of the CGAudioManager class provide DataSource and DataSink implementations
+which enable the Java Media Framework to be used to pass audio data to
+a Recognizer and retrieve it from a Synthesizer. This allows all the benefits
+of the JMF to be used, such as compressed audio formats.</font></font></td>
+</tr>
+
+<tr>
+<td><a NAME="confidence"></a><b><font face="arial"><font size=-1>Feedback
+on recognition confidence</font></font></b></td>
+
+<td><font face="arial"><font size=-1>Recognition results are given with
+values representing the confidence with which they have been recognized
+by the speech engine, allowing a certain degree of feedback to provided
+in language-training applications.</font></font></td>
+</tr>
+
+<tr>
+<td><b><font face="arial"><font size=-1>Recognized utterances can be
+saved to WAVE files</font></font></b></td>
+
+<td><font face="arial"><font size=-1>The AudioClip returned from the
+FinalResult.getAudio method can be cast into a com.cloudgarden.speech.CGResultAudioClip,
+whose saveToFile(String fileName) method can be called to save the audio
+data to a WAVE file.</font></font></td>
+</tr>
+
+<tr>
+<td><a NAME="speakerGuessing"></a><b><font face="arial"><font color="#000000"><font size=-1>Guessing
+of current speaker</font></font></font></b></td>
+
+<td><font face="arial"><font color="#000000"><font size=-1>Only applies
+to SAPI4 engines<b> - </b>the <a href="javadoc/com/cloudgarden/speech/CGEngineProperties.html">CGEngineProperties</a>.allowGuessingOfSpeaker
+can be used to allow the Recognizer to change the current SpeakerProfile
+based on who it thinks is speaking.</font></font></font></td>
+</tr>
+
+<tr>
+<td><a NAME="lipSync"></a><b><font face="arial"><font color="#000000"><font size=-1>Lip-Sync
+events for speech synthesis</font></font></font></b></td>
+
+<td><font face="arial"><font color="#000000"><font size=-1>Lip-sync events
+are now detected from Synthesizers and <a href="javadoc/com/cloudgarden/speech/CGSpeakableEvent.html">CGSpeakableEvents</a>
+broadcast to <a href="javadoc/com/cloudgarden/speech/CGSpeakableListener.html">CGSpeakableListeners</a>,
+which can then display the current shape of a mouth using the com.cloudgarden.speech.userinterface.Mouth
+Component.</font></font></font></td>
+</tr>
+
+<tr VALIGN=TOP>
+<td><a NAME="userinterface"></a><b><font face="arial"><font size=-1>Graphical
+User Interface additions</font></font></b></td>
+
+<td><font face="arial"><font size=-1>Classes in the <font color="#000000"><b>com.cloudgarden.speech.userinterface
+</b>and<b>
+com.cloudgarden.speech</b> packages allow customizable Dialogs to be displayed
+which list all available engines, profiles and voices and allow the user
+to test and select them. Here is the <a href="javadoc/com/cloudgarden/speech/userinterface/SpeechEngineChooser.html">SpeechEngineChooser</a></font></font></font>
+<br><img SRC="SpeechEngineChooser1.gif" height=486 width=608>
+<p><font face="arial"><font color="#000000"><font size=-1>Lip-sync events
+are also captured from synthesizers and can be displayed using a <a href="javadoc/com/cloudgarden/speech/userinterface/Mouth.html">com.cloudgarden.speech.userinterface.Mouth</a>
+which extends the java.awt.Component class so can be superimposed on other
+Components.</font></font></font>
+<br><img SRC="Mouth.jpg" height=156 width=250></td>
+</tr>
+
+<tr VALIGN=TOP>
+<td><b><font face="arial"><font size=-1>New Rules</font></font></b></td>
+
+<td><font face="arial"><font size=-1>Two rules, &lt;WILDCARD> and &lt;DICTATION>,
+have been added from Microsoft's grammar definition, which are used in
+a grammar in place of any single word. &lt;DICTATION> returns the recognized
+word while &lt;WILDCARD> returns "...". For an example of their usage,
+see <a href="../examples/grammars/helloWorld.gram">examples/grammars/helloWorld.gram</a>
+(used in the examples.recognition.LoadJSGFFromURL example).</font></font></td>
+</tr>
+
+<tr VALIGN=TOP>
+<td><b><font face="arial"><font size=-1>Spelling grammar</font></font></b></td>
+
+<td><font face="arial"><font size=-1>There is a "spelling" grammar as
+well as a "dictation" grammar - load it by calling Recognizer's getDictationGrammar("spelling")
+method.</font></font></td>
+</tr>
+
+<tr VALIGN=TOP>
+<td><b><font face="arial"><font size=-1>Selecting a voice with the JSML
+&lt;ENGINE> tag</font></font></b></td>
+
+<td><font face="arial"><font size=-1>Not really an addition, but the
+JSML &lt;ENGINE> tag can be used to select a voice, for example &lt;ENGINE
+ENGID="Gender=Male;Name=Microsoft Mike"> or &lt;ENGINE ENGID="Gender=Female">
+(see the examples/testJSML.xml file). Possible values are</font></font>
+<ul>
+<li>
+<font face="arial"><font size=-1>Age=Child, Teen, Adult or Senior (though
+all Microsoft voices are Adult)</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>Name=Microsoft Mike, Microsoft Sam or
+Microsoft Mary (these are the only 3 real voices supplied with the Microsoft
+SDK)</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>Gender=Male or Female</font></font></li>
+
+<br><font face="arial"><font size=-1>Language=409 (this is for American
+English - 809 is British English, I'm not sure about the other Language
+IDs).</font></font></ul>
+</td>
+</tr>
+</table>
+
+<p><a NAME="sapiDifferences"></a>
+<br><b><u><font face="arial"><font color="#3333FF">Differences between
+SAPI4 and SAPI5 engines</font></font></u></b>
+<p><b><u><font face="arial"><font color="#000000"><font size=-1>SpeakerManager
+- SpeakerProfile methods</font></font></font></u></b>
+<ul>
+<li>
+<font face="arial"><font color="#000000"><font size=-1>SAPI5 engines
+do not permit creation/deletion of new SpeakerProfiles</font></font></font></li>
+
+<li>
+<font face="arial"><font color="#000000"><font size=-1>The Microsoft,
+Philips and Dragon SAPI4 engines do permit creation &amp; deletion of SpeakerProfiles,
+while the ViaVoice engines only permit deletion of profiles</font></font></font></li>
+
+<li>
+<font face="arial"><font color="#000000"><font size=-1>All SAPI4 and
+SAPI5 engines allow selection of SpeakerProfiles</font></font></font></li>
+</ul>
+<a NAME="pronunciations"></a>
+<p><b><u><font face="arial"><font color="#000000"><font size=-1>Pronunciation
+of words added using VocabManager.addWord or the &lt;SAYAS> tag.</font></font></font></u></b>
+<p><font face="arial"><font size=-1>Certain peculiarities of SAPI4 speech
+engines and the SAPI5 specification require that a certain amount of care
+and experimentation be used when using the VocabManager.addWord method
+or the JSML &lt;SAYAS> tag.</font></font>
+<p><b><u><font face="arial"><font size=-1>For SAPI4 engines:</font></font></u></b>
+<ul>
+<li>
+<font face="arial"><font size=-1>The L&amp;H SAPI4 TTS engines <b>ignore</b>
+the addWord method, but <b>process</b> the SAYAS tag.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>Microsoft's SAPI4 TTS engines <b>process</b>
+the addWord method, but <b>ignore</b> the SAYAS tag.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>&lt;SAYAS> and addWord pronunciations
+can be defined either using Unicode (as in the JSAPI specs) or using <a href="SAPI4Pronunciations.html">Microsoft's
+symbol notation</a> (this document is borrowed from the SAPI4 SDK documentation).</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>However, Unicode in the &lt;SAYAS> tag
+may not be well supported by SAPI4 engines, but Unicode and Microsoft's
+notation can be mixed in a pronunciation - see the <a href="../examples/synthesis/HelloWorld.java">examples.synthesis.HelloWorld</a>
+example - which may allow the correct pronunciation to be made eventually.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>Certain JSML tags do not work for some
+SAPI4 engines, such as specification of Voice with the &lt;ENGINE> tag
+- experimenting with the examples.synthesis.SynthesizerTest example should
+illustrate that point.</font></font></li>
+</ul>
+<b><u><font face="arial"><font size=-1>For SAPI5 engines:</font></font></u></b>
+<ul>
+<li>
+<font face="arial"><font size=-1>Microsoft's SAPI5 engines accept the
+addWord method <b>and</b> process the SAYAS tag.</font></font></li>
+
+<br><font face="arial"><font size=-1>...but Microsoft's SAPI5 specification
+abandoned the use of Unicode IPA values (for reasons known best to Microsoft),
+so pronunciations must be defined using the notation given in <a href="SAPI5Pronunciations.html">this
+document</a> (which is taken from the SAPI5 SDK documentation).</font></font></ul>
+
+<p><br><a NAME="awt synch"></a>
+<br><b><u><font face="arial"><font color="#3333FF">Synchronization with
+AWT EventQueue:</font></font></u></b>
+<p><font face="arial"><font size=-1>By default, AWT synchronization is
+turned on in this implementation, since this is part of Sun's specification.
+However, synchronization can be turned off by calling the method <b>com.cloudgarden.speech.CGEngineCentral.setAWTSynchronization(false)</b>.
+This allows the JSAPI to be used from Applets - <a href="applets.html">see
+this section</a>.</font></font>
+<p><font face="arial"><font size=-1>With AWT synchronization turned on,
+all JSAPI events are synchronized with the AWT EventQueue (the sending
+of events is inside a block synchronized with the EventQueue).</font></font>
+<ul>&nbsp;</ul>
+
+</body>
+</html>

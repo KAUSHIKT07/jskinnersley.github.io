@@ -1,0 +1,360 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta http-equiv="Expires" content="0">
+   <meta name="description" content="Java Speech, JSAPI, SAPI5, SAPI4, Java, Speech, recognition, synthesis, implementation">
+   <meta name="keywords" content="Java Speech, JSAPI, SAPI5, SAPI4, Java, Speech, recognition, synthesis, implementation">
+   <meta name="Author" content="J Kinnersley">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>Java Speech API for Windows (using MS SAPI5 and SAPI4)</title>
+</head>
+<body>
+
+<h3>
+<b><u><font face="arial"><font color="#3333FF"><font size=+1>Examples</font></font></font></u></b></h3>
+<font face="arial"><font size=-1>A sample application, VoicePad, has been
+added to the examples.userinterface package to demonstrate a fairly simple
+Swing-based application.</font></font>
+<p><font face="arial"><font size=-1>Several new examples have been added
+to the <b>examples.synthesis</b> and <b>examples.recognition</b> packages
+to demonstrate the IO features of the <b>com.cloudgarden.audio</b> package.
+Also, new example packages, <b>examples.applet</b> and <b>examples.remote</b>,
+have been added. Please consult these examples for usage of the classes.
+Also, and since it was found that the <b>javax.sound.sampled</b> package
+can sometimes hang a system (mainly when trying to open a TargetDataLine
+and SourceDataLine at the same time), it might save time to use the code
+from some of the examples as a starting point for new code.</font></font>
+<p><b><u><font face="arial"><font color="#3333FF"><font size=+1>Running
+the Examples</font></font></font></u></b>
+<p><font face="arial"><font size=-1>The examples can be run:</font></font>
+<ul>
+<li>
+<font face="arial"><font size=-1>using the batch files supplied with the
+implementation, of the form <i>TestXXX.bat</i> - eg. <i>TestHelloWorld.bat</i>,
+or</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>from a console window by typing (assuming
+Java 2 is being used) "java -cp .;cgjsapi.jar examples.synthesis.HelloWorld"
+etc. from the same directory as the "examples" folder is in.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>by running the TestExamples.bat script
+- this starts up a Java app which lets you run 12 of the test demos with
+output going to a scrolling Java window - useful for those poor soles working
+on Windows 98 or Me boxes who want to see more than 50 lines of text.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>from the Java installer supplied with
+the implementation - see the "Using the Java Installer" part of the <a href="installation.html">Installation</a>
+section. After it extracts the jar file it shows twelve buttons which run
+twelve examples and show the output inside a scrolling Java frame.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>The Applet examples can be run in a browser,
+provided the JSAPI files are installed correctly (see the <a href="applets.html">applets</a>
+page).</font></font></li>
+</ul>
+<font face="arial"><font size=-1>Most of the examples use the <b>com.cloudgarden.speech.userinterface.SpeechEngineChooser</b>
+dialog to allow you to select which of the installed engines to use for
+the demo - note that this is a Swing component, so it is recommended that
+they be run using Sun's JDK 1.3. The examples that synthesize speech will
+require that you select a "Voice" node under a "Synthesizer" node and hit
+the "Set Voice" button on the dialog before proceeding, and the recognition
+examples will require that you pick a "Profile" node under a "Recognizer"
+node in the same way. The "WhatTimeIsIt" example requires you to pick both.</font></font>
+<p><b><u><font face="arial"><font color="#3333FF"><font size=+1>Description
+of the Examples</font></font></font></u></b>
+<p><font face="arial"><font color="#000000"><font size=-1>Some of the
+examples are described here - all of the examples are described briefly
+in the <a href="javadoc/index.html">javadoc</a>.</font></font></font>
+<ul>
+<li>
+<u><font face="arial"><font color="#00CC00"><font size=-1><a href="../examples/userinterface">examples.userinterface</a></font></font></font></u></li>
+
+<ul>
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/userinterface/VoicePad.java">examples.userinterface.VoicePad</a></font></u><font color="#000000">
+- A sample Swing-based application which uses the Mouth component and a
+JEditorPane to display a text document and highlight words currently being
+spoken. When the "Speak" button is pressed it will start speaking either
+the text currently selected, or will start speaking from the current cursor
+position if no text is selected. Also allows synthesized speech to be saved
+to a MPEG file.</font></font></font></li>
+
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/userinterface/TestInterfaces.java">examples.userinterface.TestInterfaces</a></font></u><font color="#000000">
+- </font>Displays a GUI with buttons which pop-up the Recognition and Synthesis
+engines' native user interfaces.</font></font></li>
+</ul>
+
+<li>
+<u><font face="arial"><font color="#00CC00"><font size=-1><a href="../examples/applet">examples.applet</a></font></font></font></u></li>
+
+<ul>
+<li>
+<font face="arial"><font size=-1><a href="../examples/applet/BrowserApplet.java">BrowserApplet</a>
+- open the browser.html file in IE or Netscape for a simple voice-enabled
+browsing experience.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><a href="../examples/applet/SpeechApplet.java">SpeechApplet</a>
+- a simple TTS applet.</font></font></li>
+</ul>
+
+<li>
+<u><font face="arial"><font color="#00CC00"><font size=-1><a href="../examples/audio">examples.audio</a></font></font></font></u></li>
+
+<ul>
+<li>
+<font face="arial"><font color="#000000"><font size=-1>Contains examples
+demonstrating the com.cloudgarden.audio package.</font></font></font></li>
+
+<li>
+<font face="arial"><font color="#000000"><font size=-1><a href="../examples/audio/ConversionTest.java">ConversionTest</a>
+- demonstrates the AudioFormatConverter's capabilities, converting from
+8 to 16kHz with and without linear interpolation.</font></font></font></li>
+
+<li>
+<font face="arial"><font color="#000000"><font size=-1><a href="../examples/audio/FileToFileToLine.java">FileToFileToLine</a>
+- Demonstrates copying an mp3 file to a gsm file, then playing the gsm
+file to an AudioLineSink.</font></font></font></li>
+
+<li>
+<font face="arial"><font color="#000000"><font size=-1><a href="../examples/audio/FileToFiles.java">FileToFiles</a>
+- Demonstrates reading from one file and writing to two different ones
+with different formats. Uses the AudioMediaURLSource, AudioSplitter, AudioFormatConverter
+classes.</font></font></font></li>
+
+<li>
+<font face="arial"><font color="#000000"><font size=-1><a href="../examples/audio/WAVtoMPEG.java">WAVtoMPEG</a>
+- Demonstrates reading from a wave file and writing to an mp3 file.</font></font></font></li>
+</ul>
+
+<li>
+<u><font face="arial"><font color="#00CC00"><font size=-1><a href="../examples/recognition">examples.recognition</a></font></font></font></u></li>
+
+<ul>
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/recognition/DictationTest.java">examples.recognition.DictationTest</a></font></u>
+- Tests recognition of phrases from the full vocabulary - after it has
+recognized three phrases it will stop.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/recognition/WhatTimeIsIt.java">examples.recognition.WhatTimeIsIt</a></font></u>
+- Tests recognition of 'what time is it' and 'what date is it' and responds
+with a spoken&nbsp; answer</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/recognition/LoadJSGFFromURL.java">examples.recognition.LoadJSGFFromURL</a></font></u>
+- Tests recognition of phrases loaded from the JSGF file ../examples/grammars/helloWorld.gram
+- example phrases are 'pause and finish and stop', 'I'd like five bananas','I'd
+like twenty five bananas and twelve oranges', 'hello my name is &lt;your
+name here>', 'open the bottle please' - after it has recognized three phrases
+it will stop.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/recognition/DictationFromFile.java">examples.recognition.DictationFromFile</a></font></u>
+- Audio data read in from WAV file and sent to a Recognizer</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/recognition/DictationFromMPEGFile.java">examples.recognition.DictationFromMPEGFile</a></font></u>
+- Audio data read in from MP3 file and sent to a Recognizer</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/recognition/ParserTest.java">examples.recognition.ParserTest
+</a></font></u><font color="#000000">-
+Demonstrates use of the RuleGrammar.parse method</font></font></font></li>
+
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/recognition/GramCommitTest.java">examples.recognition.GramCommitTest</a></font></u><font color="#000000">
+- Tests activating rules and grammars in response to spoken commands. One
+grammar contains the words "alpha","bravo","charlie","delta", but only
+one rule is active at a time and the other grammar contains "one","two","three","four"
+- again, only one rule active at a time. Also, only one of the grammars
+is active at a time. Switch between grammars with the command "switch"
+and activate the next rule in each grammar with the command "next".</font></font></font></li>
+</ul>
+
+<li>
+<u><font face="arial"><font color="#00CC00"><font size=-1><a href="../examples/remote">examples.remote</a></font></font></font></u></li>
+
+<ul>
+<li>
+<font face="arial"><font size=-1><a href="../examples/remote/FileToLineRemote.java">FileToLineRemote</a>
+- Demonstrates network transmission of audio data from an AudioFileSource
+to a AudioLineSink in compressed (GSM) and uncompressed (RAW) formats,
+from server to client and from client to server - for ease of demonstration
+incorporates both server and client since both run on the localhost.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1>contains several examples demonstrating
+transfer of audio speech data between a server machine running a Recognizer/Synthesizer
+and a client machine without speech engines.<font color="#000000"> <u>Start
+up the Server on the server machine and start the Client on the client
+machine with a command-line argument of the server machine's network name
+(or no argument if Client and Server are on the same machine).</u></font></font></font></li>
+
+<li>
+<font face="arial"><font size=-1><font color="#000000"><a href="../examples/remote/RemoteAudioServer.java">RemoteAudioServer</a>
+and</font> <font color="#000000"><a href="../examples/remote/RemoteAudioClient.java">RemoteAudioClient
+</a></font>-
+doesn't use speech engines - just transfers audio data from a client machine
+to a server machine where it is played to a SourceDataLine.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><font color="#000000"><a href="../examples/remote/RemoteDictationServer.java">RemoteDictationServer</a>
+and</font> <font color="#000000"><a href="../examples/remote/RemoteDictationClient.java">RemoteDictationClient</a></font>-
+sends audio data from the client to the server machine running a Recognizer
+with a DictationGrammar.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><font color="#000000"><a href="../examples/remote/RemoteSynthesisServer.java">RemoteSynthesisServer</a>
+and</font> <font color="#000000"><a href="../examples/remote/RemoteSynthesisClient.java">RemoteSynthesisClient</a></font>
+- sends synthesized speech to a client machine.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><font color="#000000"><a href="../examples/remote/WhatTimeIsItServer.java">WhatTimeIsItServer</a>
+and <a href="../examples/remote/WhatTimeIsItClient.java">WhatTimeIsItClient</a></font>
+audio data "what time is it" sent from client to server and synthesized
+speech sent from server to client.</font></font></li>
+</ul>
+
+<li>
+<font face="arial"><font size=-1><a href="../examples/rtp">examples.rtp</a></font></font></li>
+
+<ul>
+<li>
+<font face="arial"><font size=-1><a href="../examples/rtp/CaptureAndPlay.java">CaptureAndPlay</a>
+- This class opens two RTP steams - one receives audio data from the url
+"rtp://&lt;localhost>:12346/audio" and plays it to the local output device,
+and the other sends audio data (captured from the local audio capture device)
+to the url "rtp://&lt;localhost>:12344/audio". This class should generally
+be started before running any of the other classes in this package, since
+the other classes either send data to the url "rtp://&lt;localhost>:12346/audio"
+or receive data from the url "rtp://&lt;localhost>:12346/audio", or do
+both.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><a href="../examples/rtp/DictationFromRTP.java">DictationFromRTP</a>
+- allocates a recognizer, listening on an RTP port, and sends the contents
+of a WAV file to the RTP port the recognizer is listening on.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><a href="../examples/rtp/FileToRTP.java">FileToRTP</a>
+- Plays file to RTP stream (doesn't use JSAPI - it's just an RTP demo)
+- to hear output stream, start up CaptureAndPlay class, then start this
+class</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><a href="../examples/rtp/RTPCommandVoiceServer.java">RTPCommandVoiceServer</a>
+- Creates a Recognizer which listens to an incoming RTP stream and replies
+with synthesized speech on a separate RTP stream - to send the RTP stream
+to the recognizer and hear it's response, start up the CaptureAndPlay class,
+then this class, then say "what date/time is it", or "goodbye computer".</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><a href="../examples/rtp/RTPDictationVoiceServer.java">RTPDictationVoiceServer</a>
+- Creates a Recognizer which listens to an incoming RTP stream and replies
+with synthesized speech on a separate RTP stream - to send the RTP stream
+to the recognizer and hear it's response, start up the CaptureAndPlay class,
+then speak into the microphone - the recognizer should respond with what
+it thinks you said.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><a href="../examples/rtp/SpeakToRTP.java">SpeakToRTP</a>
+- Uses a synthesizer to send audio data to an rtp url. To hear the output,
+run the CaptureAndPlay class then run this example.</font></font></li>
+</ul>
+
+<li>
+<u><font face="arial"><font color="#00CC00"><font size=-1><a href="../examples/synthesis">examples.synthesis</a></font></font></font></u></li>
+
+<ul>
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/synthesis/HelloWorld.java">examples.synthesis.HelloWorld</a></font></u>
+- Tests basic speech synthesis with a 'Hello World', and demonstrates use
+of the SpeechEngineChooser and Mouth classes.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/synthesis/DuplexTest.java">examples.synthesis.DuplexTest</a></font></u>
+- Tests whether a duplex sound card is being used. Keep saying one of the
+six commands "Nice day", "Hello", "How are you" ,"What time is it","Would
+you like a cup of tea" or "Goodbye" while the computer is replying - the
+computer should hear what you said while it was still talking and reply
+when it has finished it's current reply.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/synthesis/SynthesizerTest.java">examples.synthesis.SynthesizerTest</a></font></u>
+- Tests more complex speech synthesis</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/synthesis/SpeakToFile.java">examples.synthesis.SpeakToFile</a></font></u>
+- Tests saving of synthesized speech to two WAV files in the extracted
+directory</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/synthesis/SpeakToMPEGFile.java">examples.synthesis.SpeakToMPEGFile</a></font></u>
+- Tests saving of synthesized speech to a MP3 file in the extracted directory</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/synthesis/ReadAliceToWAVEFile.java">examples.synthesis.ReadAliceToWAVEFile</a></font></u>
+- Tests saving of synthesized "Alice in Wonderland, Chapter 1" to a WAVE
+file in the extracted directory - for SAPI4 engines you will need to allocate
+about 128MB of memory for the JVM with the "-Xmx128m" java command-line
+option.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/synthesis/ReadAliceToMPEGFile.java">examples.synthesis.ReadAliceToMPEGFile</a></font></u><font color="#000000">
+- as ReadAliceToWAVEFile but to a (about 3MB) MPEG file.</font></font></font></li>
+
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/synthesis/SpeakToLine.java">examples.synthesis.SpeakToLine</a></font></u>
+- Uses the com.cloudgarden.audio classes to send audio to an AudioLineSink.</font></font></li>
+
+<li>
+<font face="arial"><font size=-1><u><font color="#00CC00"><a href="../examples/synthesis/SpeakToMultiLine.java">examples.synthesis.SpeakToMultiLine</a></font></u>
+- Uses the com.cloudgarden.audio classes to demonstrate splitting of synthesizer
+output to three separate AudioLineSink s.</font></font></li>
+</ul>
+
+<li>
+<u><font face="arial"><font color="#00CC00"><font size=-1><a href="../examples/ListEngineTest.java">examples.ListEngineTest</a></font></font></font></u></li>
+
+<ul>
+<li>
+<font face="arial"><font size=-1>Lists all the available Synthesizers
+(for all languages) and their Voices, says "hello" with each of the Voices,
+then lists all the Recognizers and SpeakerProfiles.</font></font></li>
+</ul>
+
+<li>
+<font face="arial"><font size=-1><a href="../examples/vocab/VocabTest.java">examples.vocab.VocabTest</a></font></font></li>
+
+<ul>
+<li>
+<font face="arial"><font size=-1>Demonstrates changing the pronunciation
+of "time" to "aw r" (hour) for both speech synthesis and recognition.</font></font></li>
+</ul>
+
+<li>
+<font face="arial"><font size=-1><a href="../examples/vocab/Pronunciations.java">examples.vocab.Pronunciations</a></font></font></li>
+
+<ul>
+<li>
+<font face="arial"><font size=-1>Demonstrates the addition of a word (with
+pronunciation) to the VocabManager, and by using JSML tags in the speech
+string, and oddities of the SAPI4 engines.</font></font></li>
+</ul>
+</ul>
+<font face="arial"><font size=-1>Before speech dictation will work well
+though, make sure you have a good microphone (built-in ones on laptops
+generally have way too much background noise) and spend ten minutes or
+so training the speech engine to your voice - after you install Microsoft's
+Speech SDK 5 there should be a "Speech" entry in the Windows control panel
+which lets you do this, or you can use the "User-training" button in the
+<b>examples.userinterface.TestInterfaces</b>
+example above.</font></font>
+</body>
+</html>

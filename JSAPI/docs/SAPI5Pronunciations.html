@@ -1,0 +1,878 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="IndexGenerator" content="HTML Indexer">
+   <meta name="Keywords" content="American English phoneme representation English phoneme representation Numerical representation Phonemes, American English representation Symbolic representation">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en]C-CCK-MCD EBM-Compaq1  (WinNT; U) [Netscape]">
+   <title>American English Phoneme Representation</title>
+<style>@import url(basicIE4.css);</style>
+<!-- HTML Indexer V3.0 - Do not edit this comment block.
+    Target="#"
+        IndexAs="American English phoneme representation",SortAs="American English phoneme representation",HelpAs="American English phoneme representation",HelpTitle="American English phoneme representation"
+        IndexAs="English phoneme representation",SortAs="English phoneme representation",HelpAs="English phoneme representation",HelpTitle="American English phoneme representation"
+        IndexAs="Numerical representation",SortAs="Numerical representation",HelpAs="Numerical representation",HelpTitle="Untitled"
+        IndexAs="Phonemes, American English representation",SortAs="Phonemes, American English representation",HelpAs="Phonemes, American English representation",HelpTitle="American English representation"
+        IndexAs="Symbolic representation",SortAs="Symbolic representation",HelpAs="Symbolic representation",HelpTitle="Untitled"
+  HTML Indexer -->
+</head>
+<body>
+<a href="http://go.microsoft.com/fwlink?linkid=288&clcid=0x409" TARGET="_blank"><img SRC="homenrm.gif" ALT="The Microsoft.com Speech website" BORDER=0 height=38 width=51 align=RIGHT></a><font size=+1>Microsoft
+Speech SDK</font> SAPI 5.1
+<hr ALIGN="left" SIZE="1" WIDTH="100%" COLOR="#ff0000" NOSHADE>
+<h1>
+American English Phoneme Representation</h1>
+This is a brief introduction to the use and implementation of the SAPI
+phoneme representations.
+<h2>
+Symbolic and Numerical Representation</h2>
+Application developers can create pronunciations for words that are not
+currently in the lexicon by using the English phonemes represented in the
+following table. The phoneme set is composed of a symbolic phonetic representation
+(SYM).
+<p>The application developer will be able to enter the SYM representation
+to create the pronunciation using the XML PRON tag, or by creating a new
+lexicon entry. Each phoneme entry should be space delimited.
+<br>&nbsp;
+<table CELLSPACING=4 COLS=4 WIDTH="400" >
+<tr VALIGN=TOP>
+<td><!--Column_1--></td>
+
+<th ALIGN=LEFT WIDTH="40%">Tag</th>
+
+<td><!--Column_2--></td>
+
+<th ALIGN=LEFT WIDTH="60%">Description</th>
+</tr>
+
+<tr VALIGN=TOP>
+<td><!--Column_1--></td>
+
+<td ALIGN=LEFT WIDTH="40%">PRON SYM</td>
+
+<td><!--Column_2--></td>
+
+<td ALIGN=LEFT WIDTH="60%">Tag used to insert a pronunciation using symbolic
+representation.</td>
+</tr>
+</table>
+
+<p>Example: pronunciation for "hello":
+<pre STYLE="width:'400';"><tt>&lt;PRON SYM = "h eh l ow"/></tt></pre>
+For improved accuracy, the primary (1), secondary (2) stress markers, and
+the syllabic markers (-) can be added to the pronunciation.
+<p>Example: pronunciation for "hello" using the primary stress (1) and
+syllabic (-) markers:
+<pre STYLE="width:'400';"><tt>&lt;PRON SYM = "h eh - l ow 1"/></tt></pre>
+
+<h2>
+American English Phoneme Table</h2>
+
+<table COLS=7 WIDTH="400" BGCOLOR="#FFFF99" >
+<caption><!-- 1 to 49 --></caption>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<th WIDTH="15%" CLASS="th_dk">SYM</th>
+
+<td><!-- Column 2 --></td>
+
+<td><b>IPA Unicode</b></td>
+
+<th WIDTH="70%" CLASS="th_dk">Example</th>
+
+<td><!-- Column 3 --></td>
+
+<th WIDTH="15%" CLASS="th_dk">PhoneID</th>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">-</td>
+
+<td><!-- Column 2 --></td>
+
+<td>002D</td>
+
+<td CLASS="td_lt">syllable boundary (hyphen)</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">1</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">!</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0021</td>
+
+<td CLASS="td_dk">Sentence terminator (exclamation mark)</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">2</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">&amp;</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0023, 0020</td>
+
+<td CLASS="td_lt">word boundary</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">3</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">,</td>
+
+<td><!-- Column 2 --></td>
+
+<td>002C</td>
+
+<td CLASS="td_dk">Sentence terminator (comma)</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">4</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">.</td>
+
+<td><!-- Column 2 --></td>
+
+<td>002E</td>
+
+<td CLASS="td_lt">Sentence terminator (period)</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">5</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">?</td>
+
+<td><!-- Column 2 --></td>
+
+<td>003F</td>
+
+<td CLASS="td_dk">Sentence terminator (question mark)</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">6</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">_</td>
+
+<td><!-- Column 2 --></td>
+
+<td>005F</td>
+
+<td CLASS="td_lt">Silence (underscore)</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">7</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">1</td>
+
+<td><!-- Column 2 --></td>
+
+<td>02C8</td>
+
+<td CLASS="td_dk">Primary stress</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">8</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">2</td>
+
+<td><!-- Column 2 --></td>
+
+<td>02CC</td>
+
+<td CLASS="td_lt">Secondary stress</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">9</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">aa</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0251</td>
+
+<td CLASS="td_dk">f<u>a</u>ther</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">10</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">ae</td>
+
+<td><!-- Column 2 --></td>
+
+<td>00E6</td>
+
+<td CLASS="td_lt">c<u>a</u>t</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">11</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">ah</td>
+
+<td><!-- Column 2 --></td>
+
+<td>028C</td>
+
+<td CLASS="td_dk">c<u>u</u>t</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">12</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">ao</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0254</td>
+
+<td CLASS="td_lt">d<u>o</u>g</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">13</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">aw</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0251+028A</td>
+
+<td CLASS="td_dk">f<u>ou</u>l</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">14</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">ax</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0259</td>
+
+<td CLASS="td_lt">a<u>g</u>o</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">15</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">ay</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0251+026A</td>
+
+<td CLASS="td_dk">b<u>i</u>te</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">16</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">b</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0062</td>
+
+<td CLASS="td_lt"><u>b</u>ig</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">17</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">ch</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0074+0283</td>
+
+<td CLASS="td_dk"><u>ch</u>in</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">18</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">d</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0064</td>
+
+<td CLASS="td_lt"><u>d</u>ig</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">19</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">dh</td>
+
+<td><!-- Column 2 --></td>
+
+<td>00F0</td>
+
+<td CLASS="td_dk"><u>th</u>en</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">20</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">eh</td>
+
+<td><!-- Column 2 --></td>
+
+<td>025B</td>
+
+<td CLASS="td_lt">p<u>e</u>t</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">21</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">er</td>
+
+<td><!-- Column 2 --></td>
+
+<td>025A</td>
+
+<td CLASS="td_dk">f<u>ur</u></td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">22</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">ey</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0065</td>
+
+<td CLASS="td_lt"><u>a</u>te</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">23</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">f</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0066</td>
+
+<td CLASS="td_dk"><u>f</u>ork</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">24</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">g</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0067</td>
+
+<td CLASS="td_lt"><u>g</u>ut</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">25</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">h</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0068</td>
+
+<td CLASS="td_dk"><u>h</u>elp</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">26</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">ih</td>
+
+<td><!-- Column 2 --></td>
+
+<td>026A</td>
+
+<td CLASS="td_lt">f<u>i</u>ll</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">27</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">iy</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0069</td>
+
+<td CLASS="td_dk">f<u>ee</u>l</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">28</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">jh</td>
+
+<td><!-- Column 2 --></td>
+
+<td>02A4</td>
+
+<td CLASS="td_lt"><u>j</u>oy</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">29</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">k</td>
+
+<td><!-- Column 2 --></td>
+
+<td>006B</td>
+
+<td CLASS="td_dk"><u>c</u>ut</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">30</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">l</td>
+
+<td><!-- Column 2 --></td>
+
+<td>006C</td>
+
+<td CLASS="td_lt"><u>l</u>id</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">31</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">m</td>
+
+<td><!-- Column 2 --></td>
+
+<td>006D</td>
+
+<td CLASS="td_dk"><u>m</u>at</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">32</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">n</td>
+
+<td><!-- Column 2 --></td>
+
+<td>006E</td>
+
+<td CLASS="td_lt"><u>n</u>o</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">33</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">ng</td>
+
+<td><!-- Column 2 --></td>
+
+<td>014B</td>
+
+<td CLASS="td_dk">si<u>ng</u></td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">34</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">ow</td>
+
+<td><!-- Column 2 --></td>
+
+<td>006F</td>
+
+<td CLASS="td_lt">g<u>o</u></td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">35</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">oy</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0254+026A</td>
+
+<td CLASS="td_dk">t<u>oy</u></td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">36</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">p</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0070</td>
+
+<td CLASS="td_lt"><u>p</u>ut</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">37</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">r</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0279</td>
+
+<td CLASS="td_dk"><u>r</u>ed</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">38</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">s</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0073</td>
+
+<td CLASS="td_lt"><u>s</u>it</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">39</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">sh</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0283</td>
+
+<td CLASS="td_dk"><u>sh</u>e</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">40</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">t</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0074</td>
+
+<td CLASS="td_lt"><u>t</u>alk</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">41</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">th</td>
+
+<td><!-- Column 2 --></td>
+
+<td>03B8</td>
+
+<td CLASS="td_dk"><u>th</u>in</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">42</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">uh</td>
+
+<td><!-- Column 2 --></td>
+
+<td>028A</td>
+
+<td CLASS="td_lt">b<u>oo</u>k</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">43</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">uw</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0075</td>
+
+<td CLASS="td_dk">t<u>oo</u></td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">44</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">v</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0076</td>
+
+<td CLASS="td_lt"><u>v</u>at</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">45</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">w</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0077</td>
+
+<td CLASS="td_dk"><u>w</u>ith</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">46</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">y</td>
+
+<td><!-- Column 2 --></td>
+
+<td>006A</td>
+
+<td CLASS="td_lt"><u>y</u>ard</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">47</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_dk">z</td>
+
+<td><!-- Column 2 --></td>
+
+<td>007A</td>
+
+<td CLASS="td_dk"><u>z</u>ap</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_dk">48</td>
+</tr>
+
+<tr>
+<td><!-- Column 1 --></td>
+
+<td CLASS="td_lt">zh</td>
+
+<td><!-- Column 2 --></td>
+
+<td>0292</td>
+
+<td CLASS="td_lt">plea<u>s</u>ure</td>
+
+<td><!-- Column 3 --></td>
+
+<td CLASS="td_lt">49</td>
+</tr>
+</table>
+
+<p>Please see <a href="TTS_Int_Phonemes.htm">International Phonemes</a>
+for information on other phoneme sets.
+</body>
+</html>

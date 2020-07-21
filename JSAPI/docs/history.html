@@ -1,0 +1,1062 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR"
+ content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+</head>
+<body>
+<h3>
+<u><font face="Verdana"><font size="-1">Version history</font></font></u></h3>
+<font face="Verdana"><font size="-1"><b><u>TalkingJava SDK Version 1.7.0</u></b>
+(Jan 1st, 2010)</font></font>
+<p><u><font face="Verdana"><font size="-1">Additions/Changes:</font></font></u></p>
+<ul>
+  <li><font face="Verdana"><font size="-1">Support for 64-bit Windows</font></font></li>
+  <li><font face="Verdana"><font size="-1">Change of license - now free
+for non-commercial use.</font></font></li>
+  <li><font face="Verdana"><font size="-1">Several bug fixes<br>
+    </font></font></li>
+</ul>
+<p><font face="Verdana"><font size="-1"><b><u><br>
+TalkingJava SDK Version 1.6.3</u></b>
+(Jan 21st, 2004)</font></font>
+</p>
+<p><u><font face="Verdana"><font size="-1">Additions/Changes:</font></font></u>
+</p>
+<p></p>
+<ul>
+  <li><font face="Verdana"><font size="-1">Added phoneme()
+method to CGSpeakableListener, which is triggered when a Synthesizer
+starts to synthesize a new phoneme. There is a corresponding
+getPhoneme()
+method in CGSpeakableEvent</font></font></li>
+  <li><font face="Verdana"><font size="-1">Added valid time stamps
+(ResultToken.getStartTime() and getEndTime()) </font></font><font
+ face="Verdana"><font size="-1">for ResultListener.resultRecognized()
+events.<br>
+    </font></font></li>
+</ul>
+<font face="Verdana"><font size="-1"><b><u>TalkingJava SDK Version 1.6.2</u></b>
+(June 14th, 2003)</font></font>
+<p><u><font face="Verdana"><font size="-1">Additions/Changes:</font></font></u>
+</p>
+<ul>
+  <li><font face="Verdana"><font size="-1">Added setKeepOpen(boolean
+keepOpen)
+method to CGPullBufferDataSource, to force the DataSource to stay open
+even after zero bytes are written to it. Calling this method with an
+argument
+of true allows an RTP stream to function correctly when connected to a
+Synthesizer which only speaks occasionally - see the
+examples.rtp.SpeakToRTP
+class for a demonstration.</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">When the
+com.cloudgarden.audio.AudioMediaURLSink
+was used to write to a file, the file would keep on growing and never
+be
+closed - this was due to the CGPullBufferDataSource's internal
+"keepOpen"
+field being set to "true" (see above). Now by default it is set to
+"false"
+and for RTP applications it must be set to true using the setKeepOpen
+method
+(see above). This bug caused the examples.audio.WAVToMPEG example to
+never
+terminate.</font></font></li>
+</ul>
+<font face="Verdana"><font size="-1"><b><u>TalkingJava SDK Version 1.6.1</u></b>
+(May 15th, 2003)</font></font>
+<p><u><font face="Verdana"><font size="-1">Additions/Changes:</font></font></u>
+</p>
+<ul>
+  <li> <font face="Verdana"><font size="-1">The CGResultAudioClip
+class
+(which is
+the AudioClip returned from the FinalResult.getAudio method) can be
+saved
+to a WAV file via the CGResultAudioClip.saveToFile method.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">LicenseManager can now
+operate
+via a
+proxy to validate license, as well as in "off-line" mode.</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">In rare cases a SAPI5
+RuleGrammar failed
+to be updated - this has been fixed.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">A few other minor bugs
+have
+been fixed.</font></font></li>
+</ul>
+<p><br>
+<font face="Verdana"><font size="-1"><b><u>TalkingJava SDK Version
+1.6.0</u></b> (Mar 24th, 2003)</font></font>
+</p>
+<p><u><font face="Verdana"><font size="-1">Additions/Changes:</font></font></u>
+</p>
+<ul>
+  <li> <font face="Verdana"><font size="-1">Introduction of name
+"TalkingJava SDK"
+to represent the combination of examples, documentation, installer and
+CloudGarden's JSAPI implementation - the version numbering scheme is
+continued
+from older versions.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Cleaner reorganization of
+file
+structure.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">New installer, which
+allows
+cleaner
+management of installation/removal of SDK, and of the JSAPI
+implementation
+into JREs and locations where Netscape and IE VMs can access it.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Examples using the
+javax.media.rtp package
+have been added in the examples.rtp package.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">A simple speech-enabled
+browser example
+has been added (examples.applet.BrowserApplet) to demonstrate a more
+sophisticated
+use of the JSAPI in an Applet.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">A CGPullBufferDataSource
+can
+now be
+created publically from an AudioSource</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">Alternative results are
+now
+generated
+for RuleGrammars</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Alternative results are
+now
+generated
+for the Dragon engines for rule and dictation results.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Several problems
+preventing
+certain
+uses in Applets have been overcome.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Very occasionally
+AudioManager.closeOutput()
+would fail to close the output - now it always does.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Some problems with using
+RTP
+(resulting
+in occasional data loss) have been solved.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Long grammar names are now
+accomodated
+in SAPI4 engines.</font></font></li>
+</ul>
+<font face="Verdana"><font size="-1"><b><u>Release Version 1.5.3</u></b>
+(Oct 28th, 2002)</font></font>
+<p><u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+</p>
+<ul>
+  <li> <font face="Verdana"><font size="-1">When loading a JSGF
+grammar
+with no
+"#JSGF..." line or grammar name in the header, a NPE was thrown - this
+has been fixed.</font></font></li>
+</ul>
+<p><br>
+<font face="Verdana"><font size="-1"><b><u>Release Version 1.5.2</u></b>
+(Oct 27th, 2002)</font></font>
+</p>
+<p><u><font face="Verdana"><font size="-1">Additions/Changes:</font></font></u>
+</p>
+<ul>
+  <li> <font face="Verdana"><font size="-1">The javadoc has been
+updated
+for the
+com.cloudgarden.speech and com.cloudgarden.speech.userinterface packages</font></font></li>
+  <li> <font face="Verdana"><font size="-1">The examples have been
+more
+fully documented.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Much more detail added to
+reporting
+of errors in RuleGrammars. (see examples.recognition.GrammarErrorTest)</font></font></li>
+  <li> <font face="Verdana"><font size="-1">GrammarException.getDetails
+has been
+implemented to provide more detailed information on all the grammar
+errors
+when a RuleGrammar is parsed - instead of just the first error.</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">FinalRuleResult.getTags
+sometimes gave
+extra tags - this has been fixed.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Tagging a &lt;NULL&gt;
+rule is
+now accepted
+- eg, this rule: twenty {2} ( &lt;NULL&gt; {0} | one {1} ) will be
+accepted
+and converted internally to ( twenty {2} {0} | twenty {2} one {1} )</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Bug causing recognizer to
+ignore resume
+method call if a result was recognized while recognizer was paused -
+this
+has been fixed.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Some additional grammar
+errors
+caught,
+eg: &lt;rule&gt; = something * {tag}; //an error is thrown now</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Multiple tags allowed now:
+eg,
+&lt;rule&gt;
+= something {tag1} {tag2} {tag3}; //is OK now</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Escaped characters inside
+tags
+are allowed
+now: eg, &lt;rule&gt; = something {\{tag\}};//is OK now</font></font></li>
+</ul>
+<p><br>
+<font face="Verdana"><font size="-1"><b><u>Release Version 1.5.1</u></b>
+(Oct 20th, 2002)</font></font>
+</p>
+<p><u><font face="Verdana"><font size="-1">Additions/Changes:</font></font></u>
+</p>
+<ul>
+  <li> <font face="Verdana"><font size="-1">If a RuleGrammar with no
+public rules
+is loaded into a Recognizer, commitChanges will now throw a
+GrammarException
+immediately (instead of a RuntimeException being thrown from the
+background
+thread which is commiting the grammar). SAPI4 and SAPI5 engines do not
+accept such grammars, even though they may be valid JSGF grammars
+(though
+such grammars are useless since they have no speakable (public) rules).</font></font></li>
+  <li> <font face="Verdana"><font size="-1">When run in a 1.3 or
+better
+JVM, finalizers <u>are
+not</u> run on exit (instead, a shutdown hook is used for final
+cleanup).
+For JVMs 1.2 and earlier, finalizers <u>are</u> run on exit.</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">For SAPI5 TTS engines,
+calling
+props.setRate(props.getRate())
+caused the rate to increase slightly instead of staying exactly the
+same.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">The SpeechEngineChooser
+does
+*not* now
+call CGEngineCentral.setAWTSynchronization(false) - this lack of
+synchronization
+sometimes caused stalling when running SpeechEngineChooser (and may
+have
+caused external application code to stall also).</font></font></li>
+  <li> <font face="Verdana"><font size="-1">SpeechEngineChooser now
+internally creates
+recognizers which are *not* already running - previously it used
+already-running
+recognizers (and deallocated them when it closed) which could have
+caused
+problems if a recognizer was used both before and after creating a
+SpeechEngineChooser.</font></font></li>
+</ul>
+<p><br>
+<font face="Verdana"><font size="-1"><b><u>Release Version 1.5.0</u></b>
+(Oct 6th, 2002)</font></font>
+</p>
+<p><u><font face="Verdana"><font size="-1">Additions/Changes:</font></font></u>
+</p>
+<ul>
+  <li> <font face="Verdana"><font size="-1">Major revision of the
+com.cloudgarden.audio
+package.</font></font></li>
+  <ul>
+    <li> <font face="Verdana"><font size="-1">AudioMediaFormatConverter
+allows audio
+data to be transmitted across a network in compressed format (as
+opposed
+to raw data) allowing for much faster interaction with client-side
+applications.</font></font></li>
+    <li> <font face="Verdana"><font size="-1">Simpler usage of all
+classes
+(eg, an
+AudioLineSource can be created using an AudioFormat, internally
+creating
+a DataLine, instead of having to create a DataLine externally and pass
+it to the AudioLineSource constructor).</font></font></li>
+    <li> <font face="Verdana"><font size="-1">Some renaming of classes
+-</font></font></li>
+    <ul>
+      <li> <font face="Verdana"><font size="-1">AudioPlugSource/Sink
+becomes AudioClientSource/Sink</font></font></li>
+      <li> <font face="Verdana"><font size="-1">AudioSocketSource/Sink
+becomes AudioServerSource/Sink</font></font></li>
+      <li> <font face="Verdana"><font size="-1">AudioConverterSource
+becomes AudioFormatConverter</font></font></li>
+    </ul>
+    <li> <font face="Verdana"><font size="-1">AudioSink.startGetting
+method has been
+removed - "pumping" of audio data should be carried out with
+AudioSource.startSending().</font></font></li>
+    <li> <font face="Verdana"><font size="-1">TransferListeners can be
+attached to
+AudioSources/Sinks to monitor the passage of audio data</font></font></li>
+    <li> <font face="Verdana"><font size="-1">ClientListeners can be
+attached to AudioServerSource/Sinks
+to monitor connection/release of clients and transfer of data.</font></font></li>
+    <li> <font face="Verdana"><font size="-1">AudioFormatConverter can
+handle conversion
+between 8 and 16 bit formats - previously limited to 16 bit formats
+only.</font></font></li>
+    <li> <font face="Verdana"><font size="-1">More examples have been
+added.</font></font></li>
+    <li> <font face="Verdana"><font size="-1">A few bugs fixed.</font></font></li>
+  </ul>
+  <li> <font face="Verdana"><font size="-1">Allowed multiple SAPI4
+recognizer instances
+to be created for the same engine type (this was restricted in version
+1.3 in order to support the ViaVoice recognizers, but is no longer
+needed).</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">Some bugs relating to the
+importing
+of rules have been fixed.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">The RuleParse.getTags()
+would
+often
+return extra tags - this has been fixed.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">RuleGrammar.parse(String
+text,
+String
+ruleName) did not correctly function when ruleName was null.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">the
+RuleGrammar.setEnabled(boolean)
+method now disables/enables all public rules, and if an individual rule
+is enabled, the RuleGrammar is enabled (as per JSAPI 1.0 specs).
+Previously
+if a RuleGrammar was disabled, no rules would be active, even if
+individually
+enabled, and when a RuleGrammar was enabled, only those rules
+individually
+enabled would be enabled.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Problems causing native
+errors
+or lack
+of audio data when playing back recorded audio have been fixed.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">The Dragon engine can now
+accept input
+from an AudioLineSource.</font></font></li>
+</ul>
+<p><br>
+<font face="Verdana"><font size="-1"><b><u>Release Version 1.4.1</u></b>
+(Aug 19th, 2002)</font></font>
+</p>
+<p><u><font face="Verdana"><font size="-1">Additions/Changes:</font></font></u>
+</p>
+<ul>
+  <li> <font face="Verdana"><font size="-1">Made SpeechEnginePanel
+navigable by
+keystrokes</font></font></li>
+  <li> <font size="-1"><font face="Verdana">Added VerbalVision - a
+screen-reader
+for Java Swing applications. To use simply install the jsapi files in
+the
+lib/ext and bin folders of your JRE as usual, install <a
+ href="http://java.sun.com/products/jfc/accessibility.html#download-access-1.3">Sun's
+Java Accessibility Utilities</a> in the same JRE, and include the
+following
+line in the lib/accessibility.properties file: </font><font
+ face="Courier New,Courier">assistive_technologies=com.cloudgarden.speechapps.VerbalVision</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Made "cancelAll" and
+"cancel"
+methods
+quicker to respond when the queue is empty.</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">Fixed bug which stopped a
+grammar from
+being disabled (bug introduced in 1.4.0)</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Fixed bug which stopped
+Philips speech
+engine from commiting a new grammar or changes to an existing grammar
+after
+the recognizer started processing speech.</font></font></li>
+</ul>
+<p><br>
+<font face="Verdana"><font size="-1"><b><u>Release Version 1.4.0</u></b>
+(July 19th, 2002)</font></font>
+</p>
+<p><u><font face="Verdana"><font size="-1">Additional Engines supported:</font></font></u>
+</p>
+<ul>
+  <li> <b><font face="Verdana"><font size="-1">Implementation can now
+be
+used with
+the following additional ASR engines:</font></font></b></li>
+  <ul>
+    <li> <b><font face="Verdana"><font size="-1">ScanSoft's Dragon
+NaturallySpeaking
+(Versions 5 &amp; 6)</font></font></b></li>
+    <li> <font face="Verdana"><font size="-1"><b>the Philips ASR
+engines </b><u>(but
+note that the Philips engine interferes with IBMs ViaVoice engines, so
+only one or the other should be installed at the same time)</u><b>.</b></font></font></li>
+  </ul>
+  <li> <b><font face="Verdana"><font size="-1">Implementation can now
+be
+used with
+the following additional TTS engines</font></font></b></li>
+  <ul>
+    <li> <b><font face="Verdana"><font size="-1">the L&amp;H TruVoice
+TTS
+engines</font></font></b></li>
+    <li> <b><font face="Verdana"><font size="-1">ScanSoft's SAPI5
+RealSpeak TTS engine.</font></font></b></li>
+    <li> <font face="Verdana"><font size="-1"><b>Infovox's engines </b><u>(but
+due
+to a bug in the Infovox engines the
+CGEngineProperties.useFixForInfovox330(true)
+method must be called to handle wordReached events correctly)</u><b>.</b></font></font></li>
+  </ul>
+</ul>
+<u><font face="Verdana"><font size="-1">Additions/Changes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">SynthesizerPropertiesPanel
+and
+RecognizerPropertiesPanel
+added for engine-independent control panels for adjusting engine
+properties
+(eg, volume, speaking rate, pitch, sensitivity etc) and for testing
+voices
+and profiles.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">SpeechControlPanel
+redesigned.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Mouth now implements
+SpeakableListener
+so is easier to attach to a synthesizer.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">SynthesizerModeDescriptor
+now
+has non-null
+engineName and modeName fields so that a single SynthesizerModeDesc
+holds
+only the voices for a particular Locale, engineName and modeName -
+previously
+engineName and modeName were null so that a single SynthesizerModeDesc
+held all the voices for a particular Locale.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Java installer changed so
+that
+the installation
+jar file (eg. jsapi10-cg140-free.jar) can be renamed and the installer
+will still work.</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <b><font face="Verdana"><font size="-1">Various threading
+issues
+resolved
+by an internal redign of message handling.</font></font></b></li>
+  <li> <b><font face="Verdana"><font size="-1">Windows 98 bugs fixed
+(may
+apply
+to other OSs too):</font></font></b></li>
+  <ul>
+    <li> <b><font face="Verdana"><font size="-1">Problem with ViaVoice
+engines stalling
+while allocating on Windows 98 has been fixed.</font></font></b></li>
+    <li> <b><font face="Verdana"><font size="-1">Various bugs causing
+TTS
+engine crashes
+in Windows 98 have been fixed.</font></font></b></li>
+  </ul>
+  <li> <b><font face="Verdana"><font size="-1">Bug that prevented
+grammars
+from
+being committed in ViaVoice Recognizers using languages other than
+English
+has been fixed.</font></font></b></li>
+  <li> <b><font face="Verdana"><font size="-1">Bugs which were causing
+various problems
+when getting audio input from files have been fixed.</font></font></b></li>
+  <li> <font face="Verdana"><font size="-1">Bug that reset a
+synthesizer's
+output
+to the default audio device (if output was previously redirected to a
+file)
+when a synthesizer's voice was changed has been fixed.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Errors corrected in
+RemoteDictationServer.bat,
+RemoteDictationClient.bat, RemoteSynthesisServer.bat and
+RemoteSynthesisClient.bat
+scripts - they were pointing to the wrong class names.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">SpeechControlPanel bugs
+corrected.</font></font></li>
+</ul>
+<p><br>
+<font face="Verdana"><font size="-1"><b><u>Release Version 1.3.2</u></b>
+(Mar 9th, 2002)</font></font>
+</p>
+<p><u><font face="Verdana"><font size="-1">Additions:</font></font></u>
+</p>
+<ul>
+  <li> <font face="Verdana"><font size="-1">Implemented the
+DictationGrammar.setContext
+methods. Possible uses include allowing the recognizer to make better
+guesses
+at what has been said based on words which might not have come from the
+recognizer, such as written text obtained (from a person, AliceBot etc)
+in response to text previously obtained from the recognizer.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Support for &lt;NULL&gt;
+and
+&lt;VOID&gt;
+rules has now been added.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Added
+examples.userinterface.VoicePad
+example - a Swing-based synthesizer application.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Added TestExamples.bat - a
+script which
+starts up a Java app which lets you run 12 of the test demos with
+output
+going to a scrolling Java window - useful for those poor soles working
+on Windows 98 or Me boxes who want to see more than 50 lines of text.</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Changes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">Lengthened demo trial
+period
+from 30
+days to 60 days.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">JSGF Grammar-definition
+errors
+are now
+reported more helpfully.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Changed name of DLL to
+cgjsapi132.dll
+(ie. it is now version-dependent) which will remove problems caused by
+loading the wrong version of the dll.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">The DictationGrammar
+methods
+addWord,
+removeWord, listAddedWords and listRemovedWords throw RuntimeExceptions
+with a message to use the almost-equivalent VocabManager methods
+instead,
+since the VocabManagers methods are generally more consistent with this
+SAPI4/5-based implementation.</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">Fixed bug which caused
+Synthesizer to
+hang sometimes if asked to speak something which made no sound - eg:
+synth.speak("",null)
+could sometimes hang the Synthesizer.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Fixed bug which prevented
+a
+new DataSource
+object from being obtained from the CGAudioManager even after the
+CGAudioManager.closeOutput()
+method was called. The first one created was always returned. A similar
+bug applied to getting a new DataSink object.</font></font></li>
+</ul>
+<p><br>
+<font face="Verdana"><font size="-1"><b><u>Release Version 1.3.1</u></b>
+(Jan 14th 2002)</font></font>
+</p>
+<p><u><font face="Verdana"><font size="-1">Additions:</font></font></u>
+</p>
+<ul>
+  <li> <font face="Verdana"><font size="-1"><u>The VocabManager
+getWords
+method:</u>
+for SAPI4 SR and TTS engines (presently only the Microsoft engines
+support
+this feature) now returns the IPA pronunciation of an arbitrary (valid)
+word, and not just one added by using the addWord method - see the
+examples.vocab.VocabTest
+example for a demo.</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1"><u>SpeechEngineTree</u>: -
+if
+the "Recognizers"
+node was double-clicked all the recognizers were replaced by the two
+profiles
+of the first recognizer, also causing a ClassCastException to be thrown
+when the SpeechEngineTree was closed. The Recognizer node now
+expands/collapses
+in the normal way.</font></font></li>
+  <li> <font face="Verdana"><font size="-1"><u>RuleGrammars</u>: if
+more
+than one
+grammar was imported at the start of a grammar file, all but one of the
+grammars would not be imported correctly, and the rules of those
+grammars
+would not be found. Imports now work correctly.</font></font></li>
+  <li> <font face="Verdana"><font size="-1"><u>Various smaller bugs</u>
+which generally
+would have reduced recognition performance and parsing of recognized
+and
+arbitrary text. Basically, if you were having problems with recognition
+(especially with SAPI4 engines) please upgrade to this version.</font></font></li>
+  <br>
+&nbsp;
+</ul>
+<font face="Verdana"><font size="-1"><b><u>Release Version 1.3.0</u></b>
+(Jan 6th 2002)</font></font>
+<p><u><font face="Verdana"><font size="-1">Additions:</font></font></u>
+</p>
+<ul>
+  <li> <font face="Verdana"><font size="-1"><u>Support for SAPI4
+Recognizers</u>
+- (including IBM's ViaVoice, and Phillips engines). Now all SAPI4 and
+SAPI5-compliant
+recognition and synthesis engines are supported. Note that though some
+engines claim to be SAPI4 or SAPI5-compliant they do not necessarily
+support
+all features of SAPI4/5 - and so, for example, not all JSML tags will
+be
+interpreted correctly by certain TTS engines, such as the ViaVoice or
+L&amp;H
+engines. On the whole, though, compliance is very good.</font></font></li>
+  <li> <font face="Verdana"><font size="-1"><u>Lip-sync events</u>
+Lip-sync events
+are now detected from Synthesizers and CGSpeakableEvents broadcast to
+CGSpeakableListeners,
+which can then display the current shape of a mouth using the
+com.cloudgarden.speech.userinterface.Mouth
+Component.</font></font></li>
+  <li> <font face="Verdana"><font size="-1"><u>Confidence levels
+returned
+with FinalResultEvents</u>
+Recognition results are given with values representing the confidence
+with
+which they have been recognized by the speech engine, allowing a
+certain
+degree of feedback to provided in language-training applications.</font></font></li>
+  <li> <font face="Verdana"><font size="-1"><u>ResultEvent.audioLevel</u>
+method
+implemented (standard JSAPI 1.0, but just not implemented previously)</font></font></li>
+  <li> <font face="Verdana"><font size="-1"><u>com.cloudgarden.speech.userinterface
+package</u> - including a "Mouth" Component for displaying lip-sync
+events,
+and a SpeechEngineChooser dialog for testing and selecting speech
+engines,
+profiles and voices.</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Changes/Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1"><u>Engine names changes</u>
+-
+addition
+of "SAPI4" or "SAPI5" and manufacturer to basic name, eg "Mary, SAPI4,
+Microsoft"</font></font></li>
+  <li> <font face="Verdana"><font size="-1"><u>Removal of limit on
+String-length
+of synthesized speech</u> - in previous versions there was an
+(undocumented)
+limit of about 2500 characters on the length of a String sent to a
+speech
+synthesizer. This has now been removed and Strings of any length are
+handled
+correctly.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">When writing to files, the
+Synthesizer
+"speak" methods now behave asynchronously and the usual SpeakableEvents
+are sent, (as opposed to previous versions, which wrote synchronously,
+returning only after all data had been sent, and produced no events).</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Various small bugs
+relating to
+committing
+changes to grammars and getting alternate text for non-current results
+have been fixed.</font></font></li>
+</ul>
+<font face="Verdana"><font size="-1"><b><u>Release Version 1.2.1</u></b>
+(December 2, 2001)</font></font>
+<p><u><font face="Verdana"><font size="-1">Changes:</font></font></u>
+</p>
+<ul>
+  <li> <font face="Verdana"><font size="-1">Integration with the JMF -
+getDataSource
+and getDataSink methods have been added to the CGAudioManager class,
+allowing
+full integration with Sun's Java Media Framework. This allows, for
+instance,
+speech data to be transmitted or saved in MPEG or other compressed
+audio
+formats, and for audio data to be transmitted across a network using
+the
+JMF (though this can also be done using other classes in the
+com.cloudgarden.audio
+package).</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Field values changed -
+Values
+of public
+static fields (such as Engine.DEALLOCATED) have been changed to equal
+those
+of IBM's Java Speech for ViaVoice, so that code compiled using IBM's
+JSAPI
+will work with Cloudgarden's JSAPI without requiring recompilation.
+However,
+this means that any code previously compiled with Cloudgarden's JSAPI
+versions
+prior to 1.2.1 will need to be recompiled to work with version 1.2.1</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Deadlock problems
+alleviated -
+Speech
+engine events for individual speech engines can now be started each in
+a new Thread (this behaviour can be controlled by using the
+CGEngineProperties.setEventsInNewThread
+method) so that waitEngineState can now be called from an event handler
+method without causing deadlock. See the examples.DeadlockTest code for
+a demonstration of deadlock and how to avoid it.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">VocabManager.listProblemWords
+is now
+implemented, and bugs involving the SAYAS tag and SAPI4 TTS engines
+have
+been fixed.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">The implementation is now
+provided in
+files called "cgjsapi.jar" and "cgjsapi.dll" (in previous versions the
+files were "jsapi.jar" and "jsapi.dll", which could have led to
+ambiguity
+problems).</font></font></li>
+  <br>
+&nbsp;
+</ul>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">The length of audio files
+is
+now specified
+in their headers so that they should be able to be read by any audio
+file
+player.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">VocabManager.listProblemWords
+now implemented</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Problems encountered when
+disabling
+and re-enabling entire, or parts of, RuleGrammars have been fixed.</font></font></li>
+</ul>
+<p><br>
+<font face="Verdana"><font size="-1"><b><u>Release Version 1.2</u></b>
+(October 14, 2001)</font></font>
+</p>
+<p><u><font face="Verdana"><font size="-1">Additions:</font></font></u>
+</p>
+<ul>
+  <li> <font face="Verdana"><font size="-1">Support for SAPI 4 as well
+as
+SAPI 5
+TTS engines. All SAPI 4 and SAPI 5 TTS engines installed on a machine
+are
+detected and any of them may be selected and used for speech synthesis.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">The
+com.cloudgarden.speech.audio package,
+which offers a flexible scheme of AudioSources and AudioSinks (with
+AudioFileSource,
+AudioLineSource etc implementations) to allow Synthesizer output to be
+redirected to Files, javax.sound.sampled.Lines, remote client machines
+or custom AudioSinks, and similarly, Recognizer input to come from
+Files,
+audio Lines, remote clients or custom AudioSources.</font></font></li>
+  <li> <font face="Verdana"><font size="-1"><font color="#000000">Is
+now
+Java 1.1
+compliant</font>, so can be run from any Applet in a suitable browser
+(eg
+Internet Explorer 5.5), after suitable installation of both the JSAPI
+and
+the Java Sound package, or Java Media Framework. Note that this Applet
+usage does not require installation of a separate JRE since it uses the
+browser's VM. It can also, of course, be run using the Java Plugin, if
+the JRE 1.2 or 1.3 is installed.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">The JSAPI is less
+susceptible
+to deficiencies
+in almost-SAPI4-compliant engines.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">There are several examples
+to
+demonstrate
+using <font color="#000000">remote clients for recognition and
+synthesis,
+as well as IO to/from audio files and Lines.</font></font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Changes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">The (non-JSAPI-spec)
+methods
+previously
+added to the AudioManager have been removed and are available instead
+under
+the com.cloudgarden.speech.audio.CGAudioManager class, along with the
+other
+methods and classes mentioned under "Additions"</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Likewise, other non-jsapi
+methods previously
+added to the AudioManager, SpeakerManager and EngineProperties classes
+have been moved to the CGAudioManager and CGEngineProperties classes,
+leaving
+the implementation true to the JSAPI 1.0 specs, apart from the addition
+of the Word constructor, and the recognizerListening method in the
+RecognizerAdapter
+class.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Synchronization with the
+AWT
+EventQueue
+is now controlled by a call to the setAWTSynchronization(boolean)
+method
+of the com.cloudgarden.speech.CGEngineCentral class. Thus it can be
+turned
+off in Applets allowing them to run in Netscape and Internet Explorer,
+and also without needing to give them permission to write to a System
+Property.</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">The
+Synthesizer.cancelAll()
+method has
+been fixed.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Non-English speech engines
+are
+correctly
+detected and assigned to SynthesizerModeDescriptors.</font></font></li>
+</ul>
+<font face="Verdana"><font size="-1"><b><u>Release Version 1.1.1</u></b>
+(July 29, 2001)</font></font>
+<p><u><font face="Verdana"><font size="-1">Additions:</font></font></u>
+</p>
+<ul>
+  <li> <font face="Verdana"><font size="-1">Some new examples were
+added
+to test
+for duplex card capabilities (computer speaking and listening at the
+same
+time) and to list speech engines.</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Changes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">The speech impediment has
+been
+removed
+for the trial version and been replaced by a 30-day evaluation period.
+The evaluation version is now fully-functional and so it is now also
+possible
+to add words with pronunciations to the VocabManager.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">setOutputFile and
+closeOutputFile now
+throw an IOException if they are unable to access the file (a possible
+reason being that the file is already open by another application such
+as a web server or a media player).</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">The conditions resulting
+in
+native code
+exceptions, thrown previously when an engine shut down incorrectly, or
+when there was only one speaker profile, have been fixed.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">The FinalRuleResult
+methods
+getAlternativeTokens(int
+nBest), getRuleGrammar(int nBest) and&nbsp; getRuleName(int nBest) now
+return the best-guess values for nBest = 0 (and null for values &gt; 0,
+since
+the Microsoft engines do not support alternatives for RuleGrammars).</font></font></li>
+  <li> <font face="Verdana"><font size="-1">A new SynthesizerModeDesc
+is
+created
+for every group of voices for a given Locale, so that now the
+Central.availableSynthesizers
+method returns an English SynthesizerModeDesc with four Voices (Mary,
+Mike,
+Sam and the Sample voice), a Chinese SynthesizerModeDesc with the
+Simplified
+Chinese voice (which unfortunately just spells out words), and a
+Japanese
+SynthesizerModeDesc with the Japanese voice. Previously all voices were
+added to a single SynthesizerModeDesc.</font></font></li>
+</ul>
+<font face="Verdana"><font size="-1"><b><u>Release Version 1.1</u></b>
+(June
+03, 2001)</font></font>
+<p><u><font face="Verdana"><font size="-1">Additions:</font></font></u>
+</p>
+<ul>
+  <li> <font face="Verdana"><font size="-1">Implemented <b><u>SpeakerManager</u></b>
+methods:</font></font></li>
+  <ul>
+    <li> <font face="Verdana"><font size="-1">getCurrentSpeaker()</font></font></li>
+    <li> <font face="Verdana"><font size="-1">setCurrentSpeaker(SpeakerProfile)</font></font></li>
+    <li> <font face="Verdana"><font size="-1">listKnownSpeakers()</font></font></li>
+    <li> <font face="Verdana"><font size="-1">getControlComponent()</font></font></li>
+    <li> <font face="Verdana"><font size="-1">getControlComponent(int
+type) - <i><b>non-JSAPI-spec</b>
+method allows several types of control component to be accessed</i>.</font></font></li>
+  </ul>
+  <li> <font face="Verdana"><font size="-1">Implemented <b><u>EngineProperties</u></b>
+method:</font></font></li>
+  <ul>
+    <li> <font face="Verdana"><font size="-1">getControlComponent()</font></font></li>
+    <li> <font face="Verdana"><font size="-1">getControlComponent(int
+type) - <i><b>non-JSAPI-spec</b>
+method allows several types of control component to be accessed</i>.</font></font></li>
+  </ul>
+  <li> <font face="Verdana"><font size="-1">Added <b><u>VocabManager</u></b>
+methods</font></font></li>
+  <ul>
+    <li> <font face="Verdana"><font size="-1">addWord(Word) and
+addWords(Word[]) - <i>note
+- pronunciation is used only in the commercial version.</i></font></font></li>
+    <li> <font face="Verdana"><font size="-1">removeWord(Word) and
+removeWords(Word[])</font></font></li>
+  </ul>
+  <li> <font face="Verdana"><font size="-1">Added <b><u>Word</u></b>
+constructor</font></font></li>
+  <ul>
+    <li> <font face="Verdana"><font size="-1">Word(String writtenForm,
+String spokenForm,
+String[] pronunciations, long categories) - <i><b>non-JSAPI-spec</b>
+method
+so that new words or new pronunciations can be added to the VocabManager</i></font></font></li>
+  </ul>
+  <li> <font face="Verdana"><font size="-1">Added <b><u>FinalResult</u></b>
+methods:</font></font></li>
+  <ul>
+    <li> <font face="Verdana"><font size="-1">getAudio() - <i>returns
+an
+AudioClip
+whose only working method is play() i.e. stop() and loop() are not
+implemented</i></font></font></li>
+    <li> <font face="Verdana"><font size="-1">getAudio(int, int ) <i>-
+      <b>non-JSAPI-spec</b>
+method, gets alternative tokens, identified by their position rather
+than
+their value, since the same token may appear more than once in a
+FinalResult</i></font></font></li>
+    <li> <font face="Verdana"><font size="-1">isAudioAvailable()</font></font></li>
+    <li> <font face="Verdana"><font size="-1">isTrainingInfoAvailable()</font></font></li>
+    <li> <font face="Verdana"><font size="-1">releaseAudio()</font></font></li>
+    <li> <font face="Verdana"><font size="-1">releaseTrainingInfo()</font></font></li>
+    <li> <font face="Verdana"><font size="-1">String[]
+getAlternativeTokens(int fromPos,
+int toPos, int maxAlts) <i>- <b>non-JSAPI-spec</b>method, gets
+alternative
+tokens, identified by their position rather than their value, since the
+same token may appear more than once in a FinalResult</i></font></font></li>
+    <li> <font face="Verdana"><font size="-1">tokenCorrection(String[]
+correctTokens,
+int fromPos, int toPos, int correctionType) <i>- <b>non-JSAPI-spec</b>
+method, corrects tokens,&nbsp; identified by their position rather than
+their value, which must be contained in the set of tokens returned by
+the
+getAlternatives method above.</i></font></font></li>
+  </ul>
+  <li> <font face="Verdana"><font size="-1">Added
+examples.userinterface.TestInterfaces
+to demonstrate the native user interfaces available by calling
+getControlComponent(int
+type)</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Modified DictationTest,
+and
+TestResultListener
+to demonstrate getAudio, set/getCurrentSpeaker, and tokenCorrection
+methods</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">Creating multiple
+Synthesizers
+resulted
+in either incorrect handling of events or crashes in the native code.
+This
+has now been corrected.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">The limits of 10
+Synthesizers,
+Recognizers,
+and also 10 Grammars per Recognizer, have all been lifted.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Tags may now have spaces
+without causing
+a grammar exception</font></font></li>
+</ul>
+<p><br>
+<font face="Verdana"><font size="-1"><b><u>Release Version 1.0</u></b>
+(May 20, 2001)</font></font>
+</p>
+<p><u><font face="Verdana"><font size="-1">Additions:</font></font></u>
+</p>
+<ul>
+  <li> <font face="Verdana"><font size="-1">AudioManager.setOutputFile
+and
+AudioManager.closeOutputFile,
+for saving audio output to wave files.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Added JSAPI Installer to
+install jsapi
+files and run demos.</font></font></li>
+</ul>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">RuleGrammar.parse(String
+text,
+String
+ruleName) - now correctly fails if the text string does not exactly
+match
+against a rule - before the text could match a rule but have unmatched
+text on the end and still return a non-null Rule.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">Also, a null ruleName now
+produces the
+correct behaviour.</font></font></li>
+</ul>
+<font face="Verdana"><font size="-1"><b><u>Alpha version 3</u></b>&nbsp;&nbsp;
+(Mar 19, 2001)</font></font>
+<br>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">If an EngineModeDesc with
+running ==
+Boolean.FALSE is specified in createEngine a new engine is now always
+returned.</font></font></li>
+  <li> <font face="Verdana"><font size="-1">When multiple Recognizers
+were
+created
+they did not process results in parallel, but they do now.</font></font></li>
+</ul>
+<font face="Verdana"><font size="-1"><b><u>Alpha version 2</u></b>&nbsp;&nbsp;
+(Mar 11, 2001)</font></font>
+<br>
+<u><font face="Verdana"><font size="-1">Bug Fixes:</font></font></u>
+<ul>
+  <li> <font face="Verdana"><font size="-1">RuleGrammar.ruleForJSGF -
+incorrectly
+looked for rule declarations like public &lt;rulename&gt;= "definition"
+and
+not just the rule definition, so would throw an exception when given a
+rule definition like "hello [world]"</font></font></li>
+  <li> <font face="Verdana"><font size="-1">RuleGrammar.listRuleNames
+-
+fixed UnsupportedOperationException</font></font></li>
+  <li> <font face="Verdana"><font size="-1">RuleParse - fixed case
+where
+there are
+multiple branches of a RuleAlternative all starting with similar
+phrases
+- bug would return a summation of result tokens, and not just the
+single
+correct alternatives</font></font></li>
+</ul>
+<font face="Verdana"><font size="-1"><b><u>Alpha version 1</u></b>&nbsp;&nbsp;
+(Mar 8, 2001)</font></font>
+<br>
+&nbsp;
+<br>
+&nbsp;
+</body>
+</html>

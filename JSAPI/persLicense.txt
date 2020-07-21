@@ -1,0 +1,20 @@
+Personal License terms for Version 1.x of Cloudgarden's "Speaking Java" SDK 
+===============================================================================
+
+This license: 
+
+1) allows the license holder to install and use the implementation on a single machine for the holder's personal, non-profit or academic purposes only. 
+
+2) does NOT allow the holder to re-distribute the non-trial runtime libraries.
+
+o If this implementation is wished to be used in any way by a corporation, for development of a commercial product or included in a product which will be sold or used for profit, one or more Professional Licenses must be purchased. 
+
+o This implementation may NOT be disassembled or reverse-engineered. 
+
+o This implementation may NOT be resold as a library - it can only be resold as part of a speech-enabled application with significant added functionality. 
+
+o Purchase of a license for Version 1.x of this implementation allows the license holder to download any future upgrades to the Version 1.x implementation (where 'x' stands for any minor version number) 
+
+o THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, AND IN NO EVENT SHALL HE BE LIABLE FOR ANY DAMAGES WHATSOEVER ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. 
+
+o This implementation of the JSAPI 1.0 (as provided here in the runtime libraries cgjsapi.jar and cgjsapi.dll) is the property of it's author, Jonathan S. Kinnersley, Copyright (c) 2001-2002, all rights reserved. 
