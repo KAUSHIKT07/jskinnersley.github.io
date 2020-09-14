@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.cloudgarden.jigloo.feature_4.6.10.jar" id="com.cloudgarden.jigloo.feature" version="4.6.10">
+      <category name="com.cloudgarden.jigloo"/>
+   </feature>
+   <category-def name="com.cloudgarden.jigloo" label="Jigloo GUI Builder"/>
+</site>
